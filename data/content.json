@@ -170,6 +170,38 @@
     "description": "Přehled části sortimentu. Rozměry a provedení lze upravit podle zakázky.",
     "products": [
       {
+        "id": "p001",
+        "name": "Pěstní štítek",
+        "description": "Pěstní štítek, 1,5 mm kanelovaný. Má háček na zavěšení na opasek. Hmotnost 1,115 kg.",
+        "price": "2 100 Kč",
+        "status": "Na objednávku",
+        "image": "/assets/img/produkty/pestni-stit.jpg"
+      },
+      {
+        "id": "p002",
+        "name": "Slezská miska",
+        "description": "Vyrobeno za tepla, plech 2 mm. Průměr cca 21,5 cm, hloubka cca 3 cm.",
+        "price": "450 Kč",
+        "status": "Skladem",
+        "image": "/assets/img/produkty/slezska-miska.jpg"
+      },
+      {
+        "id": "p003",
+        "name": "Kalota",
+        "description": "Vyrobena z plechu 2 mm. Přilba nemá polstr, počítá se s batvatem (není součástí). Kožený řemen s dvoubodovým uchycením.",
+        "price": "6 300 Kč",
+        "status": "Na objednávku",
+        "image": "/assets/img/produkty/kalota.jpg"
+      },
+      {
+        "id": "p004",
+        "name": "Puklice na štít — umbo",
+        "description": "Plech válcovaný za tepla, 2 mm. Vnitřní průměr 14 cm, venkovní průměr 19 cm, výška cca 4,5 cm. Skladem s 6 děrami, na přání i 4, 8 nebo bez děr.",
+        "price": "330 Kč / ks",
+        "status": "Skladem",
+        "image": "/assets/img/produkty/puklice-na-stit.jpg"
+      },
+      {
         "id": "p006",
         "name": "Salet s hledím",
         "description": "Přilba pozdního středověku se sklopným hledím, na míru podle obvodu hlavy.",
