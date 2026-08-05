@@ -32,8 +32,10 @@
     "titleLine2": "PAVEL ZÁTRAPA",
     "subtitle": "Ručně vyráběné historické zbroje od roku 1990.",
     "description": "Každý kus vzniká tradičním způsobem s důrazem na historickou věrnost.",
-    "backgroundImage": "https://picsum.photos/seed/platnerstvi-hero/1920/1080",
-    "backgroundImageAlt": "Ručně vyráběná ocelová přilba na dřevěném stojanu v kovářské dílně",
+    "image": "https://picsum.photos/seed/zatrapa-hero-sword/900/1000",
+    "imageAlt": "Ručně kovaný jednoruční meč na tmavém podkladu",
+    "badgeTop": "Od",
+    "badgeYear": "1990",
     "buttons": [
       { "label": "Prohlédnout galerii", "target": "galerie", "style": "primary" },
       { "label": "Nezávazná poptávka", "target": "kontakt", "style": "ghost" }

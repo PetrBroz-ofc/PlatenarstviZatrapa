@@ -162,7 +162,7 @@
 
   function tabHero() {
     const h = state.content.hero;
-    return `<h2>Hero</h2><p class="editor-hint">Úvodní sekce na celou obrazovku — první dojem z dílny.</p>
+    return `<h2>Hero</h2><p class="editor-hint">Úvodní sekce webu — text vlevo, fotografie (např. meč) vpravo s kulatým štítkem.</p>
       ${fieldHTML('Eyebrow (text nad titulkem)', 'content.hero.eyebrow', h.eyebrow)}
       <div class="field-row">
         ${fieldHTML('Titulek — řádek 1', 'content.hero.titleLine1', h.titleLine1)}
@@ -170,8 +170,13 @@
       </div>
       ${fieldHTML('Podtitulek', 'content.hero.subtitle', h.subtitle)}
       ${fieldHTML('Popisek pod podtitulkem', 'content.hero.description', h.description, 'textarea')}
-      ${fieldHTML('Fotografie na pozadí (URL)', 'content.hero.backgroundImage', h.backgroundImage, 'image')}
-      ${fieldHTML('Alt text fotografie', 'content.hero.backgroundImageAlt', h.backgroundImageAlt)}
+      ${fieldHTML('Fotografie vpravo (URL)', 'content.hero.image', h.image, 'image')}
+      ${fieldHTML('Alt text fotografie', 'content.hero.imageAlt', h.imageAlt)}
+      <h3 style="margin-top:26px;font-family:var(--font-display);font-size:17px;">Kulatý štítek na fotografii</h3>
+      <div class="field-row">
+        ${fieldHTML('Horní řádek (např. Od)', 'content.hero.badgeTop', h.badgeTop)}
+        ${fieldHTML('Rok (např. 1990)', 'content.hero.badgeYear', h.badgeYear)}
+      </div>
       <h3 style="margin-top:26px;font-family:var(--font-display);font-size:17px;">Tlačítka</h3>
       ${renderArrayEditor('content.hero.buttons', h.buttons, [
         { key: 'label', label: 'Text tlačítka' },

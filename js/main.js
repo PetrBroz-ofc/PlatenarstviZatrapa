@@ -78,18 +78,25 @@
       `<a class="btn btn-${b.style === 'primary' ? 'primary' : 'ghost'}" href="#${b.target}">${esc(b.label)}</a>`
     ).join('');
     return `
-    <section class="hero" id="hero">
-      <div class="hero-media" id="heroMedia">
-        <img src="${esc(h.backgroundImage)}" alt="${esc(h.backgroundImageAlt)}" loading="eager">
+    <section class="hero section-pad" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">${esc(h.eyebrow)}</p>
+          <h1 class="hero-title"><span>${esc(h.titleLine1)}</span><span class="is-accent">${esc(h.titleLine2)}</span></h1>
+          <p class="hero-subtitle">${esc(h.subtitle)}</p>
+          <p class="hero-description">${esc(h.description)}</p>
+          <div class="hero-actions">${buttons}</div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-frame">
+            <img src="${esc(h.image)}" alt="${esc(h.imageAlt)}" loading="eager">
+          </div>
+          <div class="hero-badge">
+            <span class="hero-badge-top">${esc(h.badgeTop)}</span>
+            <span class="hero-badge-year">${esc(h.badgeYear)}</span>
+          </div>
+        </div>
       </div>
-      <div class="container hero-content">
-        <p class="hero-eyebrow">${esc(h.eyebrow)}</p>
-        <h1 class="hero-title"><span>${esc(h.titleLine1)}</span><span class="is-accent">${esc(h.titleLine2)}</span></h1>
-        <p class="hero-subtitle">${esc(h.subtitle)}</p>
-        <p class="hero-description">${esc(h.description)}</p>
-        <div class="hero-actions">${buttons}</div>
-      </div>
-      <div class="hero-scroll-cue"><span class="line"></span>Scroll</div>
     </section>`;
   }
 
@@ -288,22 +295,6 @@
     menu.querySelectorAll('[data-close-menu]').forEach(a => a.addEventListener('click', close));
   }
 
-  function setupHeroParallax() {
-    const media = document.getElementById('heroMedia');
-    if (!media || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const img = media.querySelector('img');
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const y = Math.min(window.scrollY, 800);
-        img.style.transform = `scale(1.08) translateY(${y * 0.06}px)`;
-        ticking = false;
-      });
-    }, { passive: true });
-  }
-
   function setupReveal() {
     const els = document.querySelectorAll('.reveal, .masonry-item, .timeline-item');
     if (!('IntersectionObserver' in window)) {
@@ -427,7 +418,6 @@
 
     setupHeaderScroll();
     setupMobileMenu();
-    setupHeroParallax();
     setupReveal();
     setupGalleryFilter(content.gallery.items);
     setupLightbox(content.gallery.items);
