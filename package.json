@@ -1,0 +1,9 @@
+{
+  "name": "platnerstvi-zatrapa",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Web Platnéřství Pavel Zátrapa — statický web + admin panel s ukládáním přes GitHub API.",
+  "engines": {
+    "node": ">=18"
+  }
+}

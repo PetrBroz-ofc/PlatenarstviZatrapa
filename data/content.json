@@ -1,0 +1,284 @@
+{
+  "site": {
+    "name": "Platnéřství Pavel Zátrapa",
+    "tagline": "Ručně vyráběné historické zbroje od roku 1990",
+    "favicon": "/favicon.svg",
+    "language": "cs"
+  },
+  "seo": {
+    "title": "Platnéřství Pavel Zátrapa — Ruční výroba historických zbrojí a přileb",
+    "description": "Ruční výroba historických přileb, plátových zbrojí, štítů a chladných zbraní. Zakázková výroba pro reenactment, film a divadlo. Brno, od roku 1990.",
+    "keywords": "platnéřství, historická zbroj, výroba přileb, kovářství, plátová zbroj, replika zbroje, meče na zakázku, filmové rekvizity, Brno",
+    "ogImage": "https://picsum.photos/seed/platnerstvi-hero/1200/630",
+    "canonicalUrl": "https://platnerstvi-zatrapa.cz/",
+    "schemaType": "LocalBusiness"
+  },
+  "nav": {
+    "logoText": "Platnéřství",
+    "logoSub": "Pavel Zátrapa",
+    "links": [
+      { "label": "O mně", "target": "o-mne" },
+      { "label": "Služby", "target": "sluzby" },
+      { "label": "Galerie", "target": "galerie" },
+      { "label": "Katalog", "target": "katalog" },
+      { "label": "Novinky", "target": "novinky" },
+      { "label": "Kontakt", "target": "kontakt" }
+    ],
+    "cta": { "label": "Nezávazná poptávka", "target": "kontakt" }
+  },
+  "hero": {
+    "eyebrow": "Dílna Pavla Zátrapy",
+    "titleLine1": "PLATNÉŘSTVÍ",
+    "titleLine2": "PAVEL ZÁTRAPA",
+    "subtitle": "Ručně vyráběné historické zbroje od roku 1990.",
+    "description": "Každý kus vzniká tradičním způsobem s důrazem na historickou věrnost.",
+    "backgroundImage": "https://picsum.photos/seed/platnerstvi-hero/1920/1080",
+    "backgroundImageAlt": "Ručně vyráběná ocelová přilba na dřevěném stojanu v kovářské dílně",
+    "buttons": [
+      { "label": "Prohlédnout galerii", "target": "galerie", "style": "primary" },
+      { "label": "Nezávazná poptávka", "target": "kontakt", "style": "ghost" }
+    ]
+  },
+  "about": {
+    "eyebrow": "O mně",
+    "title": "Řemeslo, které se nedá uspěchat",
+    "paragraphs": [
+      "Od roku 1990 vyrábím historické plátové zbroje, přilby a rekvizity.",
+      "Mé výrobky používají zákazníci po celé Evropě.",
+      "Každý výrobek vzniká ručně v mé dílně."
+    ],
+    "portraitImage": "https://picsum.photos/seed/platnerstvi-portrait/900/1100",
+    "portraitImageAlt": "Pavel Zátrapa při práci na kovadlině ve své dílně",
+    "stats": [
+      { "value": "35+", "label": "let zkušeností" },
+      { "value": "1000+", "label": "výrobků" },
+      { "value": "Evropa", "label": "zákazníci" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Služby",
+    "title": "Co v dílně vzniká",
+    "items": [
+      {
+        "icon": "helmet",
+        "title": "Historické přilby",
+        "description": "Kalhoty, bascinety, hrncové přilby a další typy podle dobových předloh."
+      },
+      {
+        "icon": "armor",
+        "title": "Plátové zbroje",
+        "description": "Kompletní kyrysy i jednotlivé díly zbroje s důrazem na funkčnost a pohyblivost."
+      },
+      {
+        "icon": "shield",
+        "title": "Štíty",
+        "description": "Turnajové i pěstní štíty s ruční malbou a kováním podle historických vzorů."
+      },
+      {
+        "icon": "sword",
+        "title": "Chladné zbraně",
+        "description": "Meče, dýky a další chladné zbraně jako funkční repliky nebo tupé cvičné kusy."
+      },
+      {
+        "icon": "film",
+        "title": "Film a divadlo",
+        "description": "Rekvizity pro filmovou a divadelní produkci, odolné pod zátěží opakovaného použití."
+      },
+      {
+        "icon": "dragon",
+        "title": "Fantasy zakázky",
+        "description": "Autorské kusy podle konceptů zákazníka mimo historickou předlohu."
+      }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Galerie",
+    "title": "Z dílny do světa",
+    "description": "Výběr realizovaných zakázek. Kliknutím na fotografii otevřete detail.",
+    "categories": ["Vše", "Přilby", "Kyrysy", "Štíty", "Meče", "Film", "Fantasy"],
+    "items": [
+      {
+        "id": "g001",
+        "category": "Přilby",
+        "title": "Bascinet s hledím",
+        "material": "Ocel 2 mm, mosaz",
+        "year": "2024",
+        "image": "https://picsum.photos/seed/zatrapa-helm-1/900/1100",
+        "imageAlt": "Ocelový bascinet se špičatým hledím"
+      },
+      {
+        "id": "g002",
+        "category": "Přilby",
+        "title": "Hrncová přilba",
+        "material": "Ocel 2,5 mm",
+        "year": "2023",
+        "image": "https://picsum.photos/seed/zatrapa-helm-2/900/1200",
+        "imageAlt": "Válcová hrncová přilba s křížovým průzorem"
+      },
+      {
+        "id": "g003",
+        "category": "Kyrysy",
+        "title": "Gotický kyrys",
+        "material": "Ocel, kůže",
+        "year": "2024",
+        "image": "https://picsum.photos/seed/zatrapa-kyrys-1/900/1300",
+        "imageAlt": "Gotický kyrys s vroubkovaným povrchem"
+      },
+      {
+        "id": "g004",
+        "category": "Kyrysy",
+        "title": "Maximiliánská zbroj",
+        "material": "Ocel, mosazné nýty",
+        "year": "2022",
+        "image": "https://picsum.photos/seed/zatrapa-kyrys-2/900/1150",
+        "imageAlt": "Kompletní maximiliánská zbroj na figuríně"
+      },
+      {
+        "id": "g005",
+        "category": "Štíty",
+        "title": "Pěstní štít s malbou",
+        "material": "Dřevo, ocel, ruční malba",
+        "year": "2023",
+        "image": "https://picsum.photos/seed/zatrapa-stit-1/900/900",
+        "imageAlt": "Kulatý pěstní štít s heraldickou malbou"
+      },
+      {
+        "id": "g006",
+        "category": "Meče",
+        "title": "Jednoruční meč",
+        "material": "Uhlíková ocel, dřevo, kůže",
+        "year": "2024",
+        "image": "https://picsum.photos/seed/zatrapa-mec-1/900/1400",
+        "imageAlt": "Jednoruční meč s koženou rukojetí"
+      },
+      {
+        "id": "g007",
+        "category": "Film",
+        "title": "Rekvizita pro historický seriál",
+        "material": "Ocel, patina",
+        "year": "2023",
+        "image": "https://picsum.photos/seed/zatrapa-film-1/900/1050",
+        "imageAlt": "Sada zbroje připravená pro filmové natáčení"
+      },
+      {
+        "id": "g008",
+        "category": "Fantasy",
+        "title": "Autorská fantasy přilba",
+        "material": "Ocel, mosaz, kůže",
+        "year": "2024",
+        "image": "https://picsum.photos/seed/zatrapa-fantasy-1/900/1150",
+        "imageAlt": "Fantasy přilba s rohovými prvky"
+      },
+      {
+        "id": "g009",
+        "category": "Štíty",
+        "title": "Turnajový štít",
+        "material": "Dřevo, plátno, ocelová obruba",
+        "year": "2022",
+        "image": "https://picsum.photos/seed/zatrapa-stit-2/900/1000",
+        "imageAlt": "Turnajový štít s obloukovým výřezem"
+      }
+    ]
+  },
+  "catalog": {
+    "eyebrow": "Katalog",
+    "title": "Vybrané výrobky",
+    "description": "Přehled části sortimentu. Rozměry a provedení lze upravit podle zakázky.",
+    "products": [
+      {
+        "id": "p001",
+        "name": "Pěstní štít",
+        "description": "Kulatý dřevěný štít s ocelovou puklicí a koženým úchytem, ruční malba na přání.",
+        "price": "8 900 Kč",
+        "status": "Na objednávku",
+        "image": "https://picsum.photos/seed/zatrapa-p-stit/800/800"
+      },
+      {
+        "id": "p002",
+        "name": "Slezská miska",
+        "description": "Jednoduchá miskovitá přilba pozdního středověku, ocel 2 mm, kožený podhled.",
+        "price": "6 400 Kč",
+        "status": "Skladem",
+        "image": "https://picsum.photos/seed/zatrapa-p-miska/800/900"
+      },
+      {
+        "id": "p003",
+        "name": "Kalota",
+        "description": "Základní přilba raného středověku, vhodná i jako podhelmí pod další kusy zbroje.",
+        "price": "4 200 Kč",
+        "status": "Skladem",
+        "image": "https://picsum.photos/seed/zatrapa-p-kalota/800/850"
+      },
+      {
+        "id": "p004",
+        "name": "Chránič předloktí",
+        "description": "Pár nárukvic z ocelového plechu s koženými řemínky, individuální velikost.",
+        "price": "3 600 Kč",
+        "status": "Na objednávku",
+        "image": "https://picsum.photos/seed/zatrapa-p-narukvice/800/700"
+      },
+      {
+        "id": "p005",
+        "name": "Jednoruční meč — cvičný",
+        "description": "Tupá cvičná varianta s vyváženou rukojetí, vhodná pro šerm a rekonstrukci.",
+        "price": "12 500 Kč",
+        "status": "Na objednávku",
+        "image": "https://picsum.photos/seed/zatrapa-p-mec/800/1100"
+      },
+      {
+        "id": "p006",
+        "name": "Bascinet s hledím",
+        "description": "Přilba pozdního středověku se sklopným hledím, na míru podle obvodu hlavy.",
+        "price": "18 900 Kč",
+        "status": "Na objednávku",
+        "image": "https://picsum.photos/seed/zatrapa-p-bascinet/800/950"
+      }
+    ]
+  },
+  "news": {
+    "eyebrow": "Novinky",
+    "title": "Z dílenského deníku",
+    "items": [
+      {
+        "date": "1990",
+        "title": "Založení dílny",
+        "description": "Zahájení řemeslné výroby historických přileb a zbrojí v Brně."
+      },
+      {
+        "date": "2004",
+        "title": "První zakázka pro filmovou produkci",
+        "description": "Výroba sady přileb a štítů pro historický film natáčený v okolí Brna."
+      },
+      {
+        "date": "2012",
+        "title": "Spolupráce s reenactorskými skupinami",
+        "description": "Dlouhodobá spolupráce s několika evropskými skupinami živé historie."
+      },
+      {
+        "date": "2019",
+        "title": "1000. vyrobený kus",
+        "description": "Dokončení tisícího výrobku od založení dílny — gotického kyrysu na zakázku."
+      },
+      {
+        "date": "2024",
+        "title": "Nová řada fantasy zbrojí",
+        "description": "Rozšíření nabídky o autorské kusy podle konceptů zákazníků."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Kontakt",
+    "title": "Poptejte zakázkovou výrobu",
+    "description": "Každá zakázka začíná konzultací. Napište mi, co potřebujete, a ozvu se s termínem a cenou.",
+    "name": "Pavel Zátrapa",
+    "city": "Brno",
+    "ico": "67586546",
+    "vatNote": "Neplátce DPH",
+    "email": "pzatrapa@seznam.cz",
+    "cta": { "label": "Poptat zakázkovou výrobu", "email": "pzatrapa@seznam.cz" }
+  },
+  "footer": {
+    "text": "Platnéřství Pavel Zátrapa — ruční výroba historických zbrojí.",
+    "copyright": "© 2026 Pavel Zátrapa. Všechna práva vyhrazena."
+  }
+}

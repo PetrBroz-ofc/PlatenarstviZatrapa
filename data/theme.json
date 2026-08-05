@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "background": "#0F0F10",
+    "surface": "#181818",
+    "surfaceAlt": "#1E1D1B",
+    "accent": "#B88A2A",
+    "accentDim": "#8A6A20",
+    "text": "#F4F4F2",
+    "textSecondary": "#A0A0A0",
+    "border": "#2A2926",
+    "success": "#6E8B5A",
+    "danger": "#A8503A"
+  },
+  "fonts": {
+    "display": "'Cinzel', serif",
+    "body": "'EB Garamond', serif",
+    "utility": "'Jost', sans-serif"
+  },
+  "radius": {
+    "sm": "2px",
+    "md": "4px"
+  },
+  "meta": {
+    "note": "Barvy a fonty lze měnit v administraci. Změny se projeví okamžitě přes CSS proměnné v :root."
+  }
+}
