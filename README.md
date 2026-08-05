@@ -68,10 +68,15 @@ Token vlož do `GITHUB_TOKEN` na Vercelu. Nikdy se neposílá do prohlížeče �
 
 ## Fotografie
 
-Všechny fotografie jsou v `data/content.json` zadané jako URL (pole `image`, `backgroundImage`, `portraitImage` apod.) a v administraci se mění jednoduše vložením nové URL adresy — vpravo se hned zobrazí náhled.
+Všechny fotografie jsou v `data/content.json` zadané jako URL nebo cesta (pole `image`, `hero.image`, `about.portraitImage` apod.) a v administraci se mění jednoduše vložením nové URL adresy — vpravo se hned zobrazí náhled.
 
-**Nyní jsou v obsahu dočasné placeholder fotografie** (`picsum.photos`) — než web půjde ostře, je potřeba je nahradit skutečnými fotkami dílny a výrobků. Doporučený postup:
-1. Fotky nahraj do složky `assets/img/` v repozitáři (nebo na CDN dle vlastní volby).
+**Aktuální stav:**
+- Přilby a kyrysy (Hero, galerie, katalog) už mají **reálné fotky** nahrané v `assets/img/produkty/` — žádný placeholder.
+- Štíty, meče, filmové a fantasy kusy a portrét Pavla u sekce „O mně" **stále používají dočasné placeholder fotky** z `picsum.photos` — je potřeba je nahradit reálnými snímky, než web půjde ostře.
+- V `assets/img/produkty/` je navíc jedna nepoužitá fotka (`helma-salet-02.jpg`) pro případ, že by se hodila jinam.
+
+Doporučený postup pro doplnění zbylých fotek:
+1. Fotku nahraj do `assets/img/` v repozitáři (nebo na CDN dle vlastní volby).
 2. V administraci vlož URL/relativní cestu k nahrané fotce do příslušného pole.
 
 ## SEO
@@ -80,7 +85,7 @@ Všechny fotografie jsou v `data/content.json` zadané jako URL (pole `image`, `
 - Schema.org bohužel nemá oficiální typ „Artisan“ — použit je nejbližší validní typ `LocalBusiness` se zakladatelem typu `Person` (Pavel Zátrapa, jobTitle „Platnéř“).
 - `robots.txt` explicitně povoluje běžné i AI vyhledávací roboty (GPTBot, ClaudeBot, Google-Extended…) a blokuje `/admin.html` a `/api/`.
 - Pozor: pole SEO v administraci mění titulek/description pouze v JS vykresleném obsahu (živě v prohlížeči). Pro sociální sítě (Open Graph) čtou crawlery statický `<head>` v `index.html` — při zásadní změně titulku/popisu doporučujeme stejné texty ručně promítnout i tam.
-- Obrázek pro Open Graph (`og:image`) je zatím placeholder — před ostrým nasazením nahraď skutečnou fotografií 1200×630 px.
+- Obrázek pro Open Graph (`og:image`) používá reálnou fotku saletu — pokud budeš měnit hlavní vizuál webu, aktualizuj ho i zde.
 
 ## Přístupnost
 

@@ -9,7 +9,7 @@
     "title": "Platnéřství Pavel Zátrapa — Ruční výroba historických zbrojí a přileb",
     "description": "Ruční výroba historických přileb, plátových zbrojí, štítů a chladných zbraní. Zakázková výroba pro reenactment, film a divadlo. Brno, od roku 1990.",
     "keywords": "platnéřství, historická zbroj, výroba přileb, kovářství, plátová zbroj, replika zbroje, meče na zakázku, filmové rekvizity, Brno",
-    "ogImage": "https://picsum.photos/seed/platnerstvi-hero/1200/630",
+    "ogImage": "/assets/img/produkty/helma-salet-01.jpg",
     "canonicalUrl": "https://platnerstvi-zatrapa.cz/",
     "schemaType": "LocalBusiness"
   },
@@ -32,8 +32,8 @@
     "titleLine2": "PAVEL ZÁTRAPA",
     "subtitle": "Ručně vyráběné historické zbroje od roku 1990.",
     "description": "Každý kus vzniká tradičním způsobem s důrazem na historickou věrnost.",
-    "image": "https://picsum.photos/seed/zatrapa-hero-sword/900/1000",
-    "imageAlt": "Ručně kovaný jednoruční meč na tmavém podkladu",
+    "image": "/assets/img/produkty/helma-uzavrena-01.jpg",
+    "imageAlt": "Uzavřená turnajová přilba s hledím a límcem, ruční práce",
     "badgeTop": "Od",
     "badgeYear": "1990",
     "buttons": [
@@ -102,41 +102,68 @@
       {
         "id": "g001",
         "category": "Přilby",
-        "title": "Bascinet s hledím",
-        "material": "Ocel 2 mm, mosaz",
+        "title": "Salet s hledím",
+        "material": "Ocel, mosaz",
         "year": "2024",
-        "image": "https://picsum.photos/seed/zatrapa-helm-1/900/1100",
-        "imageAlt": "Ocelový bascinet se špičatým hledím"
+        "image": "/assets/img/produkty/helma-salet-01.jpg",
+        "imageAlt": "Pozdně gotický salet s hledím, boční tříčtvrteční pohled"
       },
       {
         "id": "g002",
         "category": "Přilby",
-        "title": "Hrncová přilba",
-        "material": "Ocel 2,5 mm",
-        "year": "2023",
-        "image": "https://picsum.photos/seed/zatrapa-helm-2/900/1200",
-        "imageAlt": "Válcová hrncová přilba s křížovým průzorem"
+        "title": "Salet — otevřené hledí",
+        "material": "Ocel, mosaz",
+        "year": "2024",
+        "image": "/assets/img/produkty/helma-salet-04-hledi.jpg",
+        "imageAlt": "Salet s pohyblivým hledím v otevřené poloze"
       },
       {
         "id": "g003",
-        "category": "Kyrysy",
-        "title": "Gotický kyrys",
-        "material": "Ocel, kůže",
+        "category": "Přilby",
+        "title": "Salet — interiér s podšitím",
+        "material": "Ocel, useň",
         "year": "2024",
-        "image": "https://picsum.photos/seed/zatrapa-kyrys-1/900/1300",
-        "imageAlt": "Gotický kyrys s vroubkovaným povrchem"
+        "image": "/assets/img/produkty/helma-salet-05-interier.jpg",
+        "imageAlt": "Pohled do interiéru saletu s koženým podšitím a přezkou"
       },
       {
         "id": "g004",
-        "category": "Kyrysy",
-        "title": "Maximiliánská zbroj",
-        "material": "Ocel, mosazné nýty",
-        "year": "2022",
-        "image": "https://picsum.photos/seed/zatrapa-kyrys-2/900/1150",
-        "imageAlt": "Kompletní maximiliánská zbroj na figuríně"
+        "category": "Přilby",
+        "title": "Uzavřená turnajová přilba",
+        "material": "Ocel",
+        "year": "2023",
+        "image": "/assets/img/produkty/helma-uzavrena-01.jpg",
+        "imageAlt": "Uzavřená turnajová přilba s límcem, čelní pohled"
       },
       {
         "id": "g005",
+        "category": "Přilby",
+        "title": "Turnajová přilba — detail větrání",
+        "material": "Ocel",
+        "year": "2023",
+        "image": "/assets/img/produkty/helma-uzavrena-02.jpg",
+        "imageAlt": "Detail hvězdicového větracího otvoru na turnajové přilbě"
+      },
+      {
+        "id": "g006",
+        "category": "Kyrysy",
+        "title": "Maximiliánský kyrys",
+        "material": "Ocel",
+        "year": "2024",
+        "image": "/assets/img/produkty/kyrys-01.jpg",
+        "imageAlt": "Maximiliánský kyrys s žebrováním, nasazený na figuríně"
+      },
+      {
+        "id": "g007",
+        "category": "Kyrysy",
+        "title": "Kyrys — detail vypracování",
+        "material": "Ocel",
+        "year": "2024",
+        "image": "/assets/img/produkty/kyrys-02-detail.jpg",
+        "imageAlt": "Detail žebrování a tvarování plechu na kyrysu"
+      },
+      {
+        "id": "g008",
         "category": "Štíty",
         "title": "Pěstní štít s malbou",
         "material": "Dřevo, ocel, ruční malba",
@@ -145,7 +172,7 @@
         "imageAlt": "Kulatý pěstní štít s heraldickou malbou"
       },
       {
-        "id": "g006",
+        "id": "g009",
         "category": "Meče",
         "title": "Jednoruční meč",
         "material": "Uhlíková ocel, dřevo, kůže",
@@ -154,7 +181,7 @@
         "imageAlt": "Jednoruční meč s koženou rukojetí"
       },
       {
-        "id": "g007",
+        "id": "g010",
         "category": "Film",
         "title": "Rekvizita pro historický seriál",
         "material": "Ocel, patina",
@@ -163,22 +190,13 @@
         "imageAlt": "Sada zbroje připravená pro filmové natáčení"
       },
       {
-        "id": "g008",
+        "id": "g011",
         "category": "Fantasy",
         "title": "Autorská fantasy přilba",
         "material": "Ocel, mosaz, kůže",
         "year": "2024",
         "image": "https://picsum.photos/seed/zatrapa-fantasy-1/900/1150",
         "imageAlt": "Fantasy přilba s rohovými prvky"
-      },
-      {
-        "id": "g009",
-        "category": "Štíty",
-        "title": "Turnajový štít",
-        "material": "Dřevo, plátno, ocelová obruba",
-        "year": "2022",
-        "image": "https://picsum.photos/seed/zatrapa-stit-2/900/1000",
-        "imageAlt": "Turnajový štít s obloukovým výřezem"
       }
     ]
   },
@@ -229,11 +247,11 @@
       },
       {
         "id": "p006",
-        "name": "Bascinet s hledím",
+        "name": "Salet s hledím",
         "description": "Přilba pozdního středověku se sklopným hledím, na míru podle obvodu hlavy.",
         "price": "18 900 Kč",
         "status": "Na objednávku",
-        "image": "https://picsum.photos/seed/zatrapa-p-bascinet/800/950"
+        "image": "/assets/img/produkty/helma-salet-03.jpg"
       }
     ]
   },
