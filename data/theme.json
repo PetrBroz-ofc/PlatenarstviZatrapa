@@ -1,13 +1,13 @@
 {
   "colors": {
-    "background": "#0F0F10",
-    "surface": "#181818",
-    "surfaceAlt": "#1E1D1B",
+    "background": "#A7A37E",
+    "surface": "#FFFFFF",
+    "surfaceAlt": "#F4F1E7",
     "accent": "#B88A2A",
     "accentDim": "#8A6A20",
-    "text": "#F4F4F2",
-    "textSecondary": "#A0A0A0",
-    "border": "#2A2926",
+    "text": "#2B2A22",
+    "textSecondary": "#38351F",
+    "border": "#BFBCA0",
     "success": "#6E8B5A",
     "danger": "#A8503A"
   },

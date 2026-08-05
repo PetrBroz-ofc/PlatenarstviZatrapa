@@ -96,7 +96,7 @@
   function renderAbout(a) {
     const paras = a.paragraphs.map(p => `<p>${esc(p)}</p>`).join('');
     const stats = a.stats.map(s => `
-      <div class="reveal">
+      <div class="stat-item reveal">
         <div class="stat-value">${esc(s.value)}</div>
         <div class="stat-label">${esc(s.label)}</div>
       </div>`).join('');
