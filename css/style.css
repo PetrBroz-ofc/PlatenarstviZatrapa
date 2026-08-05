@@ -623,8 +623,9 @@ section { position: relative; }
 .catalog { background: var(--color-surface); }
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
   gap: var(--space-3);
+  justify-content: center;
 }
 .product-card {
   background: var(--color-surface-alt);
@@ -666,9 +667,6 @@ section { position: relative; }
   letter-spacing: 0.03em;
   color: var(--color-accent-dim);
 }
-@media (max-width: 900px) { .catalog-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .catalog-grid { grid-template-columns: 1fr; } }
-
 /* =========================================================
    NOVINKY / TIMELINE
    ========================================================= */

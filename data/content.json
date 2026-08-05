@@ -97,7 +97,7 @@
     "eyebrow": "Galerie",
     "title": "Z dílny do světa",
     "description": "Výběr realizovaných zakázek. Kliknutím na fotografii otevřete detail.",
-    "categories": ["Vše", "Přilby", "Kyrysy", "Štíty", "Meče", "Film", "Fantasy"],
+    "categories": ["Vše", "Přilby", "Kyrysy"],
     "items": [
       {
         "id": "g001",
@@ -161,42 +161,6 @@
         "year": "2024",
         "image": "/assets/img/produkty/kyrys-02-detail.jpg",
         "imageAlt": "Detail žebrování a tvarování plechu na kyrysu"
-      },
-      {
-        "id": "g008",
-        "category": "Štíty",
-        "title": "Pěstní štít s malbou",
-        "material": "Dřevo, ocel, ruční malba",
-        "year": "2023",
-        "image": "https://picsum.photos/seed/zatrapa-stit-1/900/900",
-        "imageAlt": "Kulatý pěstní štít s heraldickou malbou"
-      },
-      {
-        "id": "g009",
-        "category": "Meče",
-        "title": "Jednoruční meč",
-        "material": "Uhlíková ocel, dřevo, kůže",
-        "year": "2024",
-        "image": "https://picsum.photos/seed/zatrapa-mec-1/900/1400",
-        "imageAlt": "Jednoruční meč s koženou rukojetí"
-      },
-      {
-        "id": "g010",
-        "category": "Film",
-        "title": "Rekvizita pro historický seriál",
-        "material": "Ocel, patina",
-        "year": "2023",
-        "image": "https://picsum.photos/seed/zatrapa-film-1/900/1050",
-        "imageAlt": "Sada zbroje připravená pro filmové natáčení"
-      },
-      {
-        "id": "g011",
-        "category": "Fantasy",
-        "title": "Autorská fantasy přilba",
-        "material": "Ocel, mosaz, kůže",
-        "year": "2024",
-        "image": "https://picsum.photos/seed/zatrapa-fantasy-1/900/1150",
-        "imageAlt": "Fantasy přilba s rohovými prvky"
       }
     ]
   },
@@ -205,46 +169,6 @@
     "title": "Vybrané výrobky",
     "description": "Přehled části sortimentu. Rozměry a provedení lze upravit podle zakázky.",
     "products": [
-      {
-        "id": "p001",
-        "name": "Pěstní štít",
-        "description": "Kulatý dřevěný štít s ocelovou puklicí a koženým úchytem, ruční malba na přání.",
-        "price": "8 900 Kč",
-        "status": "Na objednávku",
-        "image": "https://picsum.photos/seed/zatrapa-p-stit/800/800"
-      },
-      {
-        "id": "p002",
-        "name": "Slezská miska",
-        "description": "Jednoduchá miskovitá přilba pozdního středověku, ocel 2 mm, kožený podhled.",
-        "price": "6 400 Kč",
-        "status": "Skladem",
-        "image": "https://picsum.photos/seed/zatrapa-p-miska/800/900"
-      },
-      {
-        "id": "p003",
-        "name": "Kalota",
-        "description": "Základní přilba raného středověku, vhodná i jako podhelmí pod další kusy zbroje.",
-        "price": "4 200 Kč",
-        "status": "Skladem",
-        "image": "https://picsum.photos/seed/zatrapa-p-kalota/800/850"
-      },
-      {
-        "id": "p004",
-        "name": "Chránič předloktí",
-        "description": "Pár nárukvic z ocelového plechu s koženými řemínky, individuální velikost.",
-        "price": "3 600 Kč",
-        "status": "Na objednávku",
-        "image": "https://picsum.photos/seed/zatrapa-p-narukvice/800/700"
-      },
-      {
-        "id": "p005",
-        "name": "Jednoruční meč — cvičný",
-        "description": "Tupá cvičná varianta s vyváženou rukojetí, vhodná pro šerm a rekonstrukci.",
-        "price": "12 500 Kč",
-        "status": "Na objednávku",
-        "image": "https://picsum.photos/seed/zatrapa-p-mec/800/1100"
-      },
       {
         "id": "p006",
         "name": "Salet s hledím",
