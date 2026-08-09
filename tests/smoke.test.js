@@ -121,8 +121,13 @@ test('počet položek v galerii odpovídá content.gallery.items', () => {
 });
 
 test('počet filtračních tlačítek odpovídá content.gallery.categories', () => {
-  const btns = document.querySelectorAll('.filter-btn');
+  const btns = document.querySelectorAll('#galleryFilters .filter-btn');
   assertEqual(btns.length, content.gallery.categories.length);
+});
+
+test('počet filtračních tlačítek v katalogu odpovídá content.catalog.categories', () => {
+  const btns = document.querySelectorAll('#catalogFilters .filter-btn');
+  assertEqual(btns.length, content.catalog.categories.length);
 });
 
 test('počet produktů v katalogu odpovídá content.catalog.products', () => {
@@ -195,12 +200,25 @@ if (content.gallery.items.length > 0) {
 if (content.gallery.categories.length > 1) {
   test('filtr galerie skryje položky mimo vybranou kategorii', () => {
     const secondCategory = content.gallery.categories[1];
-    const btn = Array.from(document.querySelectorAll('.filter-btn')).find(b => b.dataset.filter === secondCategory);
+    const btn = Array.from(document.querySelectorAll('#galleryFilters .filter-btn')).find(b => b.dataset.filter === secondCategory);
     assert(btn, 'tlačítko pro kategorii "' + secondCategory + '" nenalezeno');
     btn.dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
     const items = Array.from(document.querySelectorAll('.masonry-item'));
     const matching = content.gallery.items.filter(it => it.category === secondCategory).length;
     const visible = items.filter(el => el.style.display !== 'none').length;
+    assertEqual(visible, matching);
+  });
+}
+
+if (content.catalog.categories.length > 1) {
+  test('filtr katalogu skryje produkty mimo vybranou kategorii', () => {
+    const secondCategory = content.catalog.categories[1];
+    const btn = Array.from(document.querySelectorAll('#catalogFilters .filter-btn')).find(b => b.dataset.filter === secondCategory);
+    assert(btn, 'tlačítko pro kategorii "' + secondCategory + '" nenalezeno');
+    btn.dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
+    const cards = Array.from(document.querySelectorAll('.product-card'));
+    const matching = content.catalog.products.filter(p => p.category === secondCategory).length;
+    const visible = cards.filter(el => el.style.display !== 'none').length;
     assertEqual(visible, matching);
   });
 }

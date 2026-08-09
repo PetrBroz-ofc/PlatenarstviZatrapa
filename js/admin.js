@@ -90,7 +90,7 @@
       title: 'Nový exponát', material: '', year: '', image: '', imageAlt: ''
     }),
     'catalog.products': () => ({
-      id: 'p' + Date.now(), name: 'Nový produkt', description: '', price: '0 Kč',
+      id: 'p' + Date.now(), name: 'Nový produkt', category: state.content.catalog.categories[1] || 'Přilby', description: '', price: '0 Kč',
       status: 'Na objednávku', image: ''
     }),
     'news.items': () => ({ date: '2026', title: 'Nová událost', description: '' }),
@@ -98,7 +98,8 @@
     'nav.links': () => ({ label: 'Odkaz', target: 'kontakt' }),
     'about.stats': () => ({ value: '0', label: 'popisek' }),
     'about.paragraphs': () => '',
-    'gallery.categories': () => 'Nová kategorie'
+    'gallery.categories': () => 'Nová kategorie',
+    'catalog.categories': () => 'Nová kategorie'
   };
 
   function removeArrayItem(fullPath) {
@@ -305,14 +306,18 @@
 
   function tabCatalog() {
     const k = state.content.catalog;
+    const catOptions = k.categories.filter(c => c !== 'Vše').map(c => ({ value: c, label: c }));
     let html = heading('Katalog', 'Přehled produktů s cenou a dostupností.');
     html += card(`
       ${fieldHTML('Eyebrow', 'content.catalog.eyebrow', k.eyebrow)}
       ${fieldHTML('Nadpis sekce', 'content.catalog.title', k.title)}
       ${fieldHTML('Popisek sekce', 'content.catalog.description', k.description, 'textarea')}
     `, 'Texty');
+    html += card(renderStringArrayEditor('content.catalog.categories', k.categories, 'Kategorie') +
+      '<p style="font-size:12px;color:var(--color-text-secondary);margin-top:10px;">První položka „Vše“ by měla zůstat zachována.</p>', 'Kategorie (filtr)');
     html += card(renderArrayEditor('content.catalog.products', k.products, [
       { key: 'name', label: 'Název produktu' },
+      { key: 'category', label: 'Kategorie', type: 'select', opts: { options: catOptions } },
       { key: 'description', label: 'Krátký popis', type: 'textarea' },
       { key: 'price', label: 'Cena (např. 8 900 Kč)' },
       { key: 'status', label: 'Dostupnost', type: 'select', opts: { options: [{ value: 'Skladem', label: 'Skladem' }, { value: 'Na objednávku', label: 'Na objednávku' }] } },

@@ -52,14 +52,19 @@
     els.forEach(el => io.observe(el));
   }
 
-  function setupGalleryFilter() {
-    const grid = document.getElementById('masonryGrid');
-    const btns = document.querySelectorAll('.filter-btn');
-    if (!grid || !btns.length) return;
+  // Obecná funkce pro filtrovací tlačítka — každý filtr je naškálovaný jen
+  // na svůj vlastní kontejner tlačítek a svou vlastní mřížku položek, ať si
+  // galerie a katalog (mají obě třídu .filter-btn) vzájemně nepřekáží.
+  function setupFilter(filtersId, gridId, itemSelector) {
+    const filtersEl = document.getElementById(filtersId);
+    const grid = document.getElementById(gridId);
+    if (!filtersEl || !grid) return;
+    const btns = filtersEl.querySelectorAll('.filter-btn');
+    if (!btns.length) return;
     btns.forEach(btn => btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
       btns.forEach(b => b.classList.toggle('is-active', b === btn));
-      grid.querySelectorAll('.masonry-item').forEach(item => {
+      grid.querySelectorAll(itemSelector).forEach(item => {
         const show = filter === 'Vše' || item.dataset.category === filter;
         item.style.display = show ? '' : 'none';
       });
@@ -125,7 +130,8 @@
     setupHeaderScroll();
     setupMobileMenu();
     setupReveal();
-    setupGalleryFilter();
+    setupFilter('galleryFilters', 'masonryGrid', '.masonry-item');
+    setupFilter('catalogFilters', 'catalogGrid', '.product-card');
     setupLightbox();
   }
 

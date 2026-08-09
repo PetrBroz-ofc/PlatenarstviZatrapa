@@ -52,7 +52,7 @@
     "titleLine1": "PLATNÉŘSTVÍ",
     "titleLine2": "PAVEL ZÁTRAPA",
     "subtitle": "Ručně vyráběné historické zbroje od roku 1990.",
-    "description": "Každý kus vzniká tradičním způsobem s důrazem na historickou věrnost.",
+    "description": "Každý kus vzniká tradičním způsobem s důrazem na historickou věrnost, detail a poctivé řemeslo.",
     "image": "/assets/img/produkty/helma-uzavrena-01.jpg",
     "imageAlt": "Uzavřená turnajová přilba s hledím a límcem, ruční práce",
     "badgeTop": "Od",
@@ -212,7 +212,8 @@
         "description": "Pěstní štítek, 1,5 mm kanelovaný. Má háček na zavěšení na opasek. Hmotnost 1,115 kg.",
         "price": "2 100 Kč",
         "status": "Na objednávku",
-        "image": "/assets/img/produkty/pestni-stit.jpg"
+        "image": "/assets/img/produkty/pestni-stit.jpg",
+        "category": "Štíty a pěstní štítky"
       },
       {
         "id": "p002",
@@ -220,7 +221,8 @@
         "description": "Vyrobeno za tepla, plech 2 mm. Průměr cca 21,5 cm, hloubka cca 3 cm.",
         "price": "450 Kč",
         "status": "Skladem",
-        "image": "/assets/img/produkty/slezska-miska.jpg"
+        "image": "/assets/img/produkty/slezska-miska.jpg",
+        "category": "Přilby"
       },
       {
         "id": "p003",
@@ -228,7 +230,8 @@
         "description": "Vyrobena z plechu 2 mm. Přilba nemá polstr, počítá se s batvatem (není součástí). Kožený řemen s dvoubodovým uchycením.",
         "price": "6 300 Kč",
         "status": "Na objednávku",
-        "image": "/assets/img/produkty/kalota.jpg"
+        "image": "/assets/img/produkty/kalota.jpg",
+        "category": "Přilby"
       },
       {
         "id": "p004",
@@ -236,7 +239,8 @@
         "description": "Plech válcovaný za tepla, 2 mm. Vnitřní průměr 14 cm, venkovní průměr 19 cm, výška cca 4,5 cm. Skladem s 6 děrami, na přání i 4, 8 nebo bez děr.",
         "price": "330 Kč / ks",
         "status": "Skladem",
-        "image": "/assets/img/produkty/puklice-na-stit.jpg"
+        "image": "/assets/img/produkty/puklice-na-stit.jpg",
+        "category": "Puklice na štíty (umba)"
       },
       {
         "id": "p006",
@@ -244,8 +248,17 @@
         "description": "Přilba pozdního středověku se sklopným hledím, na míru podle obvodu hlavy.",
         "price": "18 900 Kč",
         "status": "Na objednávku",
-        "image": "/assets/img/produkty/helma-salet-03.jpg"
+        "image": "/assets/img/produkty/helma-salet-03.jpg",
+        "category": "Přilby"
       }
+    ],
+    "categories": [
+      "Vše",
+      "Přilby",
+      "Části zbrojí",
+      "Štíty a pěstní štítky",
+      "Puklice na štíty (umba)",
+      "Ostatní"
     ]
   },
   "news": {

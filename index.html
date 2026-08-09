@@ -95,14 +95,15 @@
     </header>
     <div class="mobile-menu" id="mobileMenu"><a href="#o-mne" data-close-menu>O mně</a><a href="#sluzby" data-close-menu>Služby</a><a href="#galerie" data-close-menu>Galerie</a><a href="#katalog" data-close-menu>Katalog</a><a href="#novinky" data-close-menu>Novinky</a><a href="#kontakt" data-close-menu>Kontakt</a></div>
 <main id="main">
-<section class="hero section-pad" id="hero">
+<section class="hero" id="hero">
+      <div class="hero-grain" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Dílna Pavla Zátrapy</p>
+          <p class="eyebrow hero-eyebrow">Dílna Pavla Zátrapy</p>
           <h1 class="hero-title"><span>PLATNÉŘSTVÍ</span><span class="is-accent">PAVEL ZÁTRAPA</span></h1>
           <p class="hero-subtitle">Ručně vyráběné historické zbroje od roku 1990.</p>
-          <p class="hero-description">Každý kus vzniká tradičním způsobem s důrazem na historickou věrnost.</p>
-          <div class="hero-actions"><a class="btn btn-primary" href="#galerie">Prohlédnout galerii</a><a class="btn btn-ghost" href="#kontakt">Nezávazná poptávka</a></div>
+          <p class="hero-description">Každý kus vzniká tradičním způsobem s důrazem na historickou věrnost, detail a poctivé řemeslo.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#galerie">Prohlédnout galerii <span class="hero-btn-arrow">→</span></a><a class="btn btn-ghost" href="#kontakt">Nezávazná poptávka</a></div>
         </div>
         <div class="hero-visual">
           <div class="hero-image-frame">
@@ -183,7 +184,7 @@
           <h2 class="section-title reveal">Z dílny do světa</h2>
           <p class="lede reveal">Výběr realizovaných zakázek. Kliknutím na fotografii otevřete detail.</p>
         </div>
-        <div class="gallery-filters reveal"><button class="filter-btn is-active" data-filter="Vše">Vše</button><button class="filter-btn " data-filter="Přilby">Přilby</button><button class="filter-btn " data-filter="Kyrysy">Kyrysy</button></div>
+        <div class="gallery-filters reveal" id="galleryFilters"><button class="filter-btn is-active" data-filter="Vše">Vše</button><button class="filter-btn " data-filter="Přilby">Přilby</button><button class="filter-btn " data-filter="Kyrysy">Kyrysy</button></div>
         <div class="masonry" id="masonryGrid">
       <figure class="masonry-item reveal" data-category="Přilby" data-index="0"
         data-title="Salet s hledím" data-material="Ocel, mosaz" data-year="2024">
@@ -265,8 +266,9 @@
           <h2 class="section-title reveal">Vybrané výrobky</h2>
           <p class="lede reveal">Přehled části sortimentu. Rozměry a provedení lze upravit podle zakázky.</p>
         </div>
-        <div class="catalog-grid">
-      <div class="product-card reveal">
+        <div class="gallery-filters reveal" id="catalogFilters"><button class="filter-btn is-active" data-filter="Vše">Vše</button><button class="filter-btn " data-filter="Přilby">Přilby</button><button class="filter-btn " data-filter="Části zbrojí">Části zbrojí</button><button class="filter-btn " data-filter="Štíty a pěstní štítky">Štíty a pěstní štítky</button><button class="filter-btn " data-filter="Puklice na štíty (umba)">Puklice na štíty (umba)</button><button class="filter-btn " data-filter="Ostatní">Ostatní</button></div>
+        <div class="catalog-grid" id="catalogGrid">
+      <div class="product-card reveal" data-category="Štíty a pěstní štítky">
         <div class="product-image">
           <span class="status-badge on-order">Na objednávku</span>
           <img src="/assets/img/produkty/pestni-stit.jpg" alt="Pěstní štítek" loading="lazy">
@@ -279,7 +281,7 @@
           </div>
         </div>
       </div>
-      <div class="product-card reveal">
+      <div class="product-card reveal" data-category="Přilby">
         <div class="product-image">
           <span class="status-badge in-stock">Skladem</span>
           <img src="/assets/img/produkty/slezska-miska.jpg" alt="Slezská miska" loading="lazy">
@@ -292,7 +294,7 @@
           </div>
         </div>
       </div>
-      <div class="product-card reveal">
+      <div class="product-card reveal" data-category="Přilby">
         <div class="product-image">
           <span class="status-badge on-order">Na objednávku</span>
           <img src="/assets/img/produkty/kalota.jpg" alt="Kalota" loading="lazy">
@@ -305,7 +307,7 @@
           </div>
         </div>
       </div>
-      <div class="product-card reveal">
+      <div class="product-card reveal" data-category="Puklice na štíty (umba)">
         <div class="product-image">
           <span class="status-badge in-stock">Skladem</span>
           <img src="/assets/img/produkty/puklice-na-stit.jpg" alt="Puklice na štít — umbo" loading="lazy">
@@ -318,7 +320,7 @@
           </div>
         </div>
       </div>
-      <div class="product-card reveal">
+      <div class="product-card reveal" data-category="Přilby">
         <div class="product-image">
           <span class="status-badge on-order">Na objednávku</span>
           <img src="/assets/img/produkty/helma-salet-03.jpg" alt="Salet s hledím" loading="lazy">
