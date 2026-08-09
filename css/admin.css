@@ -17,25 +17,25 @@ body.admin-body {
 /* ---------- Přihlašovací obrazovka ---------- */
 .admin-login {
   position: fixed; inset: 0;
-  background: #14130F;
+  background: var(--color-bg);
   display: flex; align-items: center; justify-content: center;
   z-index: 500;
 }
 .admin-login-card {
   width: 380px;
-  padding: 40px 36px;
-  background: #1C1A15;
-  border: 1px solid rgba(244,241,230,0.08);
-  border-radius: 6px;
-  box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+  padding: 44px 38px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 30px 70px rgba(43,42,34,0.18);
 }
 .admin-login-brand {
   font-family: var(--font-display);
-  color: #F4F1E6;
+  color: var(--color-text);
   font-size: 13px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -48,30 +48,32 @@ body.admin-body {
 }
 .admin-login-card h1 {
   font-family: var(--font-display);
-  font-size: 22px;
-  color: #F4F1E6;
+  font-size: 24px;
+  color: var(--color-text);
   margin: 0 0 6px;
 }
-.admin-login-card p.sub { color: rgba(244,241,230,0.5); font-size: 13px; margin: 0 0 24px; }
+.admin-login-card p.sub { color: var(--color-text-secondary); font-size: 13.5px; margin: 0 0 26px; }
 .admin-login-card input {
   width: 100%;
-  padding: 13px 14px;
-  background: rgba(244,241,230,0.05);
-  border: 1px solid rgba(244,241,230,0.14);
-  color: #F4F1E6;
-  border-radius: 4px;
-  margin-bottom: 14px;
+  padding: 15px 16px;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: 6px;
+  margin-bottom: 16px;
   font-family: var(--font-utility);
-  font-size: 14px;
+  font-size: 22px;
+  letter-spacing: 0.14em;
 }
-.admin-login-card input:focus { outline: none; border-color: var(--color-accent); }
+.admin-login-card input::placeholder { font-size: 14px; letter-spacing: normal; color: var(--color-text-secondary); }
+.admin-login-card input:focus { outline: none; border-color: var(--color-accent); background: #FFFFFF; box-shadow: 0 0 0 3px rgba(184,138,42,0.12); }
 .admin-login-card .err {
-  color: #E08A6E;
+  color: #A8503A;
   font-size: 12.5px;
   margin-bottom: 12px;
   min-height: 16px;
 }
-.admin-login-card .btn-admin.primary { width: 100%; padding: 13px; }
+.admin-login-card .btn-admin.primary { width: 100%; padding: 15px; justify-content: center; font-size: 13.5px; }
 
 /* ---------- Layout ---------- */
 .admin-shell {
