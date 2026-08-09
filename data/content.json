@@ -17,14 +17,35 @@
     "logoText": "Platnéřství",
     "logoSub": "Pavel Zátrapa",
     "links": [
-      { "label": "O mně", "target": "o-mne" },
-      { "label": "Služby", "target": "sluzby" },
-      { "label": "Galerie", "target": "galerie" },
-      { "label": "Katalog", "target": "katalog" },
-      { "label": "Novinky", "target": "novinky" },
-      { "label": "Kontakt", "target": "kontakt" }
+      {
+        "label": "O mně",
+        "target": "o-mne"
+      },
+      {
+        "label": "Služby",
+        "target": "sluzby"
+      },
+      {
+        "label": "Galerie",
+        "target": "galerie"
+      },
+      {
+        "label": "Katalog",
+        "target": "katalog"
+      },
+      {
+        "label": "Novinky",
+        "target": "novinky"
+      },
+      {
+        "label": "Kontakt",
+        "target": "kontakt"
+      }
     ],
-    "cta": { "label": "Nezávazná poptávka", "target": "kontakt" }
+    "cta": {
+      "label": "Nezávazná poptávka",
+      "target": "kontakt"
+    }
   },
   "hero": {
     "eyebrow": "Dílna Pavla Zátrapy",
@@ -37,8 +58,16 @@
     "badgeTop": "Od",
     "badgeYear": "1990",
     "buttons": [
-      { "label": "Prohlédnout galerii", "target": "galerie", "style": "primary" },
-      { "label": "Nezávazná poptávka", "target": "kontakt", "style": "ghost" }
+      {
+        "label": "Prohlédnout galerii",
+        "target": "galerie",
+        "style": "primary"
+      },
+      {
+        "label": "Nezávazná poptávka",
+        "target": "kontakt",
+        "style": "ghost"
+      }
     ]
   },
   "about": {
@@ -49,12 +78,21 @@
       "Mé výrobky používají zákazníci po celé Evropě.",
       "Každý výrobek vzniká ručně v mé dílně."
     ],
-    "portraitImage": "https://picsum.photos/seed/platnerstvi-portrait/900/1100",
+    "portraitImage": "/assets/img/uploads/1786266413931-fb-img-1786194569512.jpg",
     "portraitImageAlt": "Pavel Zátrapa při práci na kovadlině ve své dílně",
     "stats": [
-      { "value": "35+", "label": "let zkušeností" },
-      { "value": "1000+", "label": "výrobků" },
-      { "value": "Evropa", "label": "zákazníci" }
+      {
+        "value": "35+",
+        "label": "let zkušeností"
+      },
+      {
+        "value": "1000+",
+        "label": "výrobků"
+      },
+      {
+        "value": "Evropa",
+        "label": "zákazníci"
+      }
     ]
   },
   "services": {
@@ -97,7 +135,11 @@
     "eyebrow": "Galerie",
     "title": "Z dílny do světa",
     "description": "Výběr realizovaných zakázek. Kliknutím na fotografii otevřete detail.",
-    "categories": ["Vše", "Přilby", "Kyrysy"],
+    "categories": [
+      "Vše",
+      "Přilby",
+      "Kyrysy"
+    ],
     "items": [
       {
         "id": "g001",
@@ -253,7 +295,10 @@
     "phone": "",
     "dataBox": "",
     "email": "pzatrapa@seznam.cz",
-    "cta": { "label": "Poptat zakázkovou výrobu", "email": "pzatrapa@seznam.cz" }
+    "cta": {
+      "label": "Poptat zakázkovou výrobu",
+      "email": "pzatrapa@seznam.cz"
+    }
   },
   "footer": {
     "brand": "Platnéřství",
