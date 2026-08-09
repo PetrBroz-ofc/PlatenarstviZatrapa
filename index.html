@@ -9,19 +9,17 @@
 <meta name="author" content="Pavel Zátrapa">
 <link rel="canonical" href="https://platnerstvi-zatrapa.cz/">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Platnéřství Pavel Zátrapa">
 <meta property="og:title" content="Platnéřství Pavel Zátrapa — Ruční výroba historických zbrojí a přileb">
-<meta property="og:description" content="Ruční výroba historických přileb, plátových zbrojí, štítů a chladných zbraní. Zakázková výroba pro reenactment, film a divadlo.">
+<meta property="og:description" content="Ruční výroba historických přileb, plátových zbrojí, štítů a chladných zbraní. Zakázková výroba pro reenactment, film a divadlo. Brno, od roku 1990.">
 <meta property="og:image" content="https://platnerstvi-zatrapa.cz/assets/img/produkty/helma-salet-01.jpg">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:url" content="https://platnerstvi-zatrapa.cz/">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Platnéřství Pavel Zátrapa">
-<meta name="twitter:description" content="Ruční výroba historických přileb, plátových zbrojí, štítů a zbraní od roku 1990.">
+<meta name="twitter:description" content="Ruční výroba historických přileb, plátových zbrojí, štítů a chladných zbraní. Zakázková výroba pro reenactment, film a divadlo. Brno, od roku 1990.">
 <meta name="twitter:image" content="https://platnerstvi-zatrapa.cz/assets/img/produkty/helma-salet-01.jpg">
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -29,6 +27,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+    <style>
+    :root {
+      --color-bg: #A7A37E;
+      --color-surface: #FFFFFF;
+      --color-surface-alt: #F4F1E7;
+      --color-accent: #B88A2A;
+      --color-accent-dim: #8A6A20;
+      --color-text: #2B2A22;
+      --color-text-secondary: #38351F;
+      --color-border: #BFBCA0;
+      --color-success: #6E8B5A;
+      --color-danger: #A8503A;
+      --font-display: 'Cinzel', serif;
+      --font-body: 'EB Garamond', serif;
+      --font-utility: 'Jost', sans-serif;
+    }
+    </style>
 
 <script type="application/ld+json">
 {
@@ -36,7 +51,7 @@
   "@type": "LocalBusiness",
   "name": "Platnéřství Pavel Zátrapa",
   "image": "https://platnerstvi-zatrapa.cz/assets/img/produkty/helma-salet-01.jpg",
-  "description": "Ruční výroba historických přileb, plátových zbrojí, štítů a chladných zbraní. Zakázková výroba pro reenactment, film a divadlo.",
+  "description": "Ruční výroba historických přileb, plátových zbrojí, štítů a chladných zbraní. Zakázková výroba pro reenactment, film a divadlo. Brno, od roku 1990.",
   "founder": {
     "@type": "Person",
     "name": "Pavel Zátrapa",
@@ -50,22 +65,350 @@
   "email": "pzatrapa@seznam.cz",
   "url": "https://platnerstvi-zatrapa.cz/",
   "priceRange": "3000-30000 CZK",
-  "knowsAbout": ["Historické přilby", "Plátové zbroje", "Štíty", "Chladné zbraně", "Filmové rekvizity", "Fantasy zbroje"]
+  "knowsAbout": [
+    "Historické přilby",
+    "Plátové zbroje",
+    "Štíty",
+    "Chladné zbraně",
+    "Film a divadlo",
+    "Fantasy zakázky"
+  ]
 }
 </script>
 </head>
 <body>
 <a class="skip-link" href="#main">Přeskočit na obsah</a>
 
-<div id="site-root" role="document">
-  <!-- main.js vykresluje kompletní obsah webu z data/content.json -->
-  <noscript>
-    <div style="padding:64px;max-width:640px;margin:0 auto;font-family:Georgia,serif;">
-      <h1>Platnéřství Pavel Zátrapa</h1>
-      <p>Ruční výroba historických zbrojí, přileb a rekvizit od roku 1990. Pro zobrazení webu prosím povolte JavaScript, nebo nás kontaktujte na pzatrapa@seznam.cz.</p>
+<header class="site-header" id="siteHeader">
+      <div class="container">
+        <a href="#" class="logo">
+          <span class="logo-main">Platnéřství</span>
+          <span class="logo-sub">Pavel Zátrapa</span>
+        </a>
+        <nav class="nav-links" aria-label="Hlavní navigace"><a href="#o-mne">O mně</a><a href="#sluzby">Služby</a><a href="#galerie">Galerie</a><a href="#katalog">Katalog</a><a href="#novinky">Novinky</a><a href="#kontakt">Kontakt</a></nav>
+        <div class="nav-right">
+          <a class="nav-cta" href="#kontakt">Nezávazná poptávka</a>
+          <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="mobile-menu" id="mobileMenu"><a href="#o-mne" data-close-menu>O mně</a><a href="#sluzby" data-close-menu>Služby</a><a href="#galerie" data-close-menu>Galerie</a><a href="#katalog" data-close-menu>Katalog</a><a href="#novinky" data-close-menu>Novinky</a><a href="#kontakt" data-close-menu>Kontakt</a></div>
+<main id="main">
+<section class="hero section-pad" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Dílna Pavla Zátrapy</p>
+          <h1 class="hero-title"><span>PLATNÉŘSTVÍ</span><span class="is-accent">PAVEL ZÁTRAPA</span></h1>
+          <p class="hero-subtitle">Ručně vyráběné historické zbroje od roku 1990.</p>
+          <p class="hero-description">Každý kus vzniká tradičním způsobem s důrazem na historickou věrnost.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#galerie">Prohlédnout galerii</a><a class="btn btn-ghost" href="#kontakt">Nezávazná poptávka</a></div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-frame">
+            <img src="/assets/img/produkty/helma-uzavrena-01.jpg" alt="Uzavřená turnajová přilba s hledím a límcem, ruční práce" loading="eager">
+          </div>
+          <div class="hero-badge">
+            <span class="hero-badge-top">Od</span>
+            <span class="hero-badge-year">1990</span>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="about section-pad" id="o-mne">
+      <div class="container about-grid">
+        <div class="about-portrait reveal">
+          <img src="https://picsum.photos/seed/platnerstvi-portrait/900/1100" alt="Pavel Zátrapa při práci na kovadlině ve své dílně" loading="lazy">
+        </div>
+        <div class="about-text">
+          <p class="eyebrow reveal">O mně</p>
+          <h2 class="section-title reveal">Řemeslo, které se nedá uspěchat</h2>
+          <div class="reveal"><p>Od roku 1990 vyrábím historické plátové zbroje, přilby a rekvizity.</p><p>Mé výrobky používají zákazníci po celé Evropě.</p><p>Každý výrobek vzniká ručně v mé dílně.</p></div>
+          <div class="about-stats">
+      <div class="stat-item reveal">
+        <div class="stat-value">35+</div>
+        <div class="stat-label">let zkušeností</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-value">1000+</div>
+        <div class="stat-label">výrobků</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-value">Evropa</div>
+        <div class="stat-label">zákazníci</div>
+      </div></div>
+        </div>
+      </div>
+    </section>
+<section class="services section-pad" id="sluzby">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal">Služby</p>
+          <h2 class="section-title reveal">Co v dílně vzniká</h2>
+        </div>
+      </div>
+      <div class="container">
+        <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 30c0-11 6-19 14-19s14 8 14 19" /><path d="M8 30h32v3a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3v-3z"/><path d="M24 11V6" /><path d="M20 6h8"/><path d="M24 24v10"/></svg></div>
+        <h3 class="service-title">Historické přilby</h3>
+        <p class="service-desc">Kalhoty, bascinety, hrncové přilby a další typy podle dobových předloh.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M24 6 12 11v8c0 11 5 18 12 23 7-5 12-12 12-23v-8L24 6z"/><path d="M24 6v36"/><path d="M16 18h16"/></svg></div>
+        <h3 class="service-title">Plátové zbroje</h3>
+        <p class="service-desc">Kompletní kyrysy i jednotlivé díly zbroje s důrazem na funkčnost a pohyblivost.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M24 5 40 11v11c0 12-7 18-16 21-9-3-16-9-16-21V11L24 5z"/><path d="M24 14v20"/><path d="M15 24h18"/></svg></div>
+        <h3 class="service-title">Štíty</h3>
+        <p class="service-desc">Turnajové i pěstní štíty s ruční malbou a kováním podle historických vzorů.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M24 4v28"/><path d="M14 14h20"/><path d="M20 32h8v4l-4 6-4-6v-4z"/></svg></div>
+        <h3 class="service-title">Chladné zbraně</h3>
+        <p class="service-desc">Meče, dýky a další chladné zbraně jako funkční repliky nebo tupé cvičné kusy.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 16h36v22a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V16z"/><path d="M6 16l4-10h6l-4 10"/><path d="M20 16l4-10h6l-4 10"/><path d="M34 16l4-10h.5a1.5 1.5 0 0 1 1.5 1.5V16"/></svg></div>
+        <h3 class="service-title">Film a divadlo</h3>
+        <p class="service-desc">Rekvizity pro filmovou a divadelní produkci, odolné pod zátěží opakovaného použití.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 30c4-10 12-18 22-18 6 0 10 3 12 6-4-1-8 0-10 3 5 0 9 2 11 6-6-2-11-1-14 3-4 5-11 6-17 3"/><circle cx="30" cy="17" r="1.4" fill="currentColor" stroke="none"/><path d="M14 30c-2 4-4 6-8 7"/></svg></div>
+        <h3 class="service-title">Fantasy zakázky</h3>
+        <p class="service-desc">Autorské kusy podle konceptů zákazníka mimo historickou předlohu.</p>
+      </div></div>
+      </div>
+    </section>
+<section class="gallery section-pad" id="galerie">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal">Galerie</p>
+          <h2 class="section-title reveal">Z dílny do světa</h2>
+          <p class="lede reveal">Výběr realizovaných zakázek. Kliknutím na fotografii otevřete detail.</p>
+        </div>
+        <div class="gallery-filters reveal"><button class="filter-btn is-active" data-filter="Vše">Vše</button><button class="filter-btn " data-filter="Přilby">Přilby</button><button class="filter-btn " data-filter="Kyrysy">Kyrysy</button></div>
+        <div class="masonry" id="masonryGrid">
+      <figure class="masonry-item reveal" data-category="Přilby" data-index="0"
+        data-title="Salet s hledím" data-material="Ocel, mosaz" data-year="2024">
+        <img src="/assets/img/produkty/helma-salet-01.jpg" alt="Pozdně gotický salet s hledím, boční tříčtvrteční pohled" loading="lazy">
+        <figcaption class="masonry-caption">
+          <div class="cat">Přilby</div>
+          <div class="name">Salet s hledím</div>
+        </figcaption>
+      </figure>
+      <figure class="masonry-item reveal" data-category="Přilby" data-index="1"
+        data-title="Salet — otevřené hledí" data-material="Ocel, mosaz" data-year="2024">
+        <img src="/assets/img/produkty/helma-salet-04-hledi.jpg" alt="Salet s pohyblivým hledím v otevřené poloze" loading="lazy">
+        <figcaption class="masonry-caption">
+          <div class="cat">Přilby</div>
+          <div class="name">Salet — otevřené hledí</div>
+        </figcaption>
+      </figure>
+      <figure class="masonry-item reveal" data-category="Přilby" data-index="2"
+        data-title="Salet — interiér s podšitím" data-material="Ocel, useň" data-year="2024">
+        <img src="/assets/img/produkty/helma-salet-05-interier.jpg" alt="Pohled do interiéru saletu s koženým podšitím a přezkou" loading="lazy">
+        <figcaption class="masonry-caption">
+          <div class="cat">Přilby</div>
+          <div class="name">Salet — interiér s podšitím</div>
+        </figcaption>
+      </figure>
+      <figure class="masonry-item reveal" data-category="Přilby" data-index="3"
+        data-title="Uzavřená turnajová přilba" data-material="Ocel" data-year="2023">
+        <img src="/assets/img/produkty/helma-uzavrena-01.jpg" alt="Uzavřená turnajová přilba s límcem, čelní pohled" loading="lazy">
+        <figcaption class="masonry-caption">
+          <div class="cat">Přilby</div>
+          <div class="name">Uzavřená turnajová přilba</div>
+        </figcaption>
+      </figure>
+      <figure class="masonry-item reveal" data-category="Přilby" data-index="4"
+        data-title="Turnajová přilba — detail větrání" data-material="Ocel" data-year="2023">
+        <img src="/assets/img/produkty/helma-uzavrena-02.jpg" alt="Detail hvězdicového větracího otvoru na turnajové přilbě" loading="lazy">
+        <figcaption class="masonry-caption">
+          <div class="cat">Přilby</div>
+          <div class="name">Turnajová přilba — detail větrání</div>
+        </figcaption>
+      </figure>
+      <figure class="masonry-item reveal" data-category="Kyrysy" data-index="5"
+        data-title="Maximiliánský kyrys" data-material="Ocel" data-year="2024">
+        <img src="/assets/img/produkty/kyrys-01.jpg" alt="Maximiliánský kyrys s žebrováním, nasazený na figuríně" loading="lazy">
+        <figcaption class="masonry-caption">
+          <div class="cat">Kyrysy</div>
+          <div class="name">Maximiliánský kyrys</div>
+        </figcaption>
+      </figure>
+      <figure class="masonry-item reveal" data-category="Kyrysy" data-index="6"
+        data-title="Kyrys — detail vypracování" data-material="Ocel" data-year="2024">
+        <img src="/assets/img/produkty/kyrys-02-detail.jpg" alt="Detail žebrování a tvarování plechu na kyrysu" loading="lazy">
+        <figcaption class="masonry-caption">
+          <div class="cat">Kyrysy</div>
+          <div class="name">Kyrys — detail vypracování</div>
+        </figcaption>
+      </figure></div>
+      </div>
+    </section>
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Detail exponátu">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Zavřít">✕</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Předchozí">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Další">›</button>
+      <div class="lightbox-inner">
+        <div class="lightbox-image"><img id="lightboxImg" src="" alt=""></div>
+        <div class="lightbox-plate">
+          <div class="plate-tag" id="lightboxTag">Exponát</div>
+          <h3 id="lightboxTitle"></h3>
+          <div class="plate-row"><span>Materiál</span><span id="lightboxMaterial"></span></div>
+          <div class="plate-row"><span>Rok</span><span id="lightboxYear"></span></div>
+          <div class="plate-row"><span>Kategorie</span><span id="lightboxCategory"></span></div>
+        </div>
+      </div>
     </div>
-  </noscript>
-</div>
+<section class="catalog section-pad" id="katalog">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal">Katalog</p>
+          <h2 class="section-title reveal">Vybrané výrobky</h2>
+          <p class="lede reveal">Přehled části sortimentu. Rozměry a provedení lze upravit podle zakázky.</p>
+        </div>
+        <div class="catalog-grid">
+      <div class="product-card reveal">
+        <div class="product-image">
+          <span class="status-badge on-order">Na objednávku</span>
+          <img src="/assets/img/produkty/pestni-stit.jpg" alt="Pěstní štítek" loading="lazy">
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Pěstní štítek</h3>
+          <p class="product-desc">Pěstní štítek, 1,5 mm kanelovaný. Má háček na zavěšení na opasek. Hmotnost 1,115 kg.</p>
+          <div class="product-footer">
+            <span class="product-price">2 100 Kč</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-image">
+          <span class="status-badge in-stock">Skladem</span>
+          <img src="/assets/img/produkty/slezska-miska.jpg" alt="Slezská miska" loading="lazy">
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Slezská miska</h3>
+          <p class="product-desc">Vyrobeno za tepla, plech 2 mm. Průměr cca 21,5 cm, hloubka cca 3 cm.</p>
+          <div class="product-footer">
+            <span class="product-price">450 Kč</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-image">
+          <span class="status-badge on-order">Na objednávku</span>
+          <img src="/assets/img/produkty/kalota.jpg" alt="Kalota" loading="lazy">
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Kalota</h3>
+          <p class="product-desc">Vyrobena z plechu 2 mm. Přilba nemá polstr, počítá se s batvatem (není součástí). Kožený řemen s dvoubodovým uchycením.</p>
+          <div class="product-footer">
+            <span class="product-price">6 300 Kč</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-image">
+          <span class="status-badge in-stock">Skladem</span>
+          <img src="/assets/img/produkty/puklice-na-stit.jpg" alt="Puklice na štít — umbo" loading="lazy">
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Puklice na štít — umbo</h3>
+          <p class="product-desc">Plech válcovaný za tepla, 2 mm. Vnitřní průměr 14 cm, venkovní průměr 19 cm, výška cca 4,5 cm. Skladem s 6 děrami, na přání i 4, 8 nebo bez děr.</p>
+          <div class="product-footer">
+            <span class="product-price">330 Kč / ks</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-image">
+          <span class="status-badge on-order">Na objednávku</span>
+          <img src="/assets/img/produkty/helma-salet-03.jpg" alt="Salet s hledím" loading="lazy">
+        </div>
+        <div class="product-body">
+          <h3 class="product-name">Salet s hledím</h3>
+          <p class="product-desc">Přilba pozdního středověku se sklopným hledím, na míru podle obvodu hlavy.</p>
+          <div class="product-footer">
+            <span class="product-price">18 900 Kč</span>
+          </div>
+        </div>
+      </div></div>
+      </div>
+    </section>
+<section class="news section-pad" id="novinky">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow reveal">Novinky</p>
+          <h2 class="section-title reveal">Z dílenského deníku</h2>
+        </div>
+        <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-date">1990</div>
+        <div class="timeline-content">
+          <h3>Založení dílny</h3>
+          <p>Zahájení řemeslné výroby historických přileb a zbrojí v Brně.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2004</div>
+        <div class="timeline-content">
+          <h3>První zakázka pro filmovou produkci</h3>
+          <p>Výroba sady přileb a štítů pro historický film natáčený v okolí Brna.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2012</div>
+        <div class="timeline-content">
+          <h3>Spolupráce s reenactorskými skupinami</h3>
+          <p>Dlouhodobá spolupráce s několika evropskými skupinami živé historie.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2019</div>
+        <div class="timeline-content">
+          <h3>1000. vyrobený kus</h3>
+          <p>Dokončení tisícího výrobku od založení dílny — gotického kyrysu na zakázku.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2024</div>
+        <div class="timeline-content">
+          <h3>Nová řada fantasy zbrojí</h3>
+          <p>Rozšíření nabídky o autorské kusy podle konceptů zákazníků.</p>
+        </div>
+      </div></div>
+      </div>
+    </section>
+<section class="contact section-pad" id="kontakt">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow reveal">Kontakt</p>
+          <h2 class="contact-title reveal">Poptejte zakázkovou výrobu</h2>
+          <p class="contact-desc reveal">Každá zakázka začíná konzultací. Napište mi, co potřebujete, a ozvu se s termínem a cenou.</p>
+          <div class="contact-cta reveal">
+            <a class="btn btn-primary" href="mailto:pzatrapa@seznam.cz">Poptat zakázkovou výrobu</a>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <div class="contact-row"><span>Jméno</span><span>Pavel Zátrapa</span></div>
+          <div class="contact-row"><span>Sídlo</span><span>Brno</span></div>
+          <div class="contact-row"><span>IČO</span><span>67586546</span></div>
+          <div class="contact-row"><span>DPH</span><span>Neplátce DPH</span></div>
+          <div class="contact-row"><span>E‑mail</span><a href="mailto:pzatrapa@seznam.cz">pzatrapa@seznam.cz</a></div>
+        </div>
+      </div>
+    </section>
+</main>
+<footer class="site-footer">
+      <div class="container footer-grid">
+        <span class="footer-mark">Platnéřství Pavel Zátrapa</span>
+        <span>© 2026 Pavel Zátrapa. Všechna práva vyhrazena.</span>
+      </div>
+    </footer>
 
 <script src="js/main.js" defer></script>
 </body>

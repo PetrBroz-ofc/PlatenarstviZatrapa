@@ -16,46 +16,40 @@
 
 <div class="admin-login" id="adminLogin">
   <div class="admin-login-card">
-    <h1>Administrace</h1>
-    <p>Zadejte přístupové heslo pro editaci webu Platnéřství Pavel Zátrapa.</p>
+    <div class="admin-login-brand">Platnéřství Zátrapa</div>
+    <h1>Přihlášení</h1>
+    <p class="sub">Zadej heslo pro přístup do administrace.</p>
     <div class="err" id="loginErr"></div>
     <input type="password" id="loginPassword" placeholder="Heslo" autocomplete="current-password">
-    <button class="btn-admin primary" id="loginBtn" style="width:100%;">Přihlásit se</button>
+    <button class="btn-admin primary" id="loginBtn">Přihlásit se</button>
   </div>
 </div>
 
-<div class="admin-shell" id="adminShell" style="visibility:hidden;">
-  <div class="admin-topbar">
-    <div class="admin-brand">Platnéřství <span style="color:var(--color-text-secondary);font-family:var(--font-utility);font-size:13px;">/ administrace</span> <span class="tag">Draft</span></div>
-    <div class="admin-actions">
-      <span class="admin-status" id="adminStatus">Změny se ukládají do náhledu automaticky</span>
-      <button class="btn-admin" id="discardBtn">Zahodit změny</button>
-      <button class="btn-admin primary" id="publishBtn">Publikovat na GitHub</button>
+<div class="admin-shell" id="adminShell" style="display:none;">
+  <nav class="admin-sidebar">
+    <div class="admin-brand">
+      <div class="admin-brand-mark">PZ</div>
+      <div class="admin-brand-text">
+        <strong>Platnéřství</strong>
+        <span>Administrace</span>
+      </div>
     </div>
-  </div>
+    <div class="admin-nav" id="adminNav"><!-- vykreslí admin.js --></div>
+    <div class="admin-sidebar-foot">
+      <a href="/" target="_blank" rel="noopener">← Zpět na web</a>
+      <button type="button" id="logoutBtn">Odhlásit se</button>
+    </div>
+  </nav>
 
   <div class="admin-main">
-    <nav class="admin-sidebar" id="adminSidebar">
-      <!-- taby vykreslí admin.js -->
-    </nav>
-
-    <div class="admin-editor" id="adminEditor">
-      <!-- formulář vykreslí admin.js -->
-    </div>
-
-    <div class="admin-preview-pane">
-      <div class="preview-toolbar">
-        <span>Živý náhled</span>
-        <div class="preview-viewport-btns">
-          <button data-mode="desktop" class="is-active">Desktop</button>
-          <button data-mode="tablet">Tablet</button>
-          <button data-mode="mobile">Mobil</button>
-        </div>
-      </div>
-      <div class="preview-frame-wrap" id="previewWrap">
-        <iframe id="previewFrame" title="Náhled webu" src="index.html?preview=1"></iframe>
+    <div class="admin-topbar">
+      <span class="admin-status" id="adminStatus">Načítám…</span>
+      <div class="admin-topbar-actions">
+        <button class="btn-admin" id="discardBtn">Zahodit změny</button>
+        <button class="btn-admin primary" id="publishBtn">Publikovat</button>
       </div>
     </div>
+    <div class="admin-content" id="adminContent"><!-- vykreslí admin.js --></div>
   </div>
 </div>
 

@@ -3,7 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "description": "Web Platnéřství Pavel Zátrapa — statický web + admin panel s ukládáním přes GitHub API.",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node tests/smoke.test.js"
+  },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "jsdom": "^30.0.1"
   }
 }
