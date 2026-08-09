@@ -325,6 +325,10 @@
         ${fieldHTML('IČO', 'content.contact.ico', k.ico)}
         ${fieldHTML('Poznámka k DPH', 'content.contact.vatNote', k.vatNote)}
       </div>
+      <div class="field-row">
+        ${fieldHTML('Telefon', 'content.contact.phone', k.phone)}
+        ${fieldHTML('ID datové schránky', 'content.contact.dataBox', k.dataBox)}
+      </div>
       ${fieldHTML('E‑mail', 'content.contact.email', k.email)}
     `, 'Údaje');
     html += card(`

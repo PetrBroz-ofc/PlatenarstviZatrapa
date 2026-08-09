@@ -250,6 +250,8 @@
     "city": "Brno",
     "ico": "67586546",
     "vatNote": "Neplátce DPH",
+    "phone": "",
+    "dataBox": "",
     "email": "pzatrapa@seznam.cz",
     "cta": { "label": "Poptat zakázkovou výrobu", "email": "pzatrapa@seznam.cz" }
   },
