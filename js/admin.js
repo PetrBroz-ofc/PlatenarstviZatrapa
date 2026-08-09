@@ -30,6 +30,7 @@
     {
       label: 'Obsah stránky',
       items: [
+        { id: 'nav', label: 'Navigace' },
         { id: 'hero', label: 'Hero' },
         { id: 'about', label: 'O mně' },
         { id: 'services', label: 'Služby' },
@@ -94,6 +95,7 @@
     }),
     'news.items': () => ({ date: '2026', title: 'Nová událost', description: '' }),
     'hero.buttons': () => ({ label: 'Tlačítko', target: 'kontakt', style: 'ghost' }),
+    'nav.links': () => ({ label: 'Odkaz', target: 'kontakt' }),
     'about.stats': () => ({ value: '0', label: 'popisek' }),
     'about.paragraphs': () => '',
     'gallery.categories': () => 'Nová kategorie'
@@ -115,6 +117,10 @@
   }
 
   /* ---------------- Generování polí ---------------- */
+
+  const ICON_ADD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>';
+  const ICON_REMOVE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>';
+  const ICON_UPLOAD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>';
 
   function fieldHTML(label, path, value, type, opts) {
     opts = opts || {};
@@ -139,7 +145,7 @@
       return `<div class="field-group"><label for="${id}">${esc(label)}</label>
         <input type="url" id="${id}" data-bind="${path}" data-preview="${id}-thumb" value="${esc(value)}" placeholder="https:// nebo /assets/…">
         <div class="upload-row">
-          <label class="btn-admin small" for="${id}-file">Nahrát soubor</label>
+          <label class="btn-admin small" for="${id}-file">${ICON_UPLOAD} Nahrát soubor</label>
           <input type="file" id="${id}-file" accept="image/*" data-upload-target="${path}" data-upload-input="${id}">
           <span class="upload-status" id="${id}-status"></span>
         </div>
@@ -155,7 +161,7 @@
       html += `<div class="repeat-card">
         <div class="repeat-card-head">
           <span class="idx">${esc(itemLabelFn ? itemLabelFn(item, idx) : '#' + (idx + 1))}</span>
-          <button type="button" class="btn-admin small danger" data-remove="${basePath}.${idx}">Odebrat</button>
+          <button type="button" class="btn-admin small danger" data-remove="${basePath}.${idx}">${ICON_REMOVE} Odebrat</button>
         </div>`;
       fields.forEach(f => {
         const path = `${basePath}.${idx}.${f.key}`;
@@ -164,7 +170,7 @@
       });
       html += `</div>`;
     });
-    html += `<div class="add-btn-row"><button type="button" class="btn-admin" data-add="${basePath}">+ Přidat</button></div>`;
+    html += `<div class="add-btn-row"><button type="button" class="btn-admin" data-add="${basePath}">${ICON_ADD} Přidat</button></div>`;
     return html;
   }
 
@@ -173,11 +179,11 @@
     items.forEach((val, idx) => {
       html += `<div class="repeat-card">
         <div class="repeat-card-head"><span class="idx">${esc(itemLabel)} ${idx + 1}</span>
-        <button type="button" class="btn-admin small danger" data-remove="${basePath}.${idx}">Odebrat</button></div>
+        <button type="button" class="btn-admin small danger" data-remove="${basePath}.${idx}">${ICON_REMOVE} Odebrat</button></div>
         <div class="field-group"><textarea data-bind="${basePath}.${idx}">${esc(val)}</textarea></div>
       </div>`;
     });
-    html += `<div class="add-btn-row"><button type="button" class="btn-admin" data-add="${basePath}">+ Přidat</button></div>`;
+    html += `<div class="add-btn-row"><button type="button" class="btn-admin" data-add="${basePath}">${ICON_ADD} Přidat</button></div>`;
     return html;
   }
 
@@ -190,6 +196,28 @@
   }
 
   /* ---------------- Jednotlivé taby ---------------- */
+
+  function tabNav() {
+    const n = state.content.nav;
+    let html = heading('Navigace', 'Logo, horní menu a tlačítko poptávky v hlavičce webu.');
+    html += card(`
+      <div class="field-row">
+        ${fieldHTML('Logo — hlavní text', 'content.nav.logoText', n.logoText)}
+        ${fieldHTML('Logo — podtext', 'content.nav.logoSub', n.logoSub)}
+      </div>
+    `, 'Logo');
+    html += card(renderArrayEditor('content.nav.links', n.links, [
+      { key: 'label', label: 'Text odkazu' },
+      { key: 'target', label: 'Cíl (ID sekce, např. galerie)' }
+    ], (l) => l.label), 'Odkazy v menu');
+    html += card(`
+      <div class="field-row">
+        ${fieldHTML('Text tlačítka', 'content.nav.cta.label', n.cta.label)}
+        ${fieldHTML('Cíl tlačítka (ID sekce)', 'content.nav.cta.target', n.cta.target)}
+      </div>
+    `, 'Tlačítko poptávky v hlavičce');
+    return html;
+  }
 
   function tabHero() {
     const h = state.content.hero;
@@ -354,7 +382,11 @@
 
   function tabSeo() {
     const s = state.content.seo;
+    const site = state.content.site;
     let html = heading('SEO', 'Titulek, popis a náhledový obrázek pro vyhledávače a sociální sítě. Při publikování se promítne přímo do hlavičky index.html.');
+    html += card(`
+      ${fieldHTML('Název firmy (používá se v metadatech)', 'content.site.name', site.name)}
+    `, 'Firma');
     html += card(`
       ${fieldHTML('Title (titulek stránky)', 'content.seo.title', s.title)}
       ${fieldHTML('Meta description', 'content.seo.description', s.description, 'textarea')}
@@ -410,7 +442,7 @@
   }
 
   const TAB_RENDERERS = {
-    hero: tabHero, about: tabAbout, services: tabServices, gallery: tabGallery,
+    nav: tabNav, hero: tabHero, about: tabAbout, services: tabServices, gallery: tabGallery,
     catalog: tabCatalog, news: tabNews, contact: tabContact, seo: tabSeo,
     theme: tabTheme, json: tabJson
   };

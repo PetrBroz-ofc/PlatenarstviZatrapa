@@ -140,6 +140,12 @@ test('patička obsahuje content.footer.copyright', () => {
   assert(footer.textContent.includes(content.footer.copyright), 'copyright text chybí v patičce');
 });
 
+test('patička obsahuje odkaz na administraci (zámeček)', () => {
+  const link = document.querySelector('.footer-admin-link');
+  assert(link, 'odkaz na administraci v patičce chybí');
+  assertEqual(link.getAttribute('href'), '/admin.html');
+});
+
 test('patička obsahuje stejný počet rychlých odkazů jako content.nav.links', () => {
   const links = document.querySelectorAll('.footer-links a');
   assertEqual(links.length, content.nav.links.length);
