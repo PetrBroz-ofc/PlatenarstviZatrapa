@@ -331,6 +331,20 @@
       ${fieldHTML('Text tlačítka', 'content.contact.cta.label', k.cta.label)}
       ${fieldHTML('E‑mail pro tlačítko', 'content.contact.cta.email', k.cta.email)}
     `, 'Tlačítko poptávky');
+    const f = state.content.footer;
+    html += card(`
+      ${fieldHTML('Název značky', 'content.footer.brand', f.brand)}
+      ${fieldHTML('Podtitulek (tagline)', 'content.footer.tagline', f.tagline)}
+      <div class="field-row">
+        ${fieldHTML('Popisek — rychlé odkazy', 'content.footer.linksLabel', f.linksLabel)}
+        ${fieldHTML('Popisek — kontakt', 'content.footer.contactLabel', f.contactLabel)}
+      </div>
+      <div class="field-row">
+        ${fieldHTML('Text kreditu tvůrce webu', 'content.footer.credit', f.credit)}
+        ${fieldHTML('Odkaz kreditu (URL)', 'content.footer.creditUrl', f.creditUrl)}
+      </div>
+      ${fieldHTML('Copyright text', 'content.footer.copyright', f.copyright)}
+    `, 'Patička (footer)');
     return html;
   }
 

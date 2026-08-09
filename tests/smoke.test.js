@@ -136,8 +136,13 @@ test('počet položek na časové ose odpovídá content.news.items', () => {
 });
 
 test('patička obsahuje content.footer.copyright', () => {
-  const footer = document.querySelector('.footer-grid');
+  const footer = document.querySelector('.footer-bottom');
   assert(footer.textContent.includes(content.footer.copyright), 'copyright text chybí v patičce');
+});
+
+test('patička obsahuje stejný počet rychlých odkazů jako content.nav.links', () => {
+  const links = document.querySelectorAll('.footer-links a');
+  assertEqual(links.length, content.nav.links.length);
 });
 
 test('žádný <img> mimo lightbox nemá prázdné src', () => {
