@@ -25,7 +25,7 @@ const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 
-const { buildIndexHtml } = require('../lib/render');
+const { buildIndexHtml, buildPrivacyHtml } = require('../lib/render');
 const { validateContentShape, validateThemeShape } = require('../lib/validate');
 
 const ROOT = path.join(__dirname, '..');
@@ -65,8 +65,7 @@ console.log('\ndata/content.json a data/theme.json');
 test('content.json má validní tvar', () => {
   const err = validateContentShape(content);
   assert(err === null, err);
-});
-test('theme.json má validní tvar', () => {
+});test('theme.json má validní tvar', () => {
   const err = validateThemeShape(theme);
   assert(err === null, err);
 });
@@ -222,6 +221,43 @@ if (content.catalog.categories.length > 1) {
     assertEqual(visible, matching);
   });
 }
+
+/* ---------------- Cookie lišta a stránka GDPR ---------------- */
+
+console.log('\nCookie lišta a stránka Ochrana osobních údajů');
+
+test('cookie lišta existuje a obsahuje odkaz na stránku GDPR', () => {
+  const banner = document.getElementById('cookieBanner');
+  assert(banner, 'cookie lišta v HTML chybí');
+  const link = banner.querySelector('a');
+  assert(link && link.getAttribute('href').includes('ochrana-osobnich-udaju'), 'odkaz na stránku GDPR v cookie liště chybí');
+});
+
+test('cookie lišta se zobrazí a po kliknutí na tlačítko zase schová', () => {
+  const banner = document.getElementById('cookieBanner');
+  const btn = document.getElementById('cookieBannerBtn');
+  assert(banner.hidden === false, 'lišta se při prvním načtení nezobrazila');
+  btn.dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
+  assert(!banner.classList.contains('is-visible'), 'lišta po kliknutí na tlačítko nezmizela');
+});
+
+const privacyHtml = buildPrivacyHtml(content, theme);
+test('buildPrivacyHtml vrátí neprázdné HTML se všemi kapitolami', () => {
+  assert(typeof privacyHtml === 'string' && privacyHtml.length > 500, 'HTML stránky GDPR je prázdné nebo příliš krátké');
+  content.legal.privacyPage.sections.forEach(s => {
+    assert(privacyHtml.includes(s.heading), `kapitola "${s.heading}" chybí ve vygenerovaném HTML`);
+  });
+});
+
+const privacyDom = new JSDOM(privacyHtml, { url: 'https://platnerstvi-zatrapa.cz/ochrana-osobnich-udaju.html' });
+test('stránka GDPR obsahuje stejný počet kapitol jako content.legal.privacyPage.sections', () => {
+  const sections = privacyDom.window.document.querySelectorAll('.legal-section');
+  assertEqual(sections.length, content.legal.privacyPage.sections.length);
+});
+test('stránka GDPR má meta robots noindex', () => {
+  const meta = privacyDom.window.document.querySelector('meta[name="robots"]');
+  assert(meta && meta.getAttribute('content').includes('noindex'), 'stránka GDPR by neměla být indexovaná');
+});
 
 /* ---------------- Shrnutí ---------------- */
 

@@ -15,6 +15,11 @@
   function setupHeaderScroll() {
     const header = document.getElementById('siteHeader');
     if (!header) return;
+    // Stránky bez tmavého Hero (např. Ochrana osobních údajů) potřebují
+    // hlavičku rovnou ve "scrolled" (světlé pozadí, tmavý text) stavu,
+    // jinak by světlý text idle stavu zmizel na bílém pozadí stránky.
+    const hasHero = !!document.getElementById('hero');
+    if (!hasHero) { header.classList.add('is-scrolled'); return; }
     const onScroll = () => {
       header.classList.toggle('is-scrolled', window.scrollY > 40);
     };
@@ -126,6 +131,24 @@
     });
   }
 
+  const COOKIE_CONSENT_KEY = 'pzCookieConsentSeen';
+  function setupCookieBanner() {
+    const banner = document.getElementById('cookieBanner');
+    if (!banner) return;
+    let alreadySeen = false;
+    try { alreadySeen = localStorage.getItem(COOKIE_CONSENT_KEY) === '1'; } catch (e) { /* soukromý režim apod. */ }
+    if (alreadySeen) return;
+    banner.hidden = false;
+    setTimeout(() => banner.classList.add('is-visible'), 20);
+    const dismiss = () => {
+      banner.classList.remove('is-visible');
+      try { localStorage.setItem(COOKIE_CONSENT_KEY, '1'); } catch (e) { /* ignore */ }
+      setTimeout(() => { banner.hidden = true; }, 500);
+    };
+    const btn = document.getElementById('cookieBannerBtn');
+    if (btn) btn.addEventListener('click', dismiss);
+  }
+
   function init() {
     setupHeaderScroll();
     setupMobileMenu();
@@ -133,6 +156,7 @@
     setupFilter('galleryFilters', 'masonryGrid', '.masonry-item');
     setupFilter('catalogFilters', 'catalogGrid', '.product-card');
     setupLightbox();
+    setupCookieBanner();
   }
 
   if (document.readyState === 'loading') {

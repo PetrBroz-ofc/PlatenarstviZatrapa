@@ -22,12 +22,13 @@
 
 const auth = require('../lib/auth');
 const github = require('../lib/github');
-const { buildIndexHtml } = require('../lib/render');
+const { buildIndexHtml, buildPrivacyHtml } = require('../lib/render');
 const { validateContentShape, validateThemeShape } = require('../lib/validate');
 
 const CONTENT_PATH = 'data/content.json';
 const THEME_PATH = 'data/theme.json';
 const INDEX_PATH = 'index.html';
+const PRIVACY_PATH = 'ochrana-osobnich-udaju.html';
 
 function requireSession(req, res) {
   const { SESSION_SECRET } = process.env;
@@ -110,11 +111,13 @@ module.exports = async (req, res) => {
     }
 
     const indexHtml = buildIndexHtml(content, theme);
+    const privacyHtml = buildPrivacyHtml(content, theme);
 
     const result = await github.commitFiles(cfg, [
       { path: CONTENT_PATH, content: JSON.stringify(content, null, 2) + '\n' },
       { path: THEME_PATH, content: JSON.stringify(theme, null, 2) + '\n' },
-      { path: INDEX_PATH, content: indexHtml }
+      { path: INDEX_PATH, content: indexHtml },
+      { path: PRIVACY_PATH, content: privacyHtml }
     ], 'Aktualizace obsahu webu přes administraci');
 
     res.status(200).json({ ok: true, commitSha: result.commitSha });

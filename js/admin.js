@@ -44,7 +44,8 @@
       label: 'Nastavení',
       items: [
         { id: 'seo', label: 'SEO' },
-        { id: 'theme', label: 'Vzhled' }
+        { id: 'theme', label: 'Vzhled' },
+        { id: 'legal', label: 'Právní texty' }
       ]
     },
     {
@@ -99,7 +100,8 @@
     'about.stats': () => ({ value: '0', label: 'popisek' }),
     'about.paragraphs': () => '',
     'gallery.categories': () => 'Nová kategorie',
-    'catalog.categories': () => 'Nová kategorie'
+    'catalog.categories': () => 'Nová kategorie',
+    'legal.privacyPage.sections': () => ({ heading: 'Nová kapitola', text: '' })
   };
 
   function removeArrayItem(fullPath) {
@@ -431,6 +433,35 @@
     return html;
   }
 
+  function tabLegal() {
+    const l = state.content.legal;
+    const cb = l.cookieBanner;
+    const pp = l.privacyPage;
+    let html = heading('Právní texty', 'Cookie lišta a stránka „Ochrana osobních údajů“ (/ochrana-osobnich-udaju.html). Nejsem právník — obsah před ostrým nasazením doporučuju nechat zkontrolovat.');
+    html += card(`
+      ${fieldHTML('Text cookie lišty', 'content.legal.cookieBanner.text', cb.text, 'textarea')}
+      <div class="field-row">
+        ${fieldHTML('Text tlačítka souhlasu', 'content.legal.cookieBanner.buttonLabel', cb.buttonLabel)}
+        ${fieldHTML('Text odkazu „více informací“', 'content.legal.cookieBanner.linkLabel', cb.linkLabel)}
+      </div>
+    `, 'Cookie lišta');
+    html += card(`
+      ${fieldHTML('Text odkazu v patičce', 'content.legal.footerPrivacyLabel', l.footerPrivacyLabel)}
+    `, 'Odkaz v patičce webu');
+    html += card(`
+      <div class="field-row">
+        ${fieldHTML('Nadpis stránky', 'content.legal.privacyPage.title', pp.title)}
+        ${fieldHTML('Datum poslední aktualizace', 'content.legal.privacyPage.updated', pp.updated)}
+      </div>
+      ${fieldHTML('Úvodní text', 'content.legal.privacyPage.intro', pp.intro, 'textarea')}
+    `, 'Stránka — základní údaje');
+    html += card(renderArrayEditor('content.legal.privacyPage.sections', pp.sections, [
+      { key: 'heading', label: 'Nadpis kapitoly' },
+      { key: 'text', label: 'Text kapitoly', type: 'textarea' }
+    ], (s) => s.heading), 'Stránka — jednotlivé kapitoly');
+    return html;
+  }
+
   function tabJson() {
     let html = heading('JSON', 'Přímá editace celého souboru — pojistka pro cokoliv, co chybí ve formulářích.');
     html += card(`
@@ -449,7 +480,7 @@
   const TAB_RENDERERS = {
     nav: tabNav, hero: tabHero, about: tabAbout, services: tabServices, gallery: tabGallery,
     catalog: tabCatalog, news: tabNews, contact: tabContact, seo: tabSeo,
-    theme: tabTheme, json: tabJson
+    theme: tabTheme, legal: tabLegal, json: tabJson
   };
 
   /* ---------------- Vykreslení UI ---------------- */

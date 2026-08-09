@@ -316,5 +316,45 @@
     "credit": "Web vytvořil Petr Brož",
     "creditUrl": "https://broz-petr.cz",
     "copyright": "© 2026 Pavel Zátrapa. Všechna práva vyhrazena."
+  },
+  "legal": {
+    "cookieBanner": {
+      "text": "Tento web používá pouze technicky nezbytné soubory cookie (přihlášení do administrace) a načítá webová písma z Google Fonts. Žádné sledovací ani marketingové cookies nepoužíváme.",
+      "buttonLabel": "Rozumím",
+      "linkLabel": "Více informací",
+      "linkUrl": "/ochrana-osobnich-udaju.html"
+    },
+    "privacyPage": {
+      "title": "Ochrana osobních údajů",
+      "updated": "9. srpna 2026",
+      "intro": "Tyto zásady popisují, jak Pavel Zátrapa (platnéřství), IČO 67586546, jako správce osobních údajů nakládá s údaji návštěvníků a zákazníků tohoto webu, v souladu s nařízením GDPR (EU) 2016/679 a zákonem č. 110/2019 Sb., o zpracování osobních údajů.",
+      "sections": [
+        {
+          "heading": "Kdo je správcem údajů",
+          "text": "Správcem osobních údajů je Pavel Zátrapa, IČO 67586546, se sídlem v Brně. Kontaktovat mě můžete e‑mailem na pzatrapa@seznam.cz."
+        },
+        {
+          "heading": "Jaké údaje zpracovávám",
+          "text": "Tento web nemá kontaktní formulář ani e‑shop — pro poptávku mě kontaktujete přímo e‑mailem. Zpracovávám proto pouze údaje, které mi sami dobrovolně poskytnete v e‑mailové komunikaci (jméno, e‑mailová adresa, obsah poptávky, případně telefon), a to za účelem vyřízení vaší poptávky nebo zakázky."
+        },
+        {
+          "heading": "Právní základ a doba uchování",
+          "text": "Údaje z poptávkové komunikace zpracovávám na základě jednání o uzavření smlouvy (čl. 6 odst. 1 písm. b) GDPR) a uchovávám je jen po dobu nezbytnou k vyřízení zakázky a případné záruční komunikaci, u vyřízených objednávek nejdéle po dobu vyžadovanou účetní a daňovou legislativou."
+        },
+        {
+          "heading": "Soubory cookie",
+          "text": "Veřejná část webu nepoužívá žádné sledovací, analytické ani marketingové cookies. Technickou (nezbytnou) cookie používá pouze administrace webu pro přihlášení a je funkční jen pro mě jako správce obsahu, ne pro běžné návštěvníky."
+        },
+        {
+          "heading": "Externí služby",
+          "text": "Web načítá webová písma ze služby Google Fonts (Google Ireland Limited). Při načtení stránky se díky tomu přenese IP adresa vašeho prohlížeče na servery Google. Jiné externí sledovací nástroje (např. Google Analytics, Facebook Pixel) web nepoužívá."
+        },
+        {
+          "heading": "Vaše práva",
+          "text": "Máte právo na přístup ke svým osobním údajům, jejich opravu či výmaz, omezení zpracování, přenositelnost a právo vznést námitku. Uplatnit je můžete e‑mailem na pzatrapa@seznam.cz. Pokud se domníváte, že vaše údaje zpracovávám v rozporu s právními předpisy, máte právo podat stížnost u Úřadu pro ochranu osobních údajů (uoou.cz)."
+        }
+      ]
+    },
+    "footerPrivacyLabel": "Ochrana osobních údajů"
   }
 }
