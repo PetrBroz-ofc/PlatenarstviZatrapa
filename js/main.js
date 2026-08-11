@@ -15,11 +15,6 @@
   function setupHeaderScroll() {
     const header = document.getElementById('siteHeader');
     if (!header) return;
-    // Stránky bez tmavého Hero (např. Ochrana osobních údajů) potřebují
-    // hlavičku rovnou ve "scrolled" (světlé pozadí, tmavý text) stavu,
-    // jinak by světlý text idle stavu zmizel na bílém pozadí stránky.
-    const hasHero = !!document.getElementById('hero');
-    if (!hasHero) { header.classList.add('is-scrolled'); return; }
     const onScroll = () => {
       header.classList.toggle('is-scrolled', window.scrollY > 40);
     };
