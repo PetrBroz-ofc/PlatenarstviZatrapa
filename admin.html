@@ -26,13 +26,16 @@
 </div>
 
 <div class="admin-shell" id="adminShell" style="display:none;">
-  <nav class="admin-sidebar">
+  <nav class="admin-sidebar" id="adminSidebar">
     <div class="admin-brand">
       <div class="admin-brand-mark">PZ</div>
       <div class="admin-brand-text">
         <strong>Platnéřství</strong>
         <span>Administrace</span>
       </div>
+      <button type="button" class="admin-sidebar-close" id="sidebarClose" aria-label="Zavřít menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
     <div class="admin-nav" id="adminNav"><!-- vykreslí admin.js --></div>
     <div class="admin-sidebar-foot">
@@ -49,6 +52,9 @@
 
   <div class="admin-main">
     <div class="admin-topbar">
+      <button type="button" class="admin-menu-toggle" id="sidebarToggle" aria-label="Otevřít menu sekcí" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
       <span class="admin-status" id="adminStatus">Načítám…</span>
       <div class="admin-topbar-actions">
         <button class="btn-admin" id="discardBtn">
@@ -63,6 +69,7 @@
     </div>
     <div class="admin-content" id="adminContent"><!-- vykreslí admin.js --></div>
   </div>
+  <div class="admin-sidebar-backdrop" id="sidebarBackdrop"></div>
 </div>
 
 <script src="js/admin.js" defer></script>

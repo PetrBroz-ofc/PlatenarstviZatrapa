@@ -784,9 +784,41 @@
 
   /* ---------------- Init ---------------- */
 
+  function setupSidebarToggle() {
+    const sidebar = document.getElementById('adminSidebar');
+    const toggle = document.getElementById('sidebarToggle');
+    const closeBtn = document.getElementById('sidebarClose');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    if (!sidebar || !toggle || !backdrop) return;
+
+    function open() {
+      sidebar.classList.add('is-open');
+      backdrop.classList.add('is-visible');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+    function close() {
+      sidebar.classList.remove('is-open');
+      backdrop.classList.remove('is-visible');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+    toggle.addEventListener('click', () => {
+      sidebar.classList.contains('is-open') ? close() : open();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    backdrop.addEventListener('click', close);
+    // po výběru sekce v menu se na mobilu zásuvka sama zavře
+    sidebar.addEventListener('click', (e) => {
+      if (e.target.closest('.admin-tab')) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     setupLogin();
     wireArrayDelegation();
+    setupSidebarToggle();
     document.getElementById('publishBtn').addEventListener('click', publish);
     document.getElementById('discardBtn').addEventListener('click', discard);
     document.getElementById('logoutBtn').addEventListener('click', logout);
