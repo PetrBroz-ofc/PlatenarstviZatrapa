@@ -124,6 +124,9 @@
   const ICON_ADD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>';
   const ICON_REMOVE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>';
   const ICON_UPLOAD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>';
+  const ICON_GRIP = '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.4"/><circle cx="15" cy="6" r="1.4"/><circle cx="9" cy="12" r="1.4"/><circle cx="15" cy="12" r="1.4"/><circle cx="9" cy="18" r="1.4"/><circle cx="15" cy="18" r="1.4"/></svg>';
+  const ICON_UP = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>';
+  const ICON_DOWN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>';
 
   function fieldHTML(label, path, value, type, opts) {
     opts = opts || {};
@@ -158,14 +161,28 @@
     return `<div class="field-group"><label for="${id}">${esc(label)}</label><input type="text" id="${id}" data-bind="${path}" value="${esc(value)}"></div>`;
   }
 
+  // basePath.idx zakódováno v data-move-up/data-move-down/data-remove atributech,
+  // draggable karty navíc nesou data-array-path + data-item-index pro přetažení myší.
+  function reorderHead(basePath, idx, total, label) {
+    const upDisabled = idx === 0 ? 'disabled' : '';
+    const downDisabled = idx === total - 1 ? 'disabled' : '';
+    return `<div class="repeat-card-head">
+      <span class="drag-handle" draggable="true" title="Přetáhněte pro změnu pořadí">${ICON_GRIP}</span>
+      <span class="idx">${esc(label)}</span>
+      <span class="reorder-btns">
+        <button type="button" class="btn-admin small" data-move-up="${basePath}.${idx}" ${upDisabled} aria-label="Posunout nahoru">${ICON_UP}</button>
+        <button type="button" class="btn-admin small" data-move-down="${basePath}.${idx}" ${downDisabled} aria-label="Posunout dolů">${ICON_DOWN}</button>
+        <button type="button" class="btn-admin small danger" data-remove="${basePath}.${idx}">${ICON_REMOVE} Odebrat</button>
+      </span>
+    </div>`;
+  }
+
   function renderArrayEditor(basePath, items, fields, itemLabelFn) {
     let html = '';
     items.forEach((item, idx) => {
-      html += `<div class="repeat-card">
-        <div class="repeat-card-head">
-          <span class="idx">${esc(itemLabelFn ? itemLabelFn(item, idx) : '#' + (idx + 1))}</span>
-          <button type="button" class="btn-admin small danger" data-remove="${basePath}.${idx}">${ICON_REMOVE} Odebrat</button>
-        </div>`;
+      const label = itemLabelFn ? itemLabelFn(item, idx) : '#' + (idx + 1);
+      html += `<div class="repeat-card" data-array-path="${basePath}" data-item-index="${idx}">
+        ${reorderHead(basePath, idx, items.length, label)}`;
       fields.forEach(f => {
         const path = `${basePath}.${idx}.${f.key}`;
         const val = item[f.key] == null ? '' : item[f.key];
@@ -180,9 +197,8 @@
   function renderStringArrayEditor(basePath, items, itemLabel) {
     let html = '';
     items.forEach((val, idx) => {
-      html += `<div class="repeat-card">
-        <div class="repeat-card-head"><span class="idx">${esc(itemLabel)} ${idx + 1}</span>
-        <button type="button" class="btn-admin small danger" data-remove="${basePath}.${idx}">${ICON_REMOVE} Odebrat</button></div>
+      html += `<div class="repeat-card" data-array-path="${basePath}" data-item-index="${idx}">
+        ${reorderHead(basePath, idx, items.length, itemLabel + ' ' + (idx + 1))}
         <div class="field-group"><textarea data-bind="${basePath}.${idx}">${esc(val)}</textarea></div>
       </div>`;
     });
@@ -510,6 +526,7 @@
     content.innerHTML = fn();
     bindInputs(content);
     wireJsonButtons(content);
+    wireDragAndDrop(content);
   }
 
   function bindInputs(container) {
@@ -587,6 +604,17 @@
     });
   }
 
+  function moveArrayItem(fullPath, direction) {
+    const { root, subPath } = resolveRoot(fullPath);
+    const keys = subPath.split('.');
+    const idx = Number(keys.pop());
+    const arr = getPath(root, keys.join('.'));
+    if (!Array.isArray(arr)) return;
+    const newIdx = idx + direction;
+    if (newIdx < 0 || newIdx >= arr.length) return;
+    [arr[idx], arr[newIdx]] = [arr[newIdx], arr[idx]];
+  }
+
   function wireArrayDelegation() {
     const container = document.getElementById('adminContent');
     container.addEventListener('click', (e) => {
@@ -602,7 +630,71 @@
         addArrayItem(add.getAttribute('data-add'));
         renderActiveTab();
         markDirty();
+        return;
       }
+      const up = e.target.closest('[data-move-up]');
+      if (up && !up.disabled) {
+        moveArrayItem(up.getAttribute('data-move-up'), -1);
+        renderActiveTab();
+        markDirty();
+        return;
+      }
+      const down = e.target.closest('[data-move-down]');
+      if (down && !down.disabled) {
+        moveArrayItem(down.getAttribute('data-move-down'), 1);
+        renderActiveTab();
+        markDirty();
+      }
+    });
+  }
+
+  // Přetažení myší (desktop) — funguje vedle šipek, které jsou spolehlivá
+  // varianta i pro dotyková zařízení. Tažení se smí spustit jen z úchytu
+  // (drag-handle) — kdyby bylo draggable na celé kartě, klik do textového
+  // pole uvnitř by prohlížeč vyhodnotil jako výběr textu, ne přetažení.
+  function wireDragAndDrop(container) {
+    const cards = container.querySelectorAll('.repeat-card');
+    let dragged = null;
+    cards.forEach(card => {
+      const handle = card.querySelector(':scope > .repeat-card-head .drag-handle');
+      if (handle) {
+        handle.addEventListener('dragstart', (e) => {
+          dragged = card;
+          card.classList.add('is-dragging');
+          if (e.dataTransfer) {
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', card.dataset.itemIndex || '');
+          }
+        });
+        handle.addEventListener('dragend', () => {
+          card.classList.remove('is-dragging');
+          cards.forEach(c => c.classList.remove('is-drag-over'));
+          dragged = null;
+        });
+      }
+      card.addEventListener('dragover', (e) => {
+        if (!dragged || dragged === card) return;
+        if (dragged.dataset.arrayPath !== card.dataset.arrayPath) return;
+        e.preventDefault();
+        card.classList.add('is-drag-over');
+      });
+      card.addEventListener('dragleave', () => card.classList.remove('is-drag-over'));
+      card.addEventListener('drop', (e) => {
+        e.preventDefault();
+        card.classList.remove('is-drag-over');
+        if (!dragged || dragged === card) return;
+        const basePath = card.dataset.arrayPath;
+        if (dragged.dataset.arrayPath !== basePath) return;
+        const fromIdx = Number(dragged.dataset.itemIndex);
+        const toIdx = Number(card.dataset.itemIndex);
+        const { root, subPath } = resolveRoot(basePath);
+        const arr = getPath(root, subPath);
+        if (!Array.isArray(arr)) return;
+        const [moved] = arr.splice(fromIdx, 1);
+        arr.splice(toIdx, 0, moved);
+        renderActiveTab();
+        markDirty();
+      });
     });
   }
 
