@@ -979,7 +979,7 @@ section { position: relative; }
 /* =========================================================
    STRÁNKA — OCHRANA OSOBNÍCH ÚDAJŮ
    ========================================================= */
-.legal-page { background: var(--color-surface); padding-top: 168px; }
+.legal-page { background: var(--color-surface); padding-top: 128px; }
 .legal-container { max-width: 760px; }
 .legal-updated {
   font-family: var(--font-utility);
@@ -1006,6 +1006,6 @@ section { position: relative; }
   font-size: 16px;
   line-height: 1.7;
 }
-@media (max-width: 640px) {
-  .legal-page { padding-top: 130px; }
+@media (max-width: 860px) {
+  .legal-page { padding-top: 92px; }
 }
