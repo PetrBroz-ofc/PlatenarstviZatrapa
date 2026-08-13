@@ -301,13 +301,13 @@ section { position: relative; }
 
 .hero {
   background: var(--color-surface);
-  padding: 168px 0 64px;
+  padding: 130px 0 64px;
 }
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-6);
-  align-items: center;
+  align-items: start;
 }
 .hero-copy { max-width: 540px; }
 .hero-copy > * { animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
@@ -395,10 +395,16 @@ section { position: relative; }
   margin-top: 2px;
 }
 @media (max-width: 900px) {
-  .hero { padding: 130px 0 56px; }
   .hero-grid { grid-template-columns: minmax(0, 1fr); }
   .hero-copy { max-width: none; }
   .hero-visual { max-width: 420px; margin: var(--space-4) auto 0; }
+}
+@media (max-width: 860px) {
+  /* Od 860px dolů hlavička ztrácí vodorovné menu (viz .nav-links), takže
+     je nižší — Hero pak potřebuje méně odsazení nahoře. Nad touto hranicí
+     (i když je Hero už v jednom sloupci) hlavička menu pořád ukazuje, takže
+     si Hero drží širší odsazení z pravidla výš. */
+  .hero { padding: 96px 0 56px; }
 }
 @media (max-width: 480px) {
   .hero-badge { width: 84px; height: 84px; left: -14px; bottom: -14px; }
