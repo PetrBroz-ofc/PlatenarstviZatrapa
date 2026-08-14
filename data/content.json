@@ -356,5 +356,13 @@
       ]
     },
     "footerPrivacyLabel": "Ochrana osobních údajů"
+  },
+  "notFound": {
+    "eyebrow": "Chyba 404",
+    "code": "404",
+    "title": "Tahle stránka se ztratila v dílně",
+    "message": "Stránka, kterou hledáte, neexistuje nebo byla přesunuta. Zkuste to prosím přes hlavní stránku nebo některý z odkazů níže.",
+    "homeLabel": "Zpět na hlavní stránku",
+    "linksLabel": "Nebo přejít rovnou na:"
   }
 }

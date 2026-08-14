@@ -45,7 +45,8 @@
       items: [
         { id: 'seo', label: 'SEO' },
         { id: 'theme', label: 'Vzhled' },
-        { id: 'legal', label: 'Právní texty' }
+        { id: 'legal', label: 'Právní texty' },
+        { id: 'notfound', label: 'Stránka 404' }
       ]
     },
     {
@@ -478,6 +479,23 @@
     return html;
   }
 
+  function tabNotFound() {
+    const n = state.content.notFound;
+    let html = heading('Stránka 404', 'Zobrazí se, když někdo zadá neexistující adresu (např. překlep v odkazu).');
+    html += card(`
+      ${fieldHTML('Eyebrow', 'content.notFound.eyebrow', n.eyebrow)}
+      ${fieldHTML('Velké číslo (obvykle „404“)', 'content.notFound.code', n.code)}
+      ${fieldHTML('Nadpis', 'content.notFound.title', n.title)}
+      ${fieldHTML('Text', 'content.notFound.message', n.message, 'textarea')}
+    `, 'Texty');
+    html += card(`
+      ${fieldHTML('Text tlačítka zpět na web', 'content.notFound.homeLabel', n.homeLabel)}
+      ${fieldHTML('Popisek nad rychlými odkazy', 'content.notFound.linksLabel', n.linksLabel)}
+      <p style="font-size:12px;color:var(--color-text-secondary);margin-top:10px;">Rychlé odkazy pod tlačítkem se přebírají automaticky ze záložky „Navigace“.</p>
+    `, 'Tlačítko a odkazy');
+    return html;
+  }
+
   function tabJson() {
     let html = heading('JSON', 'Přímá editace celého souboru — pojistka pro cokoliv, co chybí ve formulářích.');
     html += card(`
@@ -496,7 +514,7 @@
   const TAB_RENDERERS = {
     nav: tabNav, hero: tabHero, about: tabAbout, services: tabServices, gallery: tabGallery,
     catalog: tabCatalog, news: tabNews, contact: tabContact, seo: tabSeo,
-    theme: tabTheme, legal: tabLegal, json: tabJson
+    theme: tabTheme, legal: tabLegal, notfound: tabNotFound, json: tabJson
   };
 
   /* ---------------- Vykreslení UI ---------------- */

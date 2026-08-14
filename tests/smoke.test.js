@@ -25,7 +25,7 @@ const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 
-const { buildIndexHtml, buildPrivacyHtml } = require('../lib/render');
+const { buildIndexHtml, buildPrivacyHtml, buildNotFoundHtml } = require('../lib/render');
 const { validateContentShape, validateThemeShape } = require('../lib/validate');
 
 const ROOT = path.join(__dirname, '..');
@@ -257,6 +257,30 @@ test('stránka GDPR obsahuje stejný počet kapitol jako content.legal.privacyPa
 test('stránka GDPR má meta robots noindex', () => {
   const meta = privacyDom.window.document.querySelector('meta[name="robots"]');
   assert(meta && meta.getAttribute('content').includes('noindex'), 'stránka GDPR by neměla být indexovaná');
+});
+
+/* ---------------- Stránka 404 ---------------- */
+
+console.log('\nStránka 404');
+
+const notFoundHtml = buildNotFoundHtml(content, theme);
+test('buildNotFoundHtml vrátí neprázdné HTML', () => {
+  assert(typeof notFoundHtml === 'string' && notFoundHtml.length > 500, 'HTML stránky 404 je prázdné nebo příliš krátké');
+  assert(notFoundHtml.includes(content.notFound.title), 'nadpis stránky 404 chybí ve vygenerovaném HTML');
+});
+
+const notFoundDom = new JSDOM(notFoundHtml, { url: 'https://platnerstvi-zatrapa.cz/404.html' });
+test('stránka 404 obsahuje tlačítko zpět na web a rychlé odkazy', () => {
+  const doc = notFoundDom.window.document;
+  const homeBtn = doc.querySelector('.notfound-cta .btn');
+  assert(homeBtn, 'tlačítko zpět na hlavní stránku chybí');
+  assertEqual(homeBtn.getAttribute('href'), '/');
+  const links = doc.querySelectorAll('.notfound-link');
+  assertEqual(links.length, content.nav.links.length);
+});
+test('stránka 404 má meta robots noindex', () => {
+  const meta = notFoundDom.window.document.querySelector('meta[name="robots"]');
+  assert(meta && meta.getAttribute('content').includes('noindex'), 'stránka 404 by neměla být indexovaná');
 });
 
 /* ---------------- Shrnutí ---------------- */
