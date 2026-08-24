@@ -243,7 +243,6 @@
     const h = state.content.hero;
     let html = heading('Hero', 'Úvodní sekce webu — text vlevo, fotografie vpravo s kulatým štítkem.');
     html += card(`
-      ${fieldHTML('Eyebrow (text nad titulkem)', 'content.hero.eyebrow', h.eyebrow)}
       <div class="field-row">
         ${fieldHTML('Titulek — řádek 1', 'content.hero.titleLine1', h.titleLine1)}
         ${fieldHTML('Titulek — řádek 2', 'content.hero.titleLine2', h.titleLine2)}

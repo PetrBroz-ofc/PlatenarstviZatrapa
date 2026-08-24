@@ -301,13 +301,17 @@ section { position: relative; }
 
 .hero {
   background: var(--color-surface);
-  padding: 130px 0 64px;
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  padding: 118px 0 48px;
 }
 .hero-grid {
+  width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-6);
-  align-items: start;
+  align-items: center;
 }
 .hero-copy { max-width: 540px; }
 .hero-copy > * { animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
@@ -395,6 +399,7 @@ section { position: relative; }
   margin-top: 2px;
 }
 @media (max-width: 900px) {
+  .hero { min-height: 0; }
   .hero-grid { grid-template-columns: minmax(0, 1fr); }
   .hero-copy { max-width: none; }
   .hero-visual { max-width: 420px; margin: var(--space-4) auto 0; }
