@@ -79,20 +79,7 @@
     ],
     "portraitImage": "/assets/img/uploads/1786266413931-fb-img-1786194569512.jpg",
     "portraitImageAlt": "Pavel Zátrapa při práci na kovadlině ve své dílně",
-    "stats": [
-      {
-        "value": "35+",
-        "label": "let zkušeností"
-      },
-      {
-        "value": "1000+",
-        "label": "výrobků"
-      },
-      {
-        "value": "Evropa",
-        "label": "zákazníci"
-      }
-    ]
+    "stats": []
   },
   "services": {
     "eyebrow": "Služby",
