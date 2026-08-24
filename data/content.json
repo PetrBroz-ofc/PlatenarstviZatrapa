@@ -52,8 +52,12 @@
     "titleLine2": "PAVEL ZÁTRAPA",
     "subtitle": "Ručně vyráběné historické zbroje od roku 1990.",
     "description": "Každý kus vzniká tradičním způsobem s důrazem na historickou věrnost, detail a poctivé řemeslo.",
-    "image": "/assets/img/produkty/helma-uzavrena-01.jpg",
-    "imageAlt": "Uzavřená turnajová přilba s hledím a límcem, ruční práce",
+    "images": [
+      {
+        "image": "/assets/img/produkty/helma-uzavrena-01.jpg",
+        "alt": "Uzavřená turnajová přilba s hledím a límcem, ruční práce"
+      }
+    ],
     "badgeTop": "Od",
     "badgeYear": "1990",
     "buttons": [
@@ -73,9 +77,11 @@
     "eyebrow": "O mně",
     "title": "Řemeslo, které se nedá uspěchat",
     "paragraphs": [
-      "Od roku 1990 vyrábím historické plátové zbroje, přilby a rekvizity.",
-      "Mé výrobky používají zákazníci po celé Evropě.",
-      "Každý výrobek vzniká ručně v mé dílně."
+      "K plátnéřství jsem se dostal přes lásku k historii a řemeslu, které dneska umí jen málokdo — a od roku 1990 se mu věnuju naplno, ve vlastní dílně v Brně.",
+      "Každý kus — přilbu, kyrys, štít i meč — vyrábím ručně od začátku do konce: od prvního náčrtu podle dobových předloh přes tvarování a kování plechu až po poslední nýt. Nepoužívám sériovou výrobu ani polotovary — je to poctivá kovářská a platnéřská práce, stejná, jakou by poznal řemeslník před pěti sty lety.",
+      "Snažím se, aby výsledek nebyl jen hezký na pohled, ale hlavně historicky věrný a funkční — ať už jde o repliku pro reenactora, rekvizitu pro film a divadlo, nebo zakázku podle vlastního konceptu, která se od historie záměrně odchyluje.",
+      "Za ty roky jsem takhle vyrobil přes tisíc kusů a mé výrobky dnes najdete u zákazníků po celé Evropě — od šermířských skupin přes muzea až po filmové štáby.",
+      "Pokud máte představu, se kterou vám můžu pomoct — ať je to přesná historická rekonstrukce, nebo úplně originální kus — ozvěte se mi. Rád si o tom popovídáme."
     ],
     "portraitImage": "/assets/img/uploads/1786266413931-fb-img-1786194569512.jpg",
     "portraitImageAlt": "Pavel Zátrapa při práci na kovadlině ve své dílně",

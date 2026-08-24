@@ -97,6 +97,7 @@
     }),
     'news.items': () => ({ date: '2026', title: 'Nová událost', description: '' }),
     'hero.buttons': () => ({ label: 'Tlačítko', target: 'kontakt', style: 'ghost' }),
+    'hero.images': () => ({ image: '', alt: '' }),
     'nav.links': () => ({ label: 'Odkaz', target: 'kontakt' }),
     'about.stats': () => ({ value: '0', label: 'popisek' }),
     'about.paragraphs': () => '',
@@ -251,13 +252,16 @@
       ${fieldHTML('Popisek pod podtitulkem', 'content.hero.description', h.description, 'textarea')}
     `, 'Texty');
     html += card(`
-      ${fieldHTML('Fotografie vpravo', 'content.hero.image', h.image, 'image')}
-      ${fieldHTML('Alt text fotografie', 'content.hero.imageAlt', h.imageAlt)}
       <div class="field-row">
         ${fieldHTML('Štítek — horní řádek (např. Od)', 'content.hero.badgeTop', h.badgeTop)}
         ${fieldHTML('Štítek — rok (např. 1990)', 'content.hero.badgeYear', h.badgeYear)}
       </div>
-    `, 'Fotografie a štítek');
+    `, 'Štítek na fotografii');
+    html += card(renderArrayEditor('content.hero.images', h.images, [
+      { key: 'image', label: 'Fotografie', type: 'image' },
+      { key: 'alt', label: 'Alt text fotografie' }
+    ], (img, idx) => 'Fotografie ' + (idx + 1)) +
+      '<p style="font-size:12px;color:var(--color-text-secondary);margin-top:10px;">Fotky se ve vpravo v Hero střídají samy (prolínání po pár vteřinách). U jedné fotky se přepínání skryje automaticky.</p>', 'Fotografie (karusel)');
     html += card(renderArrayEditor('content.hero.buttons', h.buttons, [
       { key: 'label', label: 'Text tlačítka' },
       { key: 'target', label: 'Cíl (ID sekce, např. galerie)' },

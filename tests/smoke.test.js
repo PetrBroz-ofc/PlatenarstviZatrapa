@@ -109,6 +109,12 @@ test('Hero titulek odpovídá content.hero.titleLine1/2', () => {
   assertEqual(spans[1].textContent, content.hero.titleLine2);
 });
 
+test('počet fotek v Hero karuselu odpovídá content.hero.images', () => {
+  const slides = document.querySelectorAll('#heroSlider .hero-slide');
+  assertEqual(slides.length, content.hero.images.length);
+  assert(slides[0].classList.contains('is-active'), 'první fotka karuselu by měla být na začátku aktivní');
+});
+
 test('počet karet služeb odpovídá content.services.items', () => {
   const cards = document.querySelectorAll('.service-card');
   assertEqual(cards.length, content.services.items.length);

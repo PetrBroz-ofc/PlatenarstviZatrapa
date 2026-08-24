@@ -144,6 +144,39 @@
     if (btn) btn.addEventListener('click', dismiss);
   }
 
+  function setupHeroSlider() {
+    const frame = document.getElementById('heroSlider');
+    if (!frame) return;
+    const slides = Array.from(frame.querySelectorAll('.hero-slide'));
+    if (slides.length < 2) return;
+    const dots = Array.from(document.querySelectorAll('.hero-slide-dot'));
+    let current = 0;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function show(index) {
+      slides[current].classList.remove('is-active');
+      if (dots[current]) dots[current].classList.remove('is-active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('is-active');
+      if (dots[current]) dots[current].classList.add('is-active');
+    }
+
+    dots.forEach((dot, idx) => dot.addEventListener('click', () => {
+      show(idx);
+      resetTimer();
+    }));
+
+    let timer;
+    function resetTimer() {
+      clearInterval(timer);
+      // Respektuje prefers-reduced-motion — u lidí, co preferují méně pohybu,
+      // se fotky samy nestřídají, jen ručně přes tečky.
+      if (reduceMotion) return;
+      timer = setInterval(() => show(current + 1), 5000);
+    }
+    resetTimer();
+  }
+
   function init() {
     setupHeaderScroll();
     setupMobileMenu();
@@ -152,6 +185,7 @@
     setupFilter('catalogFilters', 'catalogGrid', '.product-card');
     setupLightbox();
     setupCookieBanner();
+    setupHeroSlider();
   }
 
   if (document.readyState === 'loading') {
