@@ -12,6 +12,12 @@
 
   const state = { lightboxIndex: 0 };
 
+  function escHtml(str) {
+    return String(str == null ? '' : str).replace(/[&<>"']/g, (c) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    })[c]);
+  }
+
   function setupHeaderScroll() {
     const header = document.getElementById('siteHeader');
     if (!header) return;
@@ -71,9 +77,85 @@
     }));
   }
 
+  // Sdílená logika "chytni a táhni myší" — používá ji Hero i vnitřní
+  // posuvník fotek v lightboxu. Navázáno JEDNOU na trvalé prvky (frame/
+  // track/dotsContainer) — i když se později obsah track/dots přepíše
+  // (nové fotky pro jiný exponát), listenery zůstávají v pořádku, protože
+  // jsou na kontejnerech, ne na jednotlivých snímcích/tečkách (tečky mají
+  // delegovaný klik na dotsContainer).
+  function createDragSlider(frame, track, dotsContainer) {
+    function slideCount() { return track.children.length; }
+    function slideWidth() { return track.clientWidth || 1; }
+    function setActiveDot(index) {
+      if (!dotsContainer) return;
+      Array.from(dotsContainer.children).forEach((d, i) => d.classList.toggle('is-active', i === index));
+    }
+    function goTo(index, smooth) {
+      const clamped = Math.max(0, Math.min(slideCount() - 1, index));
+      track.scrollTo({ left: clamped * slideWidth(), behavior: smooth === false ? 'auto' : 'smooth' });
+      setActiveDot(clamped);
+    }
+
+    let scrollTimer;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        const index = Math.round(track.scrollLeft / slideWidth());
+        setActiveDot(Math.max(0, Math.min(slideCount() - 1, index)));
+      }, 80);
+    }, { passive: true });
+
+    let isDown = false, startX = 0, startScroll = 0, moved = false;
+    track.addEventListener('mousedown', (e) => {
+      if (slideCount() < 2) return;
+      isDown = true;
+      moved = false;
+      frame.classList.add('is-dragging');
+      startX = e.pageX;
+      startScroll = track.scrollLeft;
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      const dx = e.pageX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      track.scrollLeft = startScroll - dx;
+    });
+    window.addEventListener('mouseup', () => {
+      if (!isDown) return;
+      isDown = false;
+      frame.classList.remove('is-dragging');
+      goTo(Math.round(track.scrollLeft / slideWidth()));
+    });
+    track.addEventListener('click', (e) => { if (moved) e.preventDefault(); });
+    track.addEventListener('wheel', (e) => {
+      if (slideCount() < 2) return;
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      track.scrollLeft += e.deltaY;
+      e.preventDefault();
+    }, { passive: false });
+
+    if (dotsContainer) {
+      dotsContainer.addEventListener('click', (e) => {
+        const dot = e.target.closest('.hero-slide-dot');
+        if (!dot) return;
+        goTo(Array.from(dotsContainer.children).indexOf(dot));
+      });
+    }
+
+    return { goTo, reset: () => { track.scrollLeft = 0; setActiveDot(0); } };
+  }
+
+  function setupHeroSlider() {
+    const frame = document.getElementById('heroSlider');
+    const track = document.getElementById('heroSliderTrack');
+    if (!frame || !track || track.children.length < 2) return;
+    createDragSlider(frame, track, document.querySelector('.hero-slide-dots'));
+  }
+
   // Lightbox čte data přímo z data-* atributů existujících .masonry-item
-  // prvků (title/material/year/category + <img src/alt>) — nic se
-  // znovu nefetchuje.
+  // prvků (title/material/year/category/description + JSON pole images) —
+  // nic se znovu nefetchuje. Vnitřní posuvník fotek dané položky jde
+  // chytit a táhnout myší stejně jako Hero.
   function setupLightbox() {
     const lb = document.getElementById('lightbox');
     const grid = document.getElementById('masonryGrid');
@@ -81,21 +163,38 @@
     const items = Array.from(grid.querySelectorAll('.masonry-item'));
     if (!items.length) return;
 
-    const img = document.getElementById('lightboxImg');
+    const frame = document.getElementById('lightboxSlider');
+    const track = document.getElementById('lightboxSliderTrack');
+    const dotsContainer = document.getElementById('lightboxSlideDots');
     const tag = document.getElementById('lightboxTag');
     const title = document.getElementById('lightboxTitle');
+    const description = document.getElementById('lightboxDescription');
     const material = document.getElementById('lightboxMaterial');
     const year = document.getElementById('lightboxYear');
     const category = document.getElementById('lightboxCategory');
+    const slider = createDragSlider(frame, track, dotsContainer);
 
     function open(index) {
       state.lightboxIndex = index;
       const el = items[index];
-      const srcImg = el.querySelector('img');
-      img.src = srcImg.src;
-      img.alt = srcImg.alt;
+      let images = [];
+      try { images = JSON.parse(el.dataset.images || '[]'); } catch (e) { images = []; }
+      if (!images.length) {
+        const srcImg = el.querySelector('img');
+        if (srcImg) images = [{ image: srcImg.getAttribute('src'), alt: srcImg.getAttribute('alt') }];
+      }
+      track.innerHTML = images.map(im =>
+        `<div class="hero-slide"><img src="${escHtml(im.image)}" alt="${escHtml(im.alt)}" draggable="false"></div>`
+      ).join('');
+      dotsContainer.innerHTML = images.length > 1
+        ? images.map((_, i) => `<button type="button" class="hero-slide-dot ${i === 0 ? 'is-active' : ''}" aria-label="Fotografie ${i + 1}"></button>`).join('')
+        : '';
+      frame.classList.toggle('is-draggable', images.length > 1);
+      slider.reset();
+
       tag.textContent = 'Exponát č. ' + String(index + 1).padStart(3, '0');
       title.textContent = el.dataset.title || '';
+      description.textContent = el.dataset.description || '';
       material.textContent = el.dataset.material || '—';
       year.textContent = el.dataset.year || '—';
       category.textContent = el.dataset.category || '';
@@ -142,80 +241,6 @@
     };
     const btn = document.getElementById('cookieBannerBtn');
     if (btn) btn.addEventListener('click', dismiss);
-  }
-
-  function setupHeroSlider() {
-    const frame = document.getElementById('heroSlider');
-    const track = document.getElementById('heroSliderTrack');
-    if (!frame || !track) return;
-    const slides = Array.from(track.querySelectorAll('.hero-slide'));
-    if (slides.length < 2) return;
-    const dots = Array.from(document.querySelectorAll('.hero-slide-dot'));
-
-    function slideWidth() {
-      return track.clientWidth || 1;
-    }
-    function goTo(index) {
-      const clamped = Math.max(0, Math.min(slides.length - 1, index));
-      track.scrollTo({ left: clamped * slideWidth(), behavior: 'smooth' });
-    }
-    function setActiveDot(index) {
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
-    }
-
-    // Tečky pod obrázkem — kliknutí posune pás na danou fotku.
-    dots.forEach((dot, idx) => dot.addEventListener('click', () => goTo(idx)));
-
-    // Podle skutečné pozice scrollu (ať už z tažení myší, prstem na dotyku,
-    // nebo kliku na tečku) se pozná, která fotka je zrovna nejvíc vidět,
-    // a podle toho se zvýrazní odpovídající tečka.
-    let scrollTimer;
-    track.addEventListener('scroll', () => {
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        const index = Math.round(track.scrollLeft / slideWidth());
-        setActiveDot(Math.max(0, Math.min(slides.length - 1, index)));
-      }, 80);
-    }, { passive: true });
-
-    // Táhnutí myší (na dotykových zařízeních funguje posouvání prstem
-    // nativně díky overflow-x: auto, tam žádný extra JS není potřeba).
-    let isDown = false;
-    let startX = 0;
-    let startScroll = 0;
-    let moved = false;
-
-    track.addEventListener('mousedown', (e) => {
-      isDown = true;
-      moved = false;
-      frame.classList.add('is-dragging');
-      startX = e.pageX;
-      startScroll = track.scrollLeft;
-    });
-    window.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      const dx = e.pageX - startX;
-      if (Math.abs(dx) > 4) moved = true;
-      track.scrollLeft = startScroll - dx;
-    });
-    window.addEventListener('mouseup', () => {
-      if (!isDown) return;
-      isDown = false;
-      frame.classList.remove('is-dragging');
-      const index = Math.round(track.scrollLeft / slideWidth());
-      goTo(index);
-    });
-    // Klik na fotku po skutečném tažení by nic neměl dělat (např. kdyby
-    // pod fotkou byl odkaz) — tady odkaz není, ale je to slušná pojistka.
-    track.addEventListener('click', (e) => { if (moved) e.preventDefault(); });
-
-    // Kolečko myši / touchpad ve vodorovný posun, ať jde galerií projíždět
-    // i bez tažení.
-    track.addEventListener('wheel', (e) => {
-      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-      track.scrollLeft += e.deltaY;
-      e.preventDefault();
-    }, { passive: false });
   }
 
   function init() {

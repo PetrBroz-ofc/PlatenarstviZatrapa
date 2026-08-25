@@ -22,7 +22,10 @@
 <meta name="twitter:description" content="Ruční výroba historických přileb, plátových zbrojí, štítů a chladných zbraní. Zakázková výroba pro reenactment, film a divadlo. Brno, od roku 1990.">
 <meta name="twitter:image" content="https://platnerstvi-zatrapa.cz/assets/img/produkty/helma-salet-01.jpg">
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/brand/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
@@ -81,8 +84,11 @@
 <header class="site-header" id="siteHeader">
       <div class="container">
         <a href="#" class="logo">
-          <span class="logo-main">Platnéřství</span>
-          <span class="logo-sub">Pavel Zátrapa</span>
+          <img src="/assets/img/brand/logo-pz-mark.png" alt="" class="logo-mark" width="36" height="36">
+          <span class="logo-text">
+            <span class="logo-main">Platnéřství</span>
+            <span class="logo-sub">Pavel Zátrapa</span>
+          </span>
         </a>
         <nav class="nav-links" aria-label="Hlavní navigace"><a href="/#o-mne">O mně</a><a href="/#sluzby">Služby</a><a href="/#galerie">Galerie</a><a href="/#katalog">Katalog</a><a href="/#novinky">Novinky</a><a href="/#kontakt">Kontakt</a></nav>
         <div class="nav-right">
@@ -104,10 +110,10 @@
           <div class="hero-actions"><a class="btn btn-primary" href="#galerie">Prohlédnout galerii <span class="hero-btn-arrow">→</span></a><a class="btn btn-ghost" href="#kontakt">Nezávazná poptávka</a></div>
         </div>
         <div class="hero-visual">
-          <div class="hero-image-frame is-draggable" id="heroSlider">
-            <div class="hero-slider-track" id="heroSliderTrack"><div class="hero-slide"><img src="/assets/img/produkty/helma-uzavrena-01.jpg" alt="Uzavřená turnajová přilba s hledím a límcem, ruční práce" loading="eager" draggable="false"></div><div class="hero-slide"><img src="https://scontent-prg1-1.xx.fbcdn.net/v/t39.99422-6/723853198_1839995880306425_2167514459128896458_n.png?stp=dst-jpg_tt6&amp;cstp=mx1547x1948&amp;ctp=s590x590&amp;_nc_cat=107&amp;ccb=1-7&amp;_nc_sid=833d8c&amp;_nc_ohc=SUbtJoaWKwgQ7kNvwF4HmiR&amp;_nc_oc=AdrmqaQyHp7ItlnpEc_YXOPnJocLxbTiNDi1GPEx-O0Hd26NzCWCavtCqGwqolMP0QQ&amp;_nc_zt=14&amp;_nc_ht=scontent-prg1-1.xx&amp;_nc_gid=26zVOCkNx6893T1ZXR0GqQ&amp;_nc_ss=7b2a8&amp;oh=00_AQEY8KMvqjupaGst6cHHkBZ3I9c-SFqEtgNJaj-COkyWbA&amp;oe=6A925F6D" alt="" loading="lazy" draggable="false"></div><div class="hero-slide"><img src="https://scontent-prg1-1.xx.fbcdn.net/v/t39.30808-6/533145314_1235475575043555_8120240060440999386_n.jpg?stp=dst-jpg_tt6&amp;cstp=mx1536x2048&amp;ctp=s590x590&amp;_nc_cat=101&amp;ccb=1-7&amp;_nc_sid=833d8c&amp;_nc_ohc=PNL4qBdJLscQ7kNvwGjyOYJ&amp;_nc_oc=AdqhVcSJ6yurH1rIBhFjfuRAMIesbXFVoO2XYKgtdiMIZZ0mntN72WWqOtXehfzOpqQ&amp;_nc_zt=23&amp;_nc_ht=scontent-prg1-1.xx&amp;_nc_gid=dZbfVhEoyEZyHBKCW_LYDA&amp;_nc_ss=7b2a8&amp;oh=00_AQHNedp-E9ny9NuElvR426HxUxL4lR-2m9KzvUpDOBQ8Xg&amp;oe=6A9252CC" alt="" loading="lazy" draggable="false"></div></div>
+          <div class="hero-image-frame " id="heroSlider">
+            <div class="hero-slider-track" id="heroSliderTrack"><div class="hero-slide"><img src="/assets/img/produkty/helma-uzavrena-01.jpg" alt="Uzavřená turnajová přilba s hledím a límcem, ruční práce" loading="eager" draggable="false"></div></div>
           </div>
-          <div class="hero-slide-dots"><button type="button" class="hero-slide-dot is-active" data-slide="0" aria-label="Fotografie 1"></button><button type="button" class="hero-slide-dot " data-slide="1" aria-label="Fotografie 2"></button><button type="button" class="hero-slide-dot " data-slide="2" aria-label="Fotografie 3"></button></div>
+          
           <div class="hero-badge">
             <span class="hero-badge-top">Od</span>
             <span class="hero-badge-year">1990</span>
@@ -174,72 +180,52 @@
         <div class="gallery-filters reveal" id="galleryFilters"><button class="filter-btn is-active" data-filter="Vše">Vše</button><button class="filter-btn " data-filter="Přilby">Přilby</button><button class="filter-btn " data-filter="Kyrysy">Kyrysy</button></div>
         <div class="masonry" id="masonryGrid">
       <figure class="masonry-item reveal" data-category="Přilby" data-index="0"
-        data-title="Salet s hledím" data-material="Ocel, mosaz" data-year="2024">
+        data-title="Salet s hledím" data-material="Ocel, mosaz" data-year="2024"
+        data-description="Pozdně gotický salet s pohyblivým hledím, vyrobený na míru podle obvodu hlavy. Hledí lze zvednout pro lepší výhled a vzduch, interiér má kožené podšití s přezkou pro pohodlné a bezpečné nošení." data-images="[{&quot;image&quot;:&quot;/assets/img/produkty/helma-salet-01.jpg&quot;,&quot;alt&quot;:&quot;Pozdně gotický salet s hledím, boční tříčtvrteční pohled&quot;},{&quot;image&quot;:&quot;/assets/img/produkty/helma-salet-04-hledi.jpg&quot;,&quot;alt&quot;:&quot;Salet s pohyblivým hledím v otevřené poloze&quot;},{&quot;image&quot;:&quot;/assets/img/produkty/helma-salet-05-interier.jpg&quot;,&quot;alt&quot;:&quot;Pohled do interiéru saletu s koženým podšitím a přezkou&quot;}]">
         <img src="/assets/img/produkty/helma-salet-01.jpg" alt="Pozdně gotický salet s hledím, boční tříčtvrteční pohled" loading="lazy">
+        <span class="masonry-count">3 fotky</span>
         <figcaption class="masonry-caption">
           <div class="cat">Přilby</div>
           <div class="name">Salet s hledím</div>
         </figcaption>
       </figure>
       <figure class="masonry-item reveal" data-category="Přilby" data-index="1"
-        data-title="Salet — otevřené hledí" data-material="Ocel, mosaz" data-year="2024">
-        <img src="/assets/img/produkty/helma-salet-04-hledi.jpg" alt="Salet s pohyblivým hledím v otevřené poloze" loading="lazy">
-        <figcaption class="masonry-caption">
-          <div class="cat">Přilby</div>
-          <div class="name">Salet — otevřené hledí</div>
-        </figcaption>
-      </figure>
-      <figure class="masonry-item reveal" data-category="Přilby" data-index="2"
-        data-title="Salet — interiér s podšitím" data-material="Ocel, useň" data-year="2024">
-        <img src="/assets/img/produkty/helma-salet-05-interier.jpg" alt="Pohled do interiéru saletu s koženým podšitím a přezkou" loading="lazy">
-        <figcaption class="masonry-caption">
-          <div class="cat">Přilby</div>
-          <div class="name">Salet — interiér s podšitím</div>
-        </figcaption>
-      </figure>
-      <figure class="masonry-item reveal" data-category="Přilby" data-index="3"
-        data-title="Uzavřená turnajová přilba" data-material="Ocel" data-year="2023">
+        data-title="Uzavřená turnajová přilba" data-material="Ocel" data-year="2023"
+        data-description="Uzavřená přilba s límcem, vhodná pro turnajové souboje i jako výstavní kus. Hvězdicový větrací otvor v čelní části zajišťuje průduch vzduchu při delším nošení." data-images="[{&quot;image&quot;:&quot;/assets/img/produkty/helma-uzavrena-01.jpg&quot;,&quot;alt&quot;:&quot;Uzavřená turnajová přilba s límcem, čelní pohled&quot;},{&quot;image&quot;:&quot;/assets/img/produkty/helma-uzavrena-02.jpg&quot;,&quot;alt&quot;:&quot;Detail hvězdicového větracího otvoru na turnajové přilbě&quot;}]">
         <img src="/assets/img/produkty/helma-uzavrena-01.jpg" alt="Uzavřená turnajová přilba s límcem, čelní pohled" loading="lazy">
+        <span class="masonry-count">2 fotky</span>
         <figcaption class="masonry-caption">
           <div class="cat">Přilby</div>
           <div class="name">Uzavřená turnajová přilba</div>
         </figcaption>
       </figure>
-      <figure class="masonry-item reveal" data-category="Přilby" data-index="4"
-        data-title="Turnajová přilba — detail větrání" data-material="Ocel" data-year="2023">
-        <img src="/assets/img/produkty/helma-uzavrena-02.jpg" alt="Detail hvězdicového větracího otvoru na turnajové přilbě" loading="lazy">
-        <figcaption class="masonry-caption">
-          <div class="cat">Přilby</div>
-          <div class="name">Turnajová přilba — detail větrání</div>
-        </figcaption>
-      </figure>
-      <figure class="masonry-item reveal" data-category="Kyrysy" data-index="5"
-        data-title="Maximiliánský kyrys" data-material="Ocel" data-year="2024">
+      <figure class="masonry-item reveal" data-category="Kyrysy" data-index="2"
+        data-title="Maximiliánský kyrys" data-material="Ocel" data-year="2024"
+        data-description="Kyrys v maximiliánském stylu s charakteristickým žebrováním, které zvyšuje tuhost plechu a zároveň odvádí zásahy. Tvarováno na míru, nasazeno na figuríně pro ukázku siluety." data-images="[{&quot;image&quot;:&quot;/assets/img/produkty/kyrys-01.jpg&quot;,&quot;alt&quot;:&quot;Maximiliánský kyrys s žebrováním, nasazený na figuríně&quot;},{&quot;image&quot;:&quot;/assets/img/produkty/kyrys-02-detail.jpg&quot;,&quot;alt&quot;:&quot;Detail žebrování a tvarování plechu na kyrysu&quot;}]">
         <img src="/assets/img/produkty/kyrys-01.jpg" alt="Maximiliánský kyrys s žebrováním, nasazený na figuríně" loading="lazy">
+        <span class="masonry-count">2 fotky</span>
         <figcaption class="masonry-caption">
           <div class="cat">Kyrysy</div>
           <div class="name">Maximiliánský kyrys</div>
-        </figcaption>
-      </figure>
-      <figure class="masonry-item reveal" data-category="Kyrysy" data-index="6"
-        data-title="Kyrys — detail vypracování" data-material="Ocel" data-year="2024">
-        <img src="/assets/img/produkty/kyrys-02-detail.jpg" alt="Detail žebrování a tvarování plechu na kyrysu" loading="lazy">
-        <figcaption class="masonry-caption">
-          <div class="cat">Kyrysy</div>
-          <div class="name">Kyrys — detail vypracování</div>
         </figcaption>
       </figure></div>
       </div>
     </section>
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Detail exponátu">
       <button class="lightbox-close" id="lightboxClose" aria-label="Zavřít">✕</button>
-      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Předchozí">‹</button>
-      <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Další">›</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Předchozí exponát">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Další exponát">›</button>
       <div class="lightbox-inner">
-        <div class="lightbox-image"><img id="lightboxImg" src="" alt=""></div>
+        <div class="lightbox-image">
+          <div class="hero-image-frame" id="lightboxSlider">
+            <div class="hero-slider-track" id="lightboxSliderTrack"></div>
+          </div>
+          <div class="hero-slide-dots" id="lightboxSlideDots"></div>
+        </div>
         <div class="lightbox-plate">
           <div class="plate-tag" id="lightboxTag">Exponát</div>
           <h3 id="lightboxTitle"></h3>
+          <p class="plate-description" id="lightboxDescription"></p>
           <div class="plate-row"><span>Materiál</span><span id="lightboxMaterial"></span></div>
           <div class="plate-row"><span>Rok</span><span id="lightboxYear"></span></div>
           <div class="plate-row"><span>Kategorie</span><span id="lightboxCategory"></span></div>

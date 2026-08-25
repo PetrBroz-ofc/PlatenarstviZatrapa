@@ -89,7 +89,7 @@
     'services.items': () => ({ icon: 'helmet', title: 'Nová služba', description: 'Popis služby.' }),
     'gallery.items': () => ({
       id: 'g' + Date.now(), category: state.content.gallery.categories[1] || 'Přilby',
-      title: 'Nový exponát', material: '', year: '', image: '', imageAlt: ''
+      title: 'Nový exponát', material: '', year: '', description: '', images: []
     }),
     'catalog.products': () => ({
       id: 'p' + Date.now(), name: 'Nový produkt', category: state.content.catalog.categories[1] || 'Přilby', description: '', price: '0 Kč',
@@ -117,8 +117,18 @@
     const { root, subPath } = resolveRoot(fullPath);
     const arr = getPath(root, subPath);
     if (!Array.isArray(arr)) return;
-    const factory = ARRAY_TEMPLATES[subPath];
+    const factory = resolveArrayTemplate(subPath);
     arr.push(factory ? factory() : {});
+  }
+
+  // Pro pole se stálou cestou (např. "hero.buttons") stačí přesná shoda.
+  // Pro pole vnořené uvnitř jiného pole na proměnném indexu (např.
+  // "gallery.items.3.images") přesná shoda nejde — pozná se podle toho,
+  // na co cesta končí.
+  function resolveArrayTemplate(subPath) {
+    if (ARRAY_TEMPLATES[subPath]) return ARRAY_TEMPLATES[subPath];
+    if (/\.images$/.test(subPath)) return () => ({ image: '', alt: '' });
+    return null;
   }
 
   /* ---------------- Generování polí ---------------- */
@@ -133,6 +143,15 @@
   function fieldHTML(label, path, value, type, opts) {
     opts = opts || {};
     const id = 'f-' + path.replace(/\./g, '-') + (opts.suffix || '');
+    if (type === 'checkbox') {
+      const checked = value !== false ? 'checked' : '';
+      return `<div class="field-group field-checkbox">
+        <label class="checkbox-label" for="${id}">
+          <input type="checkbox" id="${id}" data-bind-checkbox="${path}" ${checked}>
+          <span>${esc(label)}</span>
+        </label>
+      </div>`;
+    }
     if (type === 'textarea') {
       return `<div class="field-group"><label for="${id}">${esc(label)}</label><textarea id="${id}" data-bind="${path}">${esc(value)}</textarea></div>`;
     }
@@ -252,6 +271,7 @@
       ${fieldHTML('Popisek pod podtitulkem', 'content.hero.description', h.description, 'textarea')}
     `, 'Texty');
     html += card(`
+      ${fieldHTML('Zobrazit kulatý štítek na fotografii', 'content.hero.badgeVisible', h.badgeVisible, 'checkbox')}
       <div class="field-row">
         ${fieldHTML('Štítek — horní řádek (např. Od)', 'content.hero.badgeTop', h.badgeTop)}
         ${fieldHTML('Štítek — rok (např. 1990)', 'content.hero.badgeYear', h.badgeYear)}
@@ -304,10 +324,39 @@
     return html;
   }
 
+  function renderGalleryItemsEditor(basePath, items, catOptions) {
+    let html = '';
+    items.forEach((item, idx) => {
+      const itemPath = `${basePath}.${idx}`;
+      const images = item.images || [];
+      html += `<div class="repeat-card" data-array-path="${basePath}" data-item-index="${idx}">
+        ${reorderHead(basePath, idx, items.length, item.title || ('Exponát ' + (idx + 1)))}
+        <div class="field-row">
+          ${fieldHTML('Kategorie', `${itemPath}.category`, item.category, 'select', { options: catOptions })}
+          ${fieldHTML('Název', `${itemPath}.title`, item.title)}
+        </div>
+        <div class="field-row">
+          ${fieldHTML('Materiál', `${itemPath}.material`, item.material)}
+          ${fieldHTML('Rok', `${itemPath}.year`, item.year)}
+        </div>
+        ${fieldHTML('Popis (zobrazí se po rozkliknutí)', `${itemPath}.description`, item.description, 'textarea')}
+        <div class="gallery-item-images">
+          <div class="gallery-item-images-label">Fotografie tohoto exponátu (jde jich přidat víc, po rozkliknutí se dají procházet)</div>
+          ${renderArrayEditor(`${itemPath}.images`, images, [
+            { key: 'image', label: 'Fotografie', type: 'image' },
+            { key: 'alt', label: 'Alt text fotografie' }
+          ], (img, i) => 'Fotografie ' + (i + 1))}
+        </div>
+      </div>`;
+    });
+    html += `<div class="add-btn-row"><button type="button" class="btn-admin" data-add="${basePath}">${ICON_ADD} Přidat exponát</button></div>`;
+    return html;
+  }
+
   function tabGallery() {
     const g = state.content.gallery;
     const catOptions = g.categories.filter(c => c !== 'Vše').map(c => ({ value: c, label: c }));
-    let html = heading('Galerie', 'Nejdůležitější část webu — realizované zakázky.');
+    let html = heading('Galerie', 'Nejdůležitější část webu — realizované zakázky. Každý exponát může mít víc fotek (procházejí se po rozkliknutí tažením myší nebo tečkami) a vlastní popis.');
     html += card(`
       ${fieldHTML('Eyebrow', 'content.gallery.eyebrow', g.eyebrow)}
       ${fieldHTML('Nadpis sekce', 'content.gallery.title', g.title)}
@@ -315,14 +364,7 @@
     `, 'Texty');
     html += card(renderStringArrayEditor('content.gallery.categories', g.categories, 'Kategorie') +
       '<p style="font-size:12px;color:var(--color-text-secondary);margin-top:10px;">První položka „Vše“ by měla zůstat zachována.</p>', 'Kategorie (filtr)');
-    html += card(renderArrayEditor('content.gallery.items', g.items, [
-      { key: 'category', label: 'Kategorie', type: 'select', opts: { options: catOptions } },
-      { key: 'title', label: 'Název' },
-      { key: 'material', label: 'Materiál' },
-      { key: 'year', label: 'Rok' },
-      { key: 'image', label: 'Fotografie', type: 'image' },
-      { key: 'imageAlt', label: 'Alt text fotografie' }
-    ], (it) => it.title), 'Exponáty');
+    html += card(renderGalleryItemsEditor('content.gallery.items', g.items, catOptions), 'Exponáty');
     return html;
   }
 
@@ -554,6 +596,14 @@
     container.querySelectorAll('[data-bind]').forEach(el => {
       const evt = el.tagName === 'SELECT' ? 'change' : 'input';
       el.addEventListener(evt, () => handleBind(el));
+    });
+    container.querySelectorAll('[data-bind-checkbox]').forEach(el => {
+      el.addEventListener('change', () => {
+        const path = el.getAttribute('data-bind-checkbox');
+        const { root, subPath } = resolveRoot(path);
+        setPath(root, subPath, el.checked);
+        markDirty();
+      });
     });
     container.querySelectorAll('[data-upload-target]').forEach(el => {
       el.addEventListener('change', () => handleUpload(el));

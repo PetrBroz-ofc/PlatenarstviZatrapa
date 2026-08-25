@@ -194,7 +194,9 @@ section { position: relative; }
   align-items: center;
   justify-content: space-between;
 }
-.logo { display: flex; flex-direction: column; line-height: 1.1; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-mark { display: block; flex-shrink: 0; width: 36px; height: 36px; object-fit: contain; }
+.logo-text { display: flex; flex-direction: column; line-height: 1.1; }
 .logo-main {
   font-family: var(--font-display);
   font-size: 19px;
@@ -614,6 +616,18 @@ section { position: relative; }
   filter: grayscale(10%);
 }
 .masonry-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
+.masonry-count {
+  position: absolute;
+  top: 12px; right: 12px;
+  z-index: 1;
+  background: rgba(15,15,16,0.72);
+  color: #F4F4F2;
+  font-family: var(--font-utility);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 5px 10px;
+  border-radius: 999px;
+}
 .masonry-caption {
   position: absolute; left: 0; right: 0; bottom: 0;
   padding: var(--space-3) var(--space-2) var(--space-2);
@@ -661,14 +675,23 @@ section { position: relative; }
   background: var(--color-surface);
   border: 1px solid var(--color-border);
 }
-.lightbox-image { overflow: hidden; background: var(--color-surface-alt); display: flex; align-items: center; justify-content: center; }
-.lightbox-image img { width: 100%; height: 100%; object-fit: contain; max-height: 86vh; }
+.lightbox-image { position: relative; overflow: hidden; background: var(--color-surface-alt); display: flex; align-items: center; justify-content: center; }
+.lightbox-image .hero-image-frame {
+  aspect-ratio: auto;
+  width: 100%; height: 100%;
+  border-radius: 0;
+  box-shadow: none;
+}
+.lightbox-image .hero-slide { background: var(--color-surface-alt); }
+.lightbox-image .hero-slide img { object-fit: contain; max-height: 86vh; }
+.lightbox-image .hero-slide-dots { bottom: 14px; }
 .lightbox-plate {
   padding: var(--space-4) var(--space-3);
   border-left: 1px solid var(--color-accent);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-y: auto;
 }
 .lightbox-plate .plate-tag {
   font-family: var(--font-utility);
@@ -683,6 +706,13 @@ section { position: relative; }
   font-size: 28px;
   margin-bottom: var(--space-2);
 }
+.plate-description {
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: var(--space-2);
+}
+.plate-description:empty { display: none; }
 .plate-row {
   display: flex;
   justify-content: space-between;
@@ -722,7 +752,8 @@ section { position: relative; }
 @media (max-width: 820px) {
   .lightbox { padding: 12px; align-items: flex-start; }
   .lightbox-inner { grid-template-columns: 1fr; overflow-y: auto; max-height: calc(100vh - 24px); margin-top: 56px; }
-  .lightbox-image img { max-height: 42vh; }
+  .lightbox-image .hero-slide img { max-height: 42vh; }
+  .lightbox-image .hero-image-frame { aspect-ratio: 4 / 3; }
   .lightbox-plate { border-left: none; border-top: 1px solid var(--color-accent); }
   .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; background: var(--color-surface); border-color: var(--color-border); color: var(--color-text); }
   /* Šipky vpřed/zpět na mobilu schované — při scrollování dlouhé karty by

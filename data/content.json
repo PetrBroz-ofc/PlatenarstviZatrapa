@@ -2,7 +2,7 @@
   "site": {
     "name": "Platnéřství Pavel Zátrapa",
     "tagline": "Ručně vyráběné historické zbroje od roku 1990",
-    "favicon": "/favicon.svg",
+    "favicon": "/favicon.ico",
     "language": "cs"
   },
   "seo": {
@@ -56,14 +56,6 @@
       {
         "image": "/assets/img/produkty/helma-uzavrena-01.jpg",
         "alt": "Uzavřená turnajová přilba s hledím a límcem, ruční práce"
-      },
-      {
-        "image": "https://scontent-prg1-1.xx.fbcdn.net/v/t39.99422-6/723853198_1839995880306425_2167514459128896458_n.png?stp=dst-jpg_tt6&cstp=mx1547x1948&ctp=s590x590&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=SUbtJoaWKwgQ7kNvwF4HmiR&_nc_oc=AdrmqaQyHp7ItlnpEc_YXOPnJocLxbTiNDi1GPEx-O0Hd26NzCWCavtCqGwqolMP0QQ&_nc_zt=14&_nc_ht=scontent-prg1-1.xx&_nc_gid=26zVOCkNx6893T1ZXR0GqQ&_nc_ss=7b2a8&oh=00_AQEY8KMvqjupaGst6cHHkBZ3I9c-SFqEtgNJaj-COkyWbA&oe=6A925F6D",
-        "alt": ""
-      },
-      {
-        "image": "https://scontent-prg1-1.xx.fbcdn.net/v/t39.30808-6/533145314_1235475575043555_8120240060440999386_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=PNL4qBdJLscQ7kNvwGjyOYJ&_nc_oc=AdqhVcSJ6yurH1rIBhFjfuRAMIesbXFVoO2XYKgtdiMIZZ0mntN72WWqOtXehfzOpqQ&_nc_zt=23&_nc_ht=scontent-prg1-1.xx&_nc_gid=dZbfVhEoyEZyHBKCW_LYDA&_nc_ss=7b2a8&oh=00_AQHNedp-E9ny9NuElvR426HxUxL4lR-2m9KzvUpDOBQ8Xg&oe=6A9252CC",
-        "alt": ""
       }
     ],
     "badgeTop": "Od",
@@ -79,7 +71,8 @@
         "target": "kontakt",
         "style": "ghost"
       }
-    ]
+    ],
+    "badgeVisible": true
   },
   "about": {
     "eyebrow": "O mně",
@@ -142,62 +135,57 @@
         "title": "Salet s hledím",
         "material": "Ocel, mosaz",
         "year": "2024",
-        "image": "/assets/img/produkty/helma-salet-01.jpg",
-        "imageAlt": "Pozdně gotický salet s hledím, boční tříčtvrteční pohled"
+        "description": "Pozdně gotický salet s pohyblivým hledím, vyrobený na míru podle obvodu hlavy. Hledí lze zvednout pro lepší výhled a vzduch, interiér má kožené podšití s přezkou pro pohodlné a bezpečné nošení.",
+        "images": [
+          {
+            "image": "/assets/img/produkty/helma-salet-01.jpg",
+            "alt": "Pozdně gotický salet s hledím, boční tříčtvrteční pohled"
+          },
+          {
+            "image": "/assets/img/produkty/helma-salet-04-hledi.jpg",
+            "alt": "Salet s pohyblivým hledím v otevřené poloze"
+          },
+          {
+            "image": "/assets/img/produkty/helma-salet-05-interier.jpg",
+            "alt": "Pohled do interiéru saletu s koženým podšitím a přezkou"
+          }
+        ]
       },
       {
         "id": "g002",
         "category": "Přilby",
-        "title": "Salet — otevřené hledí",
-        "material": "Ocel, mosaz",
-        "year": "2024",
-        "image": "/assets/img/produkty/helma-salet-04-hledi.jpg",
-        "imageAlt": "Salet s pohyblivým hledím v otevřené poloze"
-      },
-      {
-        "id": "g003",
-        "category": "Přilby",
-        "title": "Salet — interiér s podšitím",
-        "material": "Ocel, useň",
-        "year": "2024",
-        "image": "/assets/img/produkty/helma-salet-05-interier.jpg",
-        "imageAlt": "Pohled do interiéru saletu s koženým podšitím a přezkou"
-      },
-      {
-        "id": "g004",
-        "category": "Přilby",
         "title": "Uzavřená turnajová přilba",
         "material": "Ocel",
         "year": "2023",
-        "image": "/assets/img/produkty/helma-uzavrena-01.jpg",
-        "imageAlt": "Uzavřená turnajová přilba s límcem, čelní pohled"
+        "description": "Uzavřená přilba s límcem, vhodná pro turnajové souboje i jako výstavní kus. Hvězdicový větrací otvor v čelní části zajišťuje průduch vzduchu při delším nošení.",
+        "images": [
+          {
+            "image": "/assets/img/produkty/helma-uzavrena-01.jpg",
+            "alt": "Uzavřená turnajová přilba s límcem, čelní pohled"
+          },
+          {
+            "image": "/assets/img/produkty/helma-uzavrena-02.jpg",
+            "alt": "Detail hvězdicového větracího otvoru na turnajové přilbě"
+          }
+        ]
       },
       {
-        "id": "g005",
-        "category": "Přilby",
-        "title": "Turnajová přilba — detail větrání",
-        "material": "Ocel",
-        "year": "2023",
-        "image": "/assets/img/produkty/helma-uzavrena-02.jpg",
-        "imageAlt": "Detail hvězdicového větracího otvoru na turnajové přilbě"
-      },
-      {
-        "id": "g006",
+        "id": "g003",
         "category": "Kyrysy",
         "title": "Maximiliánský kyrys",
         "material": "Ocel",
         "year": "2024",
-        "image": "/assets/img/produkty/kyrys-01.jpg",
-        "imageAlt": "Maximiliánský kyrys s žebrováním, nasazený na figuríně"
-      },
-      {
-        "id": "g007",
-        "category": "Kyrysy",
-        "title": "Kyrys — detail vypracování",
-        "material": "Ocel",
-        "year": "2024",
-        "image": "/assets/img/produkty/kyrys-02-detail.jpg",
-        "imageAlt": "Detail žebrování a tvarování plechu na kyrysu"
+        "description": "Kyrys v maximiliánském stylu s charakteristickým žebrováním, které zvyšuje tuhost plechu a zároveň odvádí zásahy. Tvarováno na míru, nasazeno na figuríně pro ukázku siluety.",
+        "images": [
+          {
+            "image": "/assets/img/produkty/kyrys-01.jpg",
+            "alt": "Maximiliánský kyrys s žebrováním, nasazený na figuríně"
+          },
+          {
+            "image": "/assets/img/produkty/kyrys-02-detail.jpg",
+            "alt": "Detail žebrování a tvarování plechu na kyrysu"
+          }
+        ]
       }
     ]
   },

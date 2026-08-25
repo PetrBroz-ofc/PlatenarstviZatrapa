@@ -196,6 +196,10 @@ if (content.gallery.items.length > 0) {
     assert(lightbox.classList.contains('is-open'), 'lightbox se neotevřel');
     const title = document.getElementById('lightboxTitle').textContent;
     assertEqual(title, content.gallery.items[0].title);
+    const description = document.getElementById('lightboxDescription').textContent;
+    assertEqual(description, content.gallery.items[0].description || '');
+    const slides = document.querySelectorAll('#lightboxSliderTrack .hero-slide');
+    assertEqual(slides.length, (content.gallery.items[0].images || []).length);
     document.getElementById('lightboxClose').dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
     assert(!lightbox.classList.contains('is-open'), 'lightbox se nezavřel');
   });

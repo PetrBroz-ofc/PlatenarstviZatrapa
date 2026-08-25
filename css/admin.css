@@ -42,12 +42,8 @@ body.admin-body {
   align-items: center;
   gap: 10px;
 }
-.admin-login-brand::before {
-  content: '';
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-accent);
-}
+.admin-login-brand::before { display: none; }
+.admin-login-brand img { width: 22px; height: 22px; object-fit: contain; }
 .admin-login-card h1 {
   font-family: var(--font-display);
   font-size: 24px;
@@ -105,11 +101,13 @@ body.admin-body {
   border-radius: 50%;
   border: 1.5px solid var(--color-accent);
   display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
   color: var(--color-accent);
   font-family: var(--font-display);
   font-size: 13px;
   flex-shrink: 0;
 }
+.admin-brand-mark img { width: 100%; height: 100%; object-fit: contain; padding: 4px; box-sizing: border-box; background: #F4F1E6; }
 .admin-brand-text { display: flex; flex-direction: column; line-height: 1.25; }
 .admin-brand-text strong { font-family: var(--font-display); color: #F4F1E6; font-size: 14.5px; letter-spacing: 0.02em; }
 .admin-brand-text span { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,241,230,0.4); }
@@ -320,6 +318,21 @@ body.admin-body {
 }
 .color-field input[type="text"] { flex: 1; }
 
+.field-checkbox { margin-bottom: 14px; }
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--color-text);
+}
+.checkbox-label input[type="checkbox"] {
+  width: 18px; height: 18px;
+  accent-color: var(--color-accent-dim);
+  cursor: pointer;
+}
+
 .repeat-card {
   border-top: 1px solid var(--color-border);
   padding: 20px 0;
@@ -359,6 +372,21 @@ body.admin-body {
 .reorder-btns .btn-admin.small { padding: 6px 9px; }
 .reorder-btns .btn-admin.small svg { width: 13px; height: 13px; }
 .add-btn-row { margin-top: 16px; }
+.gallery-item-images {
+  margin-top: 18px;
+  padding: 16px 16px 4px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+.gallery-item-images-label {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.gallery-item-images .repeat-card { padding: 14px 0; }
+.gallery-item-images .repeat-card-head { margin-bottom: 10px; }
 .thumb-preview {
   width: 140px;
   aspect-ratio: 4/3;
