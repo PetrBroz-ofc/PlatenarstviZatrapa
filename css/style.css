@@ -442,9 +442,9 @@ section { position: relative; }
 }
 @media (max-width: 900px) {
   .hero { min-height: 0; }
-  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
   .hero-copy { max-width: none; }
-  .hero-visual { max-width: 420px; margin: var(--space-4) auto 0; }
+  .hero-visual { max-width: 420px; margin: 0 auto; }
 }
 @media (max-width: 860px) {
   /* Od 860px dolů hlavička ztrácí vodorovné menu (viz .nav-links), takže
