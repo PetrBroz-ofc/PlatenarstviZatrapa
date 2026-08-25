@@ -142,14 +142,45 @@
       });
     }
 
-    return { goTo, reset: () => { track.scrollLeft = 0; setActiveDot(0); } };
+    return {
+      goTo,
+      getIndex: () => Math.round(track.scrollLeft / slideWidth()),
+      reset: () => { track.scrollLeft = 0; setActiveDot(0); }
+    };
   }
 
   function setupHeroSlider() {
     const frame = document.getElementById('heroSlider');
     const track = document.getElementById('heroSliderTrack');
     if (!frame || !track || track.children.length < 2) return;
-    createDragSlider(frame, track, document.querySelector('.hero-slide-dots'));
+    const slider = createDragSlider(frame, track, document.querySelector('.hero-slide-dots'));
+
+    // Automatické přehrávání dalších fotek — zastaví se, dokud uživatel
+    // s karuselem sám nějak nehýbe (tažení, kolečko, klik na tečku), a
+    // respektuje nastavení "méně animací" v systému (tam se netočí vůbec).
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+    let timer;
+    function play() {
+      clearInterval(timer);
+      timer = setInterval(() => {
+        const next = (slider.getIndex() + 1) % track.children.length;
+        slider.goTo(next);
+      }, 4500);
+    }
+    function pauseThenReplay() {
+      clearInterval(timer);
+      play();
+    }
+    ['mousedown', 'wheel', 'touchstart'].forEach(evt =>
+      track.addEventListener(evt, pauseThenReplay, { passive: true })
+    );
+    const dots = document.querySelector('.hero-slide-dots');
+    if (dots) dots.addEventListener('click', pauseThenReplay);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) clearInterval(timer); else play();
+    });
+    play();
   }
 
   // Lightbox čte data přímo z data-* atributů existujících .masonry-item

@@ -184,6 +184,15 @@
 
   // basePath.idx zakódováno v data-move-up/data-move-down/data-remove atributech,
   // draggable karty navíc nesou data-array-path + data-item-index pro přetažení myší.
+  function renderMultiUploadButton(basePath, label) {
+    const id = 'multi-' + basePath.replace(/\./g, '-');
+    return `<div class="upload-row multi-upload-row">
+      <label class="btn-admin small" for="${id}">${ICON_UPLOAD} ${esc(label || 'Nahrát více fotek najednou')}</label>
+      <input type="file" id="${id}" accept="image/*" multiple data-multi-upload-target="${basePath}">
+      <span class="upload-status" id="${id}-status"></span>
+    </div>`;
+  }
+
   function reorderHead(basePath, idx, total, label) {
     const upDisabled = idx === 0 ? 'disabled' : '';
     const downDisabled = idx === total - 1 ? 'disabled' : '';
@@ -277,11 +286,12 @@
         ${fieldHTML('Štítek — rok (např. 1990)', 'content.hero.badgeYear', h.badgeYear)}
       </div>
     `, 'Štítek na fotografii');
-    html += card(renderArrayEditor('content.hero.images', h.images, [
+    html += card(renderMultiUploadButton('content.hero.images', 'Nahrát více fotek najednou') +
+      renderArrayEditor('content.hero.images', h.images, [
       { key: 'image', label: 'Fotografie', type: 'image' },
       { key: 'alt', label: 'Alt text fotografie' }
     ], (img, idx) => 'Fotografie ' + (idx + 1)) +
-      '<p style="font-size:12px;color:var(--color-text-secondary);margin-top:10px;">Fotky se ve vpravo v Hero střídají samy (prolínání po pár vteřinách). U jedné fotky se přepínání skryje automaticky.</p>', 'Fotografie (karusel)');
+      '<p style="font-size:12px;color:var(--color-text-secondary);margin-top:10px;">Fotky se ve vpravo v Hero střídají samy (automaticky i tažením myší). U jedné fotky se přepínání skryje automaticky.</p>', 'Fotografie (karusel)');
     html += card(renderArrayEditor('content.hero.buttons', h.buttons, [
       { key: 'label', label: 'Text tlačítka' },
       { key: 'target', label: 'Cíl (ID sekce, např. galerie)' },
@@ -342,6 +352,7 @@
         ${fieldHTML('Popis (zobrazí se po rozkliknutí)', `${itemPath}.description`, item.description, 'textarea')}
         <div class="gallery-item-images">
           <div class="gallery-item-images-label">Fotografie tohoto exponátu (jde jich přidat víc, po rozkliknutí se dají procházet)</div>
+          ${renderMultiUploadButton(`${itemPath}.images`, 'Nahrát více fotek najednou')}
           ${renderArrayEditor(`${itemPath}.images`, images, [
             { key: 'image', label: 'Fotografie', type: 'image' },
             { key: 'alt', label: 'Alt text fotografie' }
@@ -608,6 +619,9 @@
     container.querySelectorAll('[data-upload-target]').forEach(el => {
       el.addEventListener('change', () => handleUpload(el));
     });
+    container.querySelectorAll('[data-multi-upload-target]').forEach(el => {
+      el.addEventListener('change', () => handleMultiUpload(el));
+    });
   }
 
   function handleBind(el) {
@@ -673,6 +687,61 @@
       // Při chybě necháváme lokální náhled viditelný — ať uživatel vidí,
       // co se pokusil nahrát, i když se to na server nedostalo.
       statusEl.textContent = 'Chyba: ' + err.message;
+    }
+  }
+
+  // Hromadné nahrání — vybere se víc souborů najednou a každý se rovnou
+  // přidá jako nová položka pole (fotka + prázdný alt text), místo
+  // opakovaného klikání na „Přidat“ pro každou fotku zvlášť. Nahrává se
+  // jeden soubor po druhém (ne najednou) — GitHub potřebuje pro každý
+  // zápis znát aktuální stav větve, souběžné zápisy by si vzájemně kolidovaly.
+  async function handleMultiUpload(fileInput) {
+    const files = Array.from(fileInput.files || []);
+    if (!files.length) return;
+    const path = fileInput.getAttribute('data-multi-upload-target');
+    const statusEl = document.getElementById(fileInput.id + '-status');
+    const { root, subPath } = resolveRoot(path);
+    const arr = getPath(root, subPath);
+    if (!Array.isArray(arr)) return;
+
+    let done = 0;
+    let failed = 0;
+    for (const file of files) {
+      statusEl.textContent = `Nahrávám ${done + failed + 1}/${files.length}…`;
+      if (file.size > 6 * 1024 * 1024) {
+        failed++;
+        continue;
+      }
+      try {
+        const base64 = await fileToBase64(file);
+        const res = await fetch('/api/upload-image', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename: file.name, mimeType: file.type, contentBase64: base64 })
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) throw new Error(data.error || 'Nahrání se nezdařilo.');
+        arr.push({ image: data.path, alt: '' });
+        done++;
+      } catch (err) {
+        failed++;
+      }
+    }
+
+    const finalMessage = failed
+      ? `Nahráno ${done}/${files.length} (${failed}× se nezdařilo)`
+      : `Nahráno ${done} fotek ✓`;
+    if (done > 0) {
+      markDirty();
+      renderActiveTab();
+      // renderActiveTab() přepsal celý tab (i tenhle stavový řádek) —
+      // najdeme ho znovu podle stejného id a doplníme finální hlášku,
+      // ať uživatel uvidí výsledek, ne prázdný text.
+      const freshStatusEl = document.getElementById(fileInput.id + '-status');
+      if (freshStatusEl) freshStatusEl.textContent = finalMessage;
+    } else {
+      statusEl.textContent = finalMessage;
     }
   }
 
