@@ -638,6 +638,14 @@
       statusEl.textContent = 'Soubor je moc velký (max 6 MB).';
       return;
     }
+
+    // Náhled hned, lokálně z vybraného souboru — nečeká se na odpověď
+    // ze serveru (nahrání na GitHub může chvíli trvat).
+    let localPreviewUrl = null;
+    if (thumbEl) {
+      localPreviewUrl = URL.createObjectURL(file);
+      thumbEl.src = localPreviewUrl;
+    }
     statusEl.textContent = 'Nahrávám…';
 
     try {
@@ -654,10 +662,16 @@
       textInput.value = data.path;
       const { root, subPath } = resolveRoot(path);
       setPath(root, subPath, data.path);
+      // Až teď přepneme na skutečnou (definitivní) adresu z GitHubu —
+      // do té doby zůstává vidět rychlý lokální náhled. Lokální náhled
+      // uvolníme, až není potřeba (přepnuto na skutečnou adresu).
       if (thumbEl) thumbEl.src = data.path;
+      if (localPreviewUrl) URL.revokeObjectURL(localPreviewUrl);
       statusEl.textContent = 'Nahráno ✓';
       markDirty();
     } catch (err) {
+      // Při chybě necháváme lokální náhled viditelný — ať uživatel vidí,
+      // co se pokusil nahrát, i když se to na server nedostalo.
       statusEl.textContent = 'Chyba: ' + err.message;
     }
   }
