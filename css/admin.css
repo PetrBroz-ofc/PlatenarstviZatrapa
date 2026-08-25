@@ -53,18 +53,31 @@ body.admin-body {
 .admin-login-card p.sub { color: var(--color-text-secondary); font-size: 13.5px; margin: 0 0 26px; }
 .admin-login-card input {
   width: 100%;
-  padding: 15px 16px;
+  padding: 15px 48px 15px 16px;
   background: var(--color-surface-alt);
   border: 1px solid var(--color-border);
   color: var(--color-text);
   border-radius: 6px;
-  margin-bottom: 16px;
   font-family: var(--font-utility);
   font-size: 22px;
   letter-spacing: 0.14em;
 }
 .admin-login-card input::placeholder { font-size: 14px; letter-spacing: normal; color: var(--color-text-secondary); }
 .admin-login-card input:focus { outline: none; border-color: var(--color-accent); background: #FFFFFF; box-shadow: 0 0 0 3px rgba(184,138,42,0.12); }
+.password-field { position: relative; margin-bottom: 16px; }
+.password-field input { margin-bottom: 0; }
+.password-toggle {
+  position: absolute;
+  top: 50%; right: 6px;
+  transform: translateY(-50%);
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-text-secondary);
+  border-radius: 50%;
+  transition: color 0.2s, background 0.2s;
+}
+.password-toggle:hover { color: var(--color-text); background: rgba(43,42,34,0.06); }
+.password-toggle svg { width: 19px; height: 19px; }
 .admin-login-card .err {
   color: #A8503A;
   font-size: 12.5px;

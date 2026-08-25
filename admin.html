@@ -23,7 +23,13 @@
     <h1>Přihlášení</h1>
     <p class="sub">Zadej heslo pro přístup do administrace.</p>
     <div class="err" id="loginErr"></div>
-    <input type="password" id="loginPassword" placeholder="Heslo" autocomplete="current-password">
+    <div class="password-field">
+      <input type="password" id="loginPassword" placeholder="Heslo" autocomplete="current-password">
+      <button type="button" class="password-toggle" id="loginPasswordToggle" aria-label="Zobrazit heslo" aria-pressed="false">
+        <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1.5 12s4-7.5 10.5-7.5S22.5 12 22.5 12s-4 7.5-10.5 7.5S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg>
+        <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="display:none"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 19.5C5.5 19.5 1.5 12 1.5 12a20.9 20.9 0 0 1 5.06-6.06M9.9 4.24A10.94 10.94 0 0 1 12 4.5c6.5 0 10.5 7.5 10.5 7.5a20.9 20.9 0 0 1-2.36 3.32M14.12 14.12a3 3 0 1 1-4.24-4.24"/><path d="M1 1l22 22"/></svg>
+      </button>
+    </div>
     <button class="btn-admin primary" id="loginBtn">Přihlásit se</button>
   </div>
 </div>

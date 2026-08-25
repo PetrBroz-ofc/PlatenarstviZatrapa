@@ -847,6 +847,21 @@
     const btn = document.getElementById('loginBtn');
     const input = document.getElementById('loginPassword');
     const err = document.getElementById('loginErr');
+    const toggle = document.getElementById('loginPasswordToggle');
+
+    if (toggle && input) {
+      const eyeIcon = toggle.querySelector('.icon-eye');
+      const eyeOffIcon = toggle.querySelector('.icon-eye-off');
+      toggle.addEventListener('click', () => {
+        const willShow = input.type === 'password';
+        input.type = willShow ? 'text' : 'password';
+        toggle.setAttribute('aria-pressed', String(willShow));
+        toggle.setAttribute('aria-label', willShow ? 'Skrýt heslo' : 'Zobrazit heslo');
+        eyeIcon.style.display = willShow ? 'none' : '';
+        eyeOffIcon.style.display = willShow ? '' : 'none';
+        input.focus();
+      });
+    }
 
     async function tryLogin() {
       const pass = input.value.trim();
