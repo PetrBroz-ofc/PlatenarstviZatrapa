@@ -146,35 +146,76 @@
 
   function setupHeroSlider() {
     const frame = document.getElementById('heroSlider');
-    if (!frame) return;
-    const slides = Array.from(frame.querySelectorAll('.hero-slide'));
+    const track = document.getElementById('heroSliderTrack');
+    if (!frame || !track) return;
+    const slides = Array.from(track.querySelectorAll('.hero-slide'));
     if (slides.length < 2) return;
     const dots = Array.from(document.querySelectorAll('.hero-slide-dot'));
-    let current = 0;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function show(index) {
-      slides[current].classList.remove('is-active');
-      if (dots[current]) dots[current].classList.remove('is-active');
-      current = (index + slides.length) % slides.length;
-      slides[current].classList.add('is-active');
-      if (dots[current]) dots[current].classList.add('is-active');
+    function slideWidth() {
+      return track.clientWidth || 1;
+    }
+    function goTo(index) {
+      const clamped = Math.max(0, Math.min(slides.length - 1, index));
+      track.scrollTo({ left: clamped * slideWidth(), behavior: 'smooth' });
+    }
+    function setActiveDot(index) {
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
     }
 
-    dots.forEach((dot, idx) => dot.addEventListener('click', () => {
-      show(idx);
-      resetTimer();
-    }));
+    // Tečky pod obrázkem — kliknutí posune pás na danou fotku.
+    dots.forEach((dot, idx) => dot.addEventListener('click', () => goTo(idx)));
 
-    let timer;
-    function resetTimer() {
-      clearInterval(timer);
-      // Respektuje prefers-reduced-motion — u lidí, co preferují méně pohybu,
-      // se fotky samy nestřídají, jen ručně přes tečky.
-      if (reduceMotion) return;
-      timer = setInterval(() => show(current + 1), 5000);
-    }
-    resetTimer();
+    // Podle skutečné pozice scrollu (ať už z tažení myší, prstem na dotyku,
+    // nebo kliku na tečku) se pozná, která fotka je zrovna nejvíc vidět,
+    // a podle toho se zvýrazní odpovídající tečka.
+    let scrollTimer;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        const index = Math.round(track.scrollLeft / slideWidth());
+        setActiveDot(Math.max(0, Math.min(slides.length - 1, index)));
+      }, 80);
+    }, { passive: true });
+
+    // Táhnutí myší (na dotykových zařízeních funguje posouvání prstem
+    // nativně díky overflow-x: auto, tam žádný extra JS není potřeba).
+    let isDown = false;
+    let startX = 0;
+    let startScroll = 0;
+    let moved = false;
+
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      moved = false;
+      frame.classList.add('is-dragging');
+      startX = e.pageX;
+      startScroll = track.scrollLeft;
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      const dx = e.pageX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      track.scrollLeft = startScroll - dx;
+    });
+    window.addEventListener('mouseup', () => {
+      if (!isDown) return;
+      isDown = false;
+      frame.classList.remove('is-dragging');
+      const index = Math.round(track.scrollLeft / slideWidth());
+      goTo(index);
+    });
+    // Klik na fotku po skutečném tažení by nic neměl dělat (např. kdyby
+    // pod fotkou byl odkaz) — tady odkaz není, ale je to slušná pojistka.
+    track.addEventListener('click', (e) => { if (moved) e.preventDefault(); });
+
+    // Kolečko myši / touchpad ve vodorovný posun, ať jde galerií projíždět
+    // i bez tažení.
+    track.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      track.scrollLeft += e.deltaY;
+      e.preventDefault();
+    }, { passive: false });
   }
 
   function init() {

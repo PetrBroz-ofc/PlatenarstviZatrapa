@@ -110,9 +110,8 @@ test('Hero titulek odpovídá content.hero.titleLine1/2', () => {
 });
 
 test('počet fotek v Hero karuselu odpovídá content.hero.images', () => {
-  const slides = document.querySelectorAll('#heroSlider .hero-slide');
+  const slides = document.querySelectorAll('#heroSliderTrack .hero-slide');
   assertEqual(slides.length, content.hero.images.length);
-  assert(slides[0].classList.contains('is-active'), 'první fotka karuselu by měla být na začátku aktivní');
 });
 
 test('počet karet služeb odpovídá content.services.items', () => {
