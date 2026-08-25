@@ -303,7 +303,7 @@ section { position: relative; }
 
 .hero {
   background: var(--color-surface);
-  min-height: 82vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 118px 0 48px;
