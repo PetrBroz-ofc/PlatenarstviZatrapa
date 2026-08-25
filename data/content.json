@@ -72,7 +72,7 @@
         "style": "ghost"
       }
     ],
-    "badgeVisible": true
+    "badgeVisible": false
   },
   "about": {
     "eyebrow": "O mně",
