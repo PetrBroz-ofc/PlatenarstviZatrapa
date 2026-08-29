@@ -658,6 +658,8 @@ section { position: relative; }
 }
 @media (max-width: 720px) { .masonry { columns: 2 200px; } }
 @media (max-width: 460px) { .masonry { columns: 1; } }
+@media (max-width: 720px) { .catalog-grid { columns: 2 200px; } }
+@media (max-width: 460px) { .catalog-grid { columns: 1; } }
 
 /* ---- Lightbox: museum placard ---- */
 .lightbox {
@@ -774,20 +776,22 @@ section { position: relative; }
    ========================================================= */
 .catalog { background: var(--color-surface); }
 .catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 330px));
-  gap: var(--space-3);
-  justify-content: center;
+  columns: 3 320px;
+  column-gap: var(--space-3);
 }
 .product-card {
+  display: inline-block;
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: var(--space-3);
   background: var(--color-surface-alt);
   border: 1px solid var(--color-border);
   overflow: hidden;
   transition: border-color 0.3s var(--ease);
 }
 .product-card:hover { border-color: var(--color-accent-dim); }
-.product-image { aspect-ratio: 1 / 1; overflow: hidden; position: relative; background: var(--color-surface-alt); }
-.product-image img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.6s var(--ease); }
+.product-image { position: relative; }
+.product-image img { width: 100%; height: auto; display: block; transition: transform 0.6s var(--ease); }
 .product-card:hover .product-image img { transform: scale(1.04); }
 .status-badge {
   position: absolute;
