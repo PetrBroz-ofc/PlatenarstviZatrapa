@@ -246,6 +246,60 @@
         "status": "Na objednávku",
         "image": "/assets/img/produkty/helma-salet-03.jpg",
         "category": "Přilby"
+      },
+      {
+        "id": "p101",
+        "name": "Pěstní štítek (pukléř)",
+        "category": "Štíty a pěstní štítky",
+        "description": "Pěstní štítek vyrobený z bukové překližky 10 mm, puklice 2,5 mm, držátko kombinace kov/dřevo.",
+        "price": "1 950 Kč",
+        "status": "Na objednávku",
+        "image": "/assets/img/produkty/pestni-stitek-puklerz.jpg"
+      },
+      {
+        "id": "p102",
+        "name": "Rondely (terčíky) — hladké",
+        "category": "Části zbrojí",
+        "description": "Rondely (terčíky) na ochranu loktů/kolen, průměr 11,5 cm, materiál plech 1,5 mm.",
+        "price": "330 Kč / pár",
+        "status": "Na objednávku",
+        "image": "/assets/img/produkty/rondely-hladke.jpg"
+      },
+      {
+        "id": "p103",
+        "name": "Rondely (terčíky) — tepané",
+        "category": "Části zbrojí",
+        "description": "Rondely (terčíky) s tepaným (kladivovým) povrchem, průměr 11,5 cm, materiál plech 1,5 mm.",
+        "price": "390 Kč / pár",
+        "status": "Na objednávku",
+        "image": "/assets/img/produkty/rondely-tepane.jpg"
+      },
+      {
+        "id": "p104",
+        "name": "Puklice na štít — umbo (starší nabídka)",
+        "category": "Puklice na štíty (umba)",
+        "description": "⚠️ Ze starého webu, zkontroluj prosím údaje (cena/skladovost se může lišit od nabídky výše). Ručně vyrobená puklice, výchozí materiál plech 2,5 mm. Rozměry: venkovní průměr 19 cm, rozteč děr 17 cm, vnitřní průměr 13,5 cm, výška cca 5 cm.",
+        "price": "450 Kč / ks",
+        "status": "Skladem",
+        "image": "/assets/img/produkty/puklice-umbo-cerna.jpg"
+      },
+      {
+        "id": "p105",
+        "name": "Puklice na štít — Scutum",
+        "category": "Puklice na štíty (umba)",
+        "description": "Ručně vyrobená puklice na římský legionářský štít (Scutum), tzv. imperiálního typu. Materiál plech 2,0 mm, rozměry cca 20×20 cm, vnitřní průměr 15 cm, výška 4 cm. Puklice není zakřivená, prohnutí dle potřeb zákazníka je možné za příplatek.",
+        "price": "450 Kč / ks",
+        "status": "Skladem",
+        "image": "/assets/img/produkty/puklice-scutum.jpg"
+      },
+      {
+        "id": "p106",
+        "name": "Ramena",
+        "category": "Části zbrojí",
+        "description": "Plátová ramena, plech 1,5 mm, řemínky z kvalitní kůže, vnitřní černý nátěr.",
+        "price": "3 450 Kč / pár",
+        "status": "Na objednávku",
+        "image": "/assets/img/produkty/ramena.jpg"
       }
     ],
     "categories": [
