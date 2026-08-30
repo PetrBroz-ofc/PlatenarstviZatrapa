@@ -45,8 +45,16 @@
       items: [
         { id: 'seo', label: 'SEO' },
         { id: 'theme', label: 'Vzhled' },
-        { id: 'legal', label: 'Právní texty' },
         { id: 'notfound', label: 'Stránka 404' }
+      ]
+    },
+    {
+      label: 'Právní',
+      items: [
+        { id: 'cookiebanner', label: 'Cookie lišta' },
+        { id: 'gdpr', label: 'GDPR' },
+        { id: 'complaints', label: 'Reklamační řád' },
+        { id: 'terms', label: 'Obchodní podmínky' }
       ]
     },
     {
@@ -530,10 +538,10 @@
     return html;
   }
 
-  function tabLegal() {
+  function tabCookieBanner() {
     const l = state.content.legal;
     const cb = l.cookieBanner;
-    let html = heading('Právní texty', 'Cookie lišta a právní stránky webu. Nejsem právník — tohle je rozumný výchozí základ podle běžné praxe, ale před ostrým nasazením (hlavně obchodní podmínky a reklamační řád) doporučuju nechat obsah zkontrolovat právníkem, ať sedí přesně na tvůj způsob podnikání.');
+    let html = heading('Cookie lišta', 'Lišta, která se zobrazí návštěvníkům při první návštěvě webu.');
     html += card(`
       ${fieldHTML('Text cookie lišty', 'content.legal.cookieBanner.text', cb.text, 'textarea')}
       <div class="field-row">
@@ -548,11 +556,26 @@
         ${fieldHTML('Text odkazu — reklamační řád', 'content.legal.footerComplaintsLabel', l.footerComplaintsLabel)}
       </div>
     `, 'Odkazy v patičce webu');
-    html += `<h3 class="admin-subheading">Ochrana osobních údajů</h3>`;
+    return html;
+  }
+
+  function tabGdpr() {
+    const l = state.content.legal;
+    let html = heading('GDPR', 'Stránka „Ochrana osobních údajů“ (/ochrana-osobnich-udaju.html). Nejsem právník — tohle je rozumný výchozí základ, doporučuju před ostrým nasazením nechat obsah zkontrolovat.');
     html += renderLegalPageEditor('content.legal.privacyPage', l.privacyPage, 'Ochrana osobních údajů');
-    html += `<h3 class="admin-subheading">Obchodní podmínky</h3>`;
+    return html;
+  }
+
+  function tabTerms() {
+    const l = state.content.legal;
+    let html = heading('Obchodní podmínky', 'Stránka „Obchodní podmínky“ (/obchodni-podminky.html). Nejsem právník — tohle je rozumný výchozí základ podle běžné praxe, doporučuju před ostrým nasazením nechat obsah zkontrolovat právníkem, ať sedí přesně na tvůj způsob podnikání.');
     html += renderLegalPageEditor('content.legal.termsPage', l.termsPage, 'Obchodní podmínky');
-    html += `<h3 class="admin-subheading">Reklamační řád</h3>`;
+    return html;
+  }
+
+  function tabComplaints() {
+    const l = state.content.legal;
+    let html = heading('Reklamační řád', 'Stránka „Reklamační řád“ (/reklamacni-rad.html). Nejsem právník — tohle je rozumný výchozí základ podle běžné praxe, doporučuju před ostrým nasazením nechat obsah zkontrolovat právníkem.');
     html += renderLegalPageEditor('content.legal.complaintsPage', l.complaintsPage, 'Reklamační řád');
     return html;
   }
@@ -592,7 +615,8 @@
   const TAB_RENDERERS = {
     nav: tabNav, hero: tabHero, about: tabAbout, services: tabServices, gallery: tabGallery,
     catalog: tabCatalog, news: tabNews, contact: tabContact, seo: tabSeo,
-    theme: tabTheme, legal: tabLegal, notfound: tabNotFound, json: tabJson
+    theme: tabTheme, cookiebanner: tabCookieBanner, gdpr: tabGdpr, complaints: tabComplaints, terms: tabTerms,
+    notfound: tabNotFound, json: tabJson
   };
 
   /* ---------------- Vykreslení UI ---------------- */
