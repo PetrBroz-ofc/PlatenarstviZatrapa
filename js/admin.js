@@ -128,6 +128,7 @@
   function resolveArrayTemplate(subPath) {
     if (ARRAY_TEMPLATES[subPath]) return ARRAY_TEMPLATES[subPath];
     if (/\.images$/.test(subPath)) return () => ({ image: '', alt: '' });
+    if (/\.sections$/.test(subPath)) return () => ({ heading: 'Nový nadpis', text: 'Text kapitoly.' });
     return null;
   }
 
@@ -514,11 +515,25 @@
     return html;
   }
 
+  function renderLegalPageEditor(basePath, page, groupLabel) {
+    let html = card(`
+      <div class="field-row">
+        ${fieldHTML('Nadpis stránky', `${basePath}.title`, page.title)}
+        ${fieldHTML('Datum poslední aktualizace', `${basePath}.updated`, page.updated)}
+      </div>
+      ${fieldHTML('Úvodní text', `${basePath}.intro`, page.intro, 'textarea')}
+    `, `${groupLabel} — základní údaje`);
+    html += card(renderArrayEditor(`${basePath}.sections`, page.sections, [
+      { key: 'heading', label: 'Nadpis kapitoly' },
+      { key: 'text', label: 'Text kapitoly', type: 'textarea' }
+    ], (s) => s.heading), `${groupLabel} — jednotlivé kapitoly`);
+    return html;
+  }
+
   function tabLegal() {
     const l = state.content.legal;
     const cb = l.cookieBanner;
-    const pp = l.privacyPage;
-    let html = heading('Právní texty', 'Cookie lišta a stránka „Ochrana osobních údajů“ (/ochrana-osobnich-udaju.html). Nejsem právník — obsah před ostrým nasazením doporučuju nechat zkontrolovat.');
+    let html = heading('Právní texty', 'Cookie lišta a právní stránky webu. Nejsem právník — tohle je rozumný výchozí základ podle běžné praxe, ale před ostrým nasazením (hlavně obchodní podmínky a reklamační řád) doporučuju nechat obsah zkontrolovat právníkem, ať sedí přesně na tvůj způsob podnikání.');
     html += card(`
       ${fieldHTML('Text cookie lišty', 'content.legal.cookieBanner.text', cb.text, 'textarea')}
       <div class="field-row">
@@ -528,18 +543,17 @@
     `, 'Cookie lišta');
     html += card(`
       ${fieldHTML('Text odkazu v patičce', 'content.legal.footerPrivacyLabel', l.footerPrivacyLabel)}
-    `, 'Odkaz v patičce webu');
-    html += card(`
       <div class="field-row">
-        ${fieldHTML('Nadpis stránky', 'content.legal.privacyPage.title', pp.title)}
-        ${fieldHTML('Datum poslední aktualizace', 'content.legal.privacyPage.updated', pp.updated)}
+        ${fieldHTML('Text odkazu — obchodní podmínky', 'content.legal.footerTermsLabel', l.footerTermsLabel)}
+        ${fieldHTML('Text odkazu — reklamační řád', 'content.legal.footerComplaintsLabel', l.footerComplaintsLabel)}
       </div>
-      ${fieldHTML('Úvodní text', 'content.legal.privacyPage.intro', pp.intro, 'textarea')}
-    `, 'Stránka — základní údaje');
-    html += card(renderArrayEditor('content.legal.privacyPage.sections', pp.sections, [
-      { key: 'heading', label: 'Nadpis kapitoly' },
-      { key: 'text', label: 'Text kapitoly', type: 'textarea' }
-    ], (s) => s.heading), 'Stránka — jednotlivé kapitoly');
+    `, 'Odkazy v patičce webu');
+    html += `<h3 class="admin-subheading">Ochrana osobních údajů</h3>`;
+    html += renderLegalPageEditor('content.legal.privacyPage', l.privacyPage, 'Ochrana osobních údajů');
+    html += `<h3 class="admin-subheading">Obchodní podmínky</h3>`;
+    html += renderLegalPageEditor('content.legal.termsPage', l.termsPage, 'Obchodní podmínky');
+    html += `<h3 class="admin-subheading">Reklamační řád</h3>`;
+    html += renderLegalPageEditor('content.legal.complaintsPage', l.complaintsPage, 'Reklamační řád');
     return html;
   }
 

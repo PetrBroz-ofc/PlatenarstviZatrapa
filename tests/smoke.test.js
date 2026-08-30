@@ -25,7 +25,7 @@ const fs = require('fs');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 
-const { buildIndexHtml, buildPrivacyHtml, buildNotFoundHtml } = require('../lib/render');
+const { buildIndexHtml, buildPrivacyHtml, buildTermsHtml, buildComplaintsHtml, buildNotFoundHtml } = require('../lib/render');
 const { validateContentShape, validateThemeShape } = require('../lib/validate');
 
 const ROOT = path.join(__dirname, '..');
@@ -266,6 +266,45 @@ test('stránka GDPR obsahuje stejný počet kapitol jako content.legal.privacyPa
 test('stránka GDPR má meta robots noindex', () => {
   const meta = privacyDom.window.document.querySelector('meta[name="robots"]');
   assert(meta && meta.getAttribute('content').includes('noindex'), 'stránka GDPR by neměla být indexovaná');
+});
+
+const termsHtml = buildTermsHtml(content, theme);
+test('buildTermsHtml vrátí neprázdné HTML se všemi kapitolami', () => {
+  assert(typeof termsHtml === 'string' && termsHtml.length > 500, 'HTML obchodních podmínek je prázdné nebo příliš krátké');
+  content.legal.termsPage.sections.forEach(s => {
+    assert(termsHtml.includes(s.heading), `kapitola "${s.heading}" chybí ve vygenerovaném HTML obchodních podmínek`);
+  });
+});
+const termsDom = new JSDOM(termsHtml, { url: 'https://platnerstvi-zatrapa.cz/obchodni-podminky.html' });
+test('stránka obchodních podmínek obsahuje stejný počet kapitol jako content.legal.termsPage.sections', () => {
+  const sections = termsDom.window.document.querySelectorAll('.legal-section');
+  assertEqual(sections.length, content.legal.termsPage.sections.length);
+});
+test('stránka obchodních podmínek má meta robots noindex', () => {
+  const meta = termsDom.window.document.querySelector('meta[name="robots"]');
+  assert(meta && meta.getAttribute('content').includes('noindex'), 'stránka obchodních podmínek by neměla být indexovaná');
+});
+
+const complaintsHtml = buildComplaintsHtml(content, theme);
+test('buildComplaintsHtml vrátí neprázdné HTML se všemi kapitolami', () => {
+  assert(typeof complaintsHtml === 'string' && complaintsHtml.length > 500, 'HTML reklamačního řádu je prázdné nebo příliš krátké');
+  content.legal.complaintsPage.sections.forEach(s => {
+    assert(complaintsHtml.includes(s.heading), `kapitola "${s.heading}" chybí ve vygenerovaném HTML reklamačního řádu`);
+  });
+});
+const complaintsDom = new JSDOM(complaintsHtml, { url: 'https://platnerstvi-zatrapa.cz/reklamacni-rad.html' });
+test('stránka reklamačního řádu obsahuje stejný počet kapitol jako content.legal.complaintsPage.sections', () => {
+  const sections = complaintsDom.window.document.querySelectorAll('.legal-section');
+  assertEqual(sections.length, content.legal.complaintsPage.sections.length);
+});
+test('stránka reklamačního řádu má meta robots noindex', () => {
+  const meta = complaintsDom.window.document.querySelector('meta[name="robots"]');
+  assert(meta && meta.getAttribute('content').includes('noindex'), 'stránka reklamačního řádu by neměla být indexovaná');
+});
+test('patička obsahuje odkazy na obchodní podmínky i reklamační řád', () => {
+  const footerHtml = document.querySelector('.site-footer').innerHTML;
+  assert(footerHtml.includes('/obchodni-podminky.html'), 'odkaz na obchodní podmínky chybí v patičce');
+  assert(footerHtml.includes('/reklamacni-rad.html'), 'odkaz na reklamační řád chybí v patičce');
 });
 
 /* ---------------- Stránka 404 ---------------- */

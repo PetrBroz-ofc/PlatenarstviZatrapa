@@ -2,8 +2,8 @@
 /**
  * scripts/build.js
  *
- * Přegeneruje index.html, ochrana-osobnich-udaju.html a 404.html ze
- * data/content.json + data/theme.json.
+ * Přegeneruje index.html, ochrana-osobnich-udaju.html, obchodni-podminky.html,
+ * reklamacni-rad.html a 404.html ze data/content.json + data/theme.json.
  * Spouští se ručně při lokální práci (`npm run build`) a automaticky
  * (stejnými funkcemi) v api/save.js při každém publikování.
  */
@@ -12,7 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { buildIndexHtml, buildPrivacyHtml, buildNotFoundHtml } = require('../lib/render');
+const { buildIndexHtml, buildPrivacyHtml, buildTermsHtml, buildComplaintsHtml, buildNotFoundHtml } = require('../lib/render');
 
 const ROOT = path.join(__dirname, '..');
 
@@ -27,6 +27,14 @@ function main() {
   const privacyHtml = buildPrivacyHtml(content, theme);
   fs.writeFileSync(path.join(ROOT, 'ochrana-osobnich-udaju.html'), privacyHtml, 'utf-8');
   console.log('ochrana-osobnich-udaju.html vygenerován (' + privacyHtml.length + ' znaků).');
+
+  const termsHtml = buildTermsHtml(content, theme);
+  fs.writeFileSync(path.join(ROOT, 'obchodni-podminky.html'), termsHtml, 'utf-8');
+  console.log('obchodni-podminky.html vygenerován (' + termsHtml.length + ' znaků).');
+
+  const complaintsHtml = buildComplaintsHtml(content, theme);
+  fs.writeFileSync(path.join(ROOT, 'reklamacni-rad.html'), complaintsHtml, 'utf-8');
+  console.log('reklamacni-rad.html vygenerován (' + complaintsHtml.length + ' znaků).');
 
   const notFoundHtml = buildNotFoundHtml(content, theme);
   fs.writeFileSync(path.join(ROOT, '404.html'), notFoundHtml, 'utf-8');

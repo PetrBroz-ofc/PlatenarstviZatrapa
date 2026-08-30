@@ -388,6 +388,14 @@ body.admin-body {
 .reorder-btns .btn-admin.small { padding: 6px 9px; }
 .reorder-btns .btn-admin.small svg { width: 13px; height: 13px; }
 .add-btn-row { margin-top: 16px; }
+.admin-subheading {
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--color-text);
+  margin: 36px 0 4px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
 .gallery-item-images {
   margin-top: 18px;
   padding: 16px 16px 4px;

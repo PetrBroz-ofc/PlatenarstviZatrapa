@@ -22,13 +22,15 @@
 
 const auth = require('../lib/auth');
 const github = require('../lib/github');
-const { buildIndexHtml, buildPrivacyHtml, buildNotFoundHtml } = require('../lib/render');
+const { buildIndexHtml, buildPrivacyHtml, buildTermsHtml, buildComplaintsHtml, buildNotFoundHtml } = require('../lib/render');
 const { validateContentShape, validateThemeShape } = require('../lib/validate');
 
 const CONTENT_PATH = 'data/content.json';
 const THEME_PATH = 'data/theme.json';
 const INDEX_PATH = 'index.html';
 const PRIVACY_PATH = 'ochrana-osobnich-udaju.html';
+const TERMS_PATH = 'obchodni-podminky.html';
+const COMPLAINTS_PATH = 'reklamacni-rad.html';
 const NOT_FOUND_PATH = '404.html';
 
 function requireSession(req, res) {
@@ -113,6 +115,8 @@ module.exports = async (req, res) => {
 
     const indexHtml = buildIndexHtml(content, theme);
     const privacyHtml = buildPrivacyHtml(content, theme);
+    const termsHtml = buildTermsHtml(content, theme);
+    const complaintsHtml = buildComplaintsHtml(content, theme);
     const notFoundHtml = buildNotFoundHtml(content, theme);
 
     const result = await github.commitFiles(cfg, [
@@ -120,6 +124,8 @@ module.exports = async (req, res) => {
       { path: THEME_PATH, content: JSON.stringify(theme, null, 2) + '\n' },
       { path: INDEX_PATH, content: indexHtml },
       { path: PRIVACY_PATH, content: privacyHtml },
+      { path: TERMS_PATH, content: termsHtml },
+      { path: COMPLAINTS_PATH, content: complaintsHtml },
       { path: NOT_FOUND_PATH, content: notFoundHtml }
     ], 'Aktualizace obsahu webu přes administraci');
 

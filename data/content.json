@@ -408,7 +408,67 @@
         }
       ]
     },
-    "footerPrivacyLabel": "Ochrana osobních údajů"
+    "footerPrivacyLabel": "Ochrana osobních údajů",
+    "termsPage": {
+      "title": "Obchodní podmínky",
+      "updated": "30. srpna 2026",
+      "intro": "Tyto obchodní podmínky upravují vztah mezi Pavlem Zátrapou, platnéřství, IČO 67586546, se sídlem v Brně (dále jen „prodávající“), a zákazníkem při objednávání ručně vyráběných historických zbrojí, přileb a doplňků nabízených na tomto webu. Prodávající není plátcem DPH.",
+      "sections": [
+        {
+          "heading": "Jak vzniká objednávka",
+          "text": "Web neobsahuje e‑shop s automatickým košíkem — poptávku posíláte e‑mailem nebo přes kontaktní tlačítko na webu. Smlouva vzniká až ve chvíli, kdy obě strany odsouhlasí konkrétní zakázku, cenu a termín (obvykle potvrzením e‑mailem), ne pouhým odesláním poptávky."
+        },
+        {
+          "heading": "Cena a platba",
+          "text": "Ceny u skladových kusů jsou uvedené na webu, u zakázkové výroby se cena stanovuje individuálně podle rozměrů a provedení a potvrzuje se před zahájením výroby. U zakázkové výroby může prodávající požadovat zálohu. Platba probíhá bankovním převodem, případně hotově při osobním předání, dle vzájemné dohody."
+        },
+        {
+          "heading": "Dodací lhůty a způsob dodání",
+          "text": "Skladové kusy se odesílají obvykle do několika pracovních dnů od zaplacení. Zakázková výroba má individuální dodací lhůtu, která se domlouvá předem a závisí na složitosti kusu a aktuálním vytížení dílny. Zboží lze zaslat přepravní službou nebo si ho vyzvednout osobně v Brně po předchozí domluvě."
+        },
+        {
+          "heading": "Odstoupení od smlouvy",
+          "text": "Jste‑li spotřebitel a zboží je skladem (není vyrobeno na míru dle vašich individuálních požadavků), máte právo odstoupit od smlouvy do 14 dnů od převzetí bez udání důvodu. U zboží vyrobeného na zakázku podle vašich individuálních specifikací (rozměry, provedení, úpravy na míru) právo na odstoupení dle § 1837 písm. d) občanského zákoníku nenáleží, jelikož jde o zboží upravené podle přání spotřebitele."
+        },
+        {
+          "heading": "Práva z vadného plnění",
+          "text": "Podmínky reklamace a záruky upravuje samostatný Reklamační řád."
+        },
+        {
+          "heading": "Závěrečná ustanovení",
+          "text": "Právní vztahy neupravené těmito podmínkami se řídí občanským zákoníkem (zákon č. 89/2012 Sb.) a zákonem o ochraně spotřebitele. Prodávající si vyhrazuje právo tyto podmínky v přiměřeném rozsahu měnit."
+        }
+      ]
+    },
+    "complaintsPage": {
+      "title": "Reklamační řád",
+      "updated": "30. srpna 2026",
+      "intro": "Tento reklamační řád popisuje postup při uplatnění práv z vadného plnění u zboží zakoupeného od Pavla Zátrapy, platnéřství, IČO 67586546, se sídlem v Brně.",
+      "sections": [
+        {
+          "heading": "Záruční doba",
+          "text": "Na zboží se vztahuje zákonná záruční doba 24 měsíců od převzetí, pokud se s vámi prodávající nedohodl na jiné lhůtě u konkrétní zakázky. Záruka se vztahuje na vady materiálu a zpracování, které existovaly už při převzetí, i když se projeví až později."
+        },
+        {
+          "heading": "Co záruka nepokrývá",
+          "text": "Záruka se nevztahuje na běžné opotřebení odpovídající povaze zboží (např. otěr povrchové úpravy při reálném používání zbroje), poškození vzniklé nesprávným zacházením, mechanickým poškozením při šermu/soubojích v rozporu s doporučeným použitím, nebo úpravami provedenými bez souhlasu prodávajícího."
+        },
+        {
+          "heading": "Jak reklamaci uplatnit",
+          "text": "Reklamaci uplatníte e‑mailem na pzatrapa@seznam.cz — popište vadu, přiložte fotografie a doklad o koupi (postačí e‑mailová komunikace k zakázce nebo doklad o platbě). Podle domluvy zboží zašlete nebo přinesete osobně k posouzení."
+        },
+        {
+          "heading": "Lhůta pro vyřízení",
+          "text": "Reklamace se vyřizuje bez zbytečného odkladu, nejpozději do 30 dnů od jejího uplatnění, pokud se s vámi prodávající nedohodne na delší lhůtě (např. u složitější opravy ručně vyráběného kusu)."
+        },
+        {
+          "heading": "Řešení sporů",
+          "text": "V případě sporu, který se nepodaří vyřešit vzájemnou dohodou, se můžete jako spotřebitel obrátit na Českou obchodní inspekci (coi.cz) s návrhem na mimosoudní řešení spotřebitelského sporu."
+        }
+      ]
+    },
+    "footerTermsLabel": "Obchodní podmínky",
+    "footerComplaintsLabel": "Reklamační řád"
   },
   "notFound": {
     "eyebrow": "Chyba 404",

@@ -923,6 +923,7 @@ section { position: relative; }
   color: var(--color-hero-text-dim);
   padding: var(--space-6) 0 0;
 }
+.site-footer .container { padding-left: clamp(24px, 6vw, 96px); padding-right: clamp(24px, 6vw, 96px); }
 .footer-grid-top {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr);
