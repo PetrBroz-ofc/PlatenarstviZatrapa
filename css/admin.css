@@ -313,6 +313,7 @@ body.admin-body {
   transition: border-color 0.2s, background 0.2s;
 }
 .field-group textarea { resize: vertical; min-height: 64px; }
+.autosize-textarea { resize: none; overflow-y: hidden; }
 .field-group input:focus, .field-group textarea:focus, .field-group select:focus {
   outline: none;
   border-bottom-color: var(--color-accent);

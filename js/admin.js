@@ -162,7 +162,7 @@
       </div>`;
     }
     if (type === 'textarea') {
-      return `<div class="field-group"><label for="${id}">${esc(label)}</label><textarea id="${id}" data-bind="${path}">${esc(value)}</textarea></div>`;
+      return `<div class="field-group"><label for="${id}">${esc(label)}</label><textarea id="${id}" class="autosize-textarea" data-bind="${path}" rows="1">${esc(value)}</textarea></div>`;
     }
     if (type === 'select') {
       const options = (opts.options || []).map(o =>
@@ -238,7 +238,7 @@
     items.forEach((val, idx) => {
       html += `<div class="repeat-card" data-array-path="${basePath}" data-item-index="${idx}">
         ${reorderHead(basePath, idx, items.length, itemLabel + ' ' + (idx + 1))}
-        <div class="field-group"><textarea data-bind="${basePath}.${idx}">${esc(val)}</textarea></div>
+        <div class="field-group"><textarea class="autosize-textarea" data-bind="${basePath}.${idx}" rows="1">${esc(val)}</textarea></div>
       </div>`;
     });
     html += `<div class="add-btn-row"><button type="button" class="btn-admin" data-add="${basePath}">${ICON_ADD} Přidat</button></div>`;
@@ -668,6 +668,17 @@
     container.querySelectorAll('[data-multi-upload-target]').forEach(el => {
       el.addEventListener('change', () => handleMultiUpload(el));
     });
+    // Textová pole rostou do výšky podle obsahu, ať je vidět rovnou celý
+    // text a nemusí se v malém rámečku scrollovat.
+    container.querySelectorAll('.autosize-textarea').forEach(el => {
+      autosizeTextarea(el);
+      el.addEventListener('input', () => autosizeTextarea(el));
+    });
+  }
+
+  function autosizeTextarea(el) {
+    el.style.height = 'auto';
+    el.style.height = (el.scrollHeight + 2) + 'px';
   }
 
   function handleBind(el) {
