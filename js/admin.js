@@ -457,6 +457,14 @@
       </div>
       ${fieldHTML('Copyright text', 'content.footer.copyright', f.copyright)}
     `, 'Patička (footer)');
+    html += card(`
+      ${fieldHTML('Popisek sloupce', 'content.footer.socialLabel', f.socialLabel)}
+      <div class="field-row">
+        ${fieldHTML('Facebook — odkaz', 'content.footer.facebookUrl', f.facebookUrl)}
+        ${fieldHTML('Instagram — odkaz', 'content.footer.instagramUrl', f.instagramUrl)}
+      </div>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin-top:10px;">Sloupec „Sledujte nás“ se v patičce zobrazí, jen když je vyplněný aspoň jeden odkaz. Prázdné pole nech prázdné.</p>
+    `, 'Sociální sítě');
     return html;
   }
 
