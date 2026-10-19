@@ -337,6 +337,44 @@
             "alt": ""
           }
         ]
+      },
+      {
+        "id": "g1792436683786",
+        "category": "Zbroje",
+        "title": "Kyrys 14.století",
+        "material": "Plech 2 mm.",
+        "year": "",
+        "description": "Kyrys klenutý středovým žebrem- vykovaný.",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792436823002-p4150973.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792436825391-p4201021.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792436828065-p4201022.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792436830461-p4150999.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792436832898-pc230128.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792436835282-pc230134.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792436837620-pc230132.jpg",
+            "alt": ""
+          }
+        ]
       }
     ]
   },
