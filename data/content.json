@@ -246,7 +246,7 @@
         "name": "Pěstní štítek",
         "description": "Pěstní štítek, 1,5 mm kanelovaný. Má háček na zavěšení na opasek. Hmotnost 1,115 kg.",
         "price": "2 100 Kč",
-        "status": "Na objednávku",
+        "status": "Skladem",
         "image": "/assets/img/produkty/pestni-stit.jpg",
         "category": "Štíty a pěstní štítky"
       },
@@ -254,10 +254,10 @@
         "id": "p002",
         "name": "Slezská miska",
         "description": "Vyrobeno za tepla, plech 2 mm. Průměr cca 21,5 cm, hloubka cca 3 cm.",
-        "price": "450 Kč",
+        "price": "480 Kč",
         "status": "Skladem",
         "image": "/assets/img/produkty/slezska-miska.jpg",
-        "category": "Přilby"
+        "category": "Ostatní"
       },
       {
         "id": "p003",
