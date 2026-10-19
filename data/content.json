@@ -287,6 +287,24 @@
             "alt": ""
           }
         ]
+      },
+      {
+        "id": "g1792435510634",
+        "category": "Zbroje",
+        "title": "Lokty",
+        "material": "Plech 2mm.",
+        "year": "2026",
+        "description": "",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792435583495-messenger-creation-b3c6c899-f689-4c27-a0e0-1bde2edd86d5.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792435586150-messenger-creation-947ab2d4-7e1c-4589-82e4-55d8810e74fd.jpg",
+            "alt": ""
+          }
+        ]
       }
     ]
   },
