@@ -348,6 +348,15 @@
         "price": "3 450 Kč / pár",
         "status": "Na objednávku",
         "image": "/assets/img/produkty/ramena.jpg"
+      },
+      {
+        "id": "p1792433299067",
+        "name": "Pěstní štitek",
+        "category": "Štíty a pěstní štítky",
+        "description": "Pěstní štítek z bukové překližky 10mm,potažený plátnem a okovaným okrajem(1,3mm). \nPuklice 2,5mm. Na přání lze vyrobit i v jiné barvě plátna,např.červené nebo černo-bílé.",
+        "price": "2400 Kč",
+        "status": "Na objednávku",
+        "image": "/assets/img/uploads/1792433682162-messenger-creation-3585f5d4-942f-4443-a290-a74ef8bd296d.jpg"
       }
     ],
     "categories": [
