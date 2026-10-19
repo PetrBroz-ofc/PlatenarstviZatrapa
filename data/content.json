@@ -293,6 +293,15 @@
         "image": "/assets/img/produkty/puklice-scutum.jpg"
       },
       {
+        "id": "p1792424831269",
+        "name": "Puklice na štít-umbo",
+        "category": "Puklice na štíty (umba)",
+        "description": "Puklice z plechu 2mm. Vnitřní průměr 13cm,celkový průměr cca 19cm.",
+        "price": "480 Kč.",
+        "status": "Skladem",
+        "image": "/assets/img/uploads/1792425247786-fb-img-1792424667870.jpg"
+      },
+      {
         "id": "p106",
         "name": "Ramena",
         "category": "Části zbrojí",
@@ -307,8 +316,8 @@
       "Přilby",
       "Části zbrojí",
       "Štíty a pěstní štítky",
-      "Puklice na štíty (umba)",
-      "Ostatní"
+      "Ostatní",
+      "Puklice na štíty (umba)"
     ]
   },
   "news": {
