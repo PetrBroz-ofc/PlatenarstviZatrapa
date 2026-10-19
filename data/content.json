@@ -103,7 +103,7 @@
       {
         "icon": "helmet",
         "title": "Historické přilby",
-        "description": "Kalhoty, bascinety, hrncové přilby a další typy podle dobových předloh."
+        "description": "Kaloty, bascinety, hrncové přilby a další typy podle dobových předloh."
       },
       {
         "icon": "armor",
@@ -123,7 +123,7 @@
       {
         "icon": "dragon",
         "title": "Fantasy zakázky",
-        "description": "Autorské kusy podle konceptů zákazníka mimo historickou předlohu."
+        "description": "Autorské kusy podle konceptů zákazníka nebo podle vlastního návrhu mimo historickou předlohu."
       }
     ]
   },
