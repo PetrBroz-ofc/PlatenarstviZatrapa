@@ -180,19 +180,47 @@
       },
       {
         "id": "g003",
-        "category": "Kyrysy",
-        "title": "Maximiliánský kyrys",
-        "material": "Ocel",
-        "year": "2024",
-        "description": "Kyrys v maximiliánském stylu s charakteristickým žebrováním, které zvyšuje tuhost plechu a zároveň odvádí zásahy. Tvarováno na míru, nasazeno na figuríně pro ukázku siluety.",
+        "category": "Zbroje",
+        "title": "Kyrys 15.století",
+        "material": "Plech 1,5 mm",
+        "year": "2014",
+        "description": "Kyrys v německém stylu s charakteristickým kanelováním, které zvyšuje tuhost plechu a zároveň odvádí zásahy. Tvarováno na míru.",
         "images": [
           {
             "image": "/assets/img/produkty/kyrys-01.jpg",
-            "alt": "Maximiliánský kyrys s žebrováním, nasazený na figuríně"
+            "alt": "Kyrys s kanelováním."
           },
           {
             "image": "/assets/img/produkty/kyrys-02-detail.jpg",
             "alt": "Detail žebrování a tvarování plechu na kyrysu"
+          },
+          {
+            "image": "/assets/img/uploads/1792437315685-p1011011.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792437318316-p1010974.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792437320859-p1011041.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792437323628-p1010811.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792437326231-p1011019.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792437328490-img-20141220-155137.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792437330855-p1010982.jpg",
+            "alt": ""
           }
         ]
       },
