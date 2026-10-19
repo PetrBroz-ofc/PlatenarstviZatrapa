@@ -194,6 +194,44 @@
             "alt": "Detail žebrování a tvarování plechu na kyrysu"
           }
         ]
+      },
+      {
+        "id": "g1792428786518",
+        "category": "Přilby",
+        "title": "Fantasy šalíř",
+        "material": "Plech 2mm a 1,5mm.",
+        "year": "2024",
+        "description": "Šalíř pro skřeta-volná tvorba.",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792429081120-fb-img-1792428684892.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792429083317-fb-img-1792428692925.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792429085584-fb-img-1792428697242.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792429087908-fb-img-1792428699714.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792429089983-fb-img-1792428704422.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792429092997-fb-img-1792428707109.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792429095330-fb-img-1792428710071.jpg",
+            "alt": ""
+          }
+        ]
       }
     ]
   },
