@@ -507,24 +507,6 @@
         ]
       },
       {
-        "id": "g1792435662761",
-        "category": "Štíty",
-        "title": "Uherský štítek",
-        "material": "Buková překližka 12 mm,okováno plechem 1,3 mm.",
-        "year": "2026",
-        "description": "Potaženo plátnem(dvě vrstvy).",
-        "images": [
-          {
-            "image": "/assets/img/uploads/1792435872073-messenger-creation-852a05c5-28f7-48ed-ba1b-ce25f7377c0b.jpg",
-            "alt": ""
-          },
-          {
-            "image": "/assets/img/uploads/1792435874673-messenger-creation-93d651d6-21a7-4c70-bf2a-bbdb58ed0c6e.jpg",
-            "alt": ""
-          }
-        ]
-      },
-      {
         "id": "g1792486705205",
         "category": "Přilby",
         "title": "Přilba-Rohan",
@@ -554,6 +536,24 @@
           },
           {
             "image": "/assets/img/uploads/1792486939237-inbound5502007947433238197.jpg",
+            "alt": ""
+          }
+        ]
+      },
+      {
+        "id": "g1792435662761",
+        "category": "Štíty",
+        "title": "Uherský štítek",
+        "material": "Buková překližka 12 mm,okováno plechem 1,3 mm.",
+        "year": "2026",
+        "description": "Potaženo plátnem(dvě vrstvy).",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792435872073-messenger-creation-852a05c5-28f7-48ed-ba1b-ce25f7377c0b.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792435874673-messenger-creation-93d651d6-21a7-4c70-bf2a-bbdb58ed0c6e.jpg",
             "alt": ""
           }
         ]
