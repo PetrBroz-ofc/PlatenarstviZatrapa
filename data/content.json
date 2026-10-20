@@ -523,6 +523,40 @@
             "alt": ""
           }
         ]
+      },
+      {
+        "id": "g1792486705205",
+        "category": "Přilby",
+        "title": "Přilba-Rohan",
+        "material": "Plech 1,5mm",
+        "year": "2021",
+        "description": "Přilba vyrobená na zakázku podle požadavků zákaznika.\nPřilba nemá historickou předlohu,je vyrobena pro LARP.",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792486929641-inbound2216738457264605699.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792486931677-inbound4475370427604931762.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792486933498-inbound1884131484172122123.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792486935451-inbound7491457899302573383.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792486937298-inbound195420270549914407.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792486939237-inbound5502007947433238197.jpg",
+            "alt": ""
+          }
+        ]
       }
     ]
   },
