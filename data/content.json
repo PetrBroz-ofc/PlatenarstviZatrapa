@@ -511,15 +511,6 @@
         "image": "/assets/img/uploads/1792425602622-fb-img-1792424660976.jpg"
       },
       {
-        "id": "p106",
-        "name": "Ramena",
-        "category": "Části zbrojí",
-        "description": "Plátová ramena, plech 1,5 mm, řemínky z kvalitní kůže, vnitřní černý nátěr.",
-        "price": "3 450 Kč / pár",
-        "status": "Na objednávku",
-        "image": "/assets/img/produkty/ramena.jpg"
-      },
-      {
         "id": "p1792433299067",
         "name": "Pěstní štitek",
         "category": "Štíty a pěstní štítky",
@@ -527,6 +518,15 @@
         "price": "2400 Kč",
         "status": "Na objednávku",
         "image": "/assets/img/uploads/1792433682162-messenger-creation-3585f5d4-942f-4443-a290-a74ef8bd296d.jpg"
+      },
+      {
+        "id": "p106",
+        "name": "Ramena",
+        "category": "Části zbrojí",
+        "description": "Plátová ramena, plech 1,5 mm, řemínky z kvalitní kůže, vnitřní černý nátěr.",
+        "price": "3 450 Kč / pár",
+        "status": "Na objednávku",
+        "image": "/assets/img/produkty/ramena.jpg"
       }
     ],
     "categories": [
