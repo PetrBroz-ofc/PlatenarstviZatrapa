@@ -335,24 +335,6 @@
         ]
       },
       {
-        "id": "g1792435662761",
-        "category": "Štíty",
-        "title": "Uherský štítek",
-        "material": "Buková překližka 12 mm,okováno plechem 1,3 mm.",
-        "year": "2026",
-        "description": "Potaženo plátnem(dvě vrstvy).",
-        "images": [
-          {
-            "image": "/assets/img/uploads/1792435872073-messenger-creation-852a05c5-28f7-48ed-ba1b-ce25f7377c0b.jpg",
-            "alt": ""
-          },
-          {
-            "image": "/assets/img/uploads/1792435874673-messenger-creation-93d651d6-21a7-4c70-bf2a-bbdb58ed0c6e.jpg",
-            "alt": ""
-          }
-        ]
-      },
-      {
         "id": "g1792435897445",
         "category": "Štíty",
         "title": "Puklice na trpasličí štít.",
@@ -400,6 +382,82 @@
           },
           {
             "image": "/assets/img/uploads/1792436837620-pc230132.jpg",
+            "alt": ""
+          }
+        ]
+      },
+      {
+        "id": "g1792480649578",
+        "category": "Zbroje",
+        "title": "Nákolenky",
+        "material": "Plech 2 mm",
+        "year": "2025",
+        "description": "",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792480712408-inbound5786694773612029157.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792480715675-inbound5279475379597245379.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792480718437-inbound8743185245425287753.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792480721216-inbound2339100215979454741.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792480723532-inbound2660825248187081435.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792480726038-inbound6707991640449024185.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792480729395-inbound7411053174180458739.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792480731877-inbound5790294129633935612.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792480734753-inbound4564473571475599190.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792480737862-inbound502218524479210354.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792480740834-inbound5283285958525372511.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792480744161-inbound7456646537351520087.jpg",
+            "alt": ""
+          }
+        ]
+      },
+      {
+        "id": "g1792435662761",
+        "category": "Štíty",
+        "title": "Uherský štítek",
+        "material": "Buková překližka 12 mm,okováno plechem 1,3 mm.",
+        "year": "2026",
+        "description": "Potaženo plátnem(dvě vrstvy).",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792435872073-messenger-creation-852a05c5-28f7-48ed-ba1b-ce25f7377c0b.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792435874673-messenger-creation-93d651d6-21a7-4c70-bf2a-bbdb58ed0c6e.jpg",
             "alt": ""
           }
         ]
