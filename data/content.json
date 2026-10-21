@@ -813,6 +813,40 @@
             "alt": ""
           }
         ]
+      },
+      {
+        "id": "g1792566237702",
+        "category": "Zbroje",
+        "title": "Podbradí ke klobouku",
+        "material": "Plech 2mm a 1,5mm",
+        "year": "",
+        "description": "",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792566308668-inbound4643749295122610732.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792566311074-inbound8578885156763697715.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792566313238-inbound3334929524941638170.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792566315596-inbound6215929437381450916.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792566317716-inbound1286881001895088775.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792566320008-inbound8967972962780461607.jpg",
+            "alt": ""
+          }
+        ]
       }
     ]
   },
