@@ -1197,6 +1197,45 @@
             "alt": ""
           }
         ]
+      },
+      {
+        "id": "g1792600726422",
+        "category": "Přilby",
+        "title": "Nový exponát",
+        "material": "",
+        "year": "",
+        "description": "",
+        "images": []
+      },
+      {
+        "id": "g1792600731529",
+        "category": "Zbroje",
+        "title": "Kyrys",
+        "material": "Plech 2 mm",
+        "year": "",
+        "description": "",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792600780767-inbound3810701969991222300.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792600783285-inbound1793453688881826004.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792600785782-inbound8133831724946532178.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792600788202-inbound7506209413476551717.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792600790399-inbound7435645444519060615.jpg",
+            "alt": ""
+          }
+        ]
       }
     ]
   },
