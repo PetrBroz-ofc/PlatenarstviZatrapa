@@ -1360,6 +1360,15 @@
         "price": "3 450 Kč / pár",
         "status": "Na objednávku",
         "image": "/assets/img/produkty/ramena.jpg"
+      },
+      {
+        "id": "p1792602926804",
+        "name": "Puklice kanelovaná",
+        "category": "Puklice na štíty (umba)",
+        "description": "Puklice ručně kanelovaná,vyrobeno z plechu 1,5mm. Vnitřní průměr cca 15cm,venkovní cca 19cm.",
+        "price": "960 Kč",
+        "status": "Skladem",
+        "image": "/assets/img/uploads/1792603069710-inbound7305174702759366483.jpg"
       }
     ],
     "categories": [
