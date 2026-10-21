@@ -142,32 +142,72 @@
         "id": "g001",
         "category": "Přilby",
         "title": "Šalíř s hledím",
-        "material": "Ocel, mosaz",
+        "material": "Plech 2 mm.",
         "year": "2024",
         "description": "Pozdně gotický šalířt s pohyblivým hledím, vyrobený na míru podle obvodu hlavy. Hledí lze zvednout pro lepší výhled a vzduch, interiér má kožené podšití s přezkou pro pohodlné a bezpečné nošení.",
         "images": [
           {
-            "image": "/assets/img/produkty/helma-salet-01.jpg",
-            "alt": "Pozdně gotický salet s hledím, boční tříčtvrteční pohled"
-          },
-          {
-            "image": "/assets/img/produkty/helma-salet-04-hledi.jpg",
-            "alt": "Salet s pohyblivým hledím v otevřené poloze"
-          },
-          {
-            "image": "/assets/img/uploads/1792488717519-inbound8896221681586253467.jpg",
+            "image": "/assets/img/uploads/1792603259351-inbound6161221125631893591.jpg",
             "alt": ""
           },
           {
-            "image": "/assets/img/uploads/1792488719982-inbound335855155626003112.jpg",
+            "image": "/assets/img/uploads/1792603261640-inbound1722089042924840827.jpg",
             "alt": ""
           },
           {
-            "image": "/assets/img/uploads/1792488722359-inbound3071676706396934978.jpg",
+            "image": "/assets/img/uploads/1792603263800-inbound389149114080785627.jpg",
             "alt": ""
           },
           {
-            "image": "/assets/img/uploads/1792488724495-inbound8855625785791034122.jpg",
+            "image": "/assets/img/uploads/1792603265769-inbound8504269458044214748.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603267692-inbound2285299310033050554.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603269581-inbound3069159200950519426.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603271550-inbound6174056579283634808.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603273693-inbound4783035472299684679.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603275618-inbound5303886690045842678.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603277564-inbound5470491119909400851.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603279696-inbound6076310668677638166.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603281571-inbound4145453188402078575.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603283810-inbound6367929631584697375.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603285836-inbound1011047834190084776.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603288057-inbound5615640467198631418.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792603290296-inbound7677849450789725013.jpg",
             "alt": ""
           }
         ]
@@ -175,8 +215,8 @@
       {
         "id": "g002",
         "category": "Přilby",
-        "title": "Uzavřená turnajová přilba",
-        "material": "Ocel",
+        "title": "Renesanční armet.",
+        "material": "Plech 2 mm a 1,5 mm",
         "year": "2023",
         "description": "Uzavřená přilba s límcem, vhodná pro turnajové souboje i jako výstavní kus. Hvězdicový větrací otvor v čelní části zajišťuje průduch vzduchu při delším nošení.",
         "images": [
