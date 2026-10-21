@@ -1256,6 +1256,60 @@
         "images": []
       },
       {
+        "id": "g1792606056143",
+        "category": "Zbroje",
+        "title": "Kyrys 15. století.",
+        "material": "Plech 1,5mm a 2 mm(břišní plát)",
+        "year": "",
+        "description": "Kyrys vyrobený na zakázku.",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792606229911-inbound7116756903754661932.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792606232048-inbound6366322421108618807.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792606234152-inbound869903513042945506.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792606236726-inbound194219755623987744.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792606239028-inbound3672135283485849587.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792606241298-inbound5690516156112739763.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792606243499-inbound8716178914287279460.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792606245503-inbound8065315918681736841.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792606247511-inbound3692261593225313240.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792606249726-inbound2258696546609985878.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792606252085-inbound7543400556124535599.jpg",
+            "alt": ""
+          }
+        ]
+      },
+      {
         "id": "g1792600731529",
         "category": "Zbroje",
         "title": "Kyrys",
