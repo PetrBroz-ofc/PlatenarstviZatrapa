@@ -1648,6 +1648,36 @@
             "alt": ""
           }
         ]
+      },
+      {
+        "id": "g1792692796643",
+        "category": "Zbroje",
+        "title": "Fantasy kyrys",
+        "material": "Plech 1,5 mm a mosaz.",
+        "year": "2024",
+        "description": "Kyrys vyrobený na míru podle požadavků zákazníka. Kyrys je požíván při LARPových bitvách.",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792692830886-inbound4777661883064401101.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792692834733-inbound7307856446792393723.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792692836918-inbound6321115716905077898.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792692841644-inbound3799520286386401859.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792692845390-inbound7296472868844167372.jpg",
+            "alt": ""
+          }
+        ]
       }
     ]
   },
