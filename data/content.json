@@ -1536,6 +1536,36 @@
             "alt": ""
           }
         ]
+      },
+      {
+        "id": "g1792692261629",
+        "category": "Přilby",
+        "title": "Gladiatorské přilby",
+        "material": "Plech 2 mm.",
+        "year": "2010",
+        "description": "Přilby vyrobené pro skupinu z Itálie,které slouží při představeních v amfiteatrech.",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792692371843-inbound5660789447076691156.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792692377180-inbound6225773489219923840.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792692380699-inbound6746879605425317563.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792692383877-inbound1827063384576471535.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792692389401-inbound6192198357728133854.jpg",
+            "alt": ""
+          }
+        ]
       }
     ]
   },
