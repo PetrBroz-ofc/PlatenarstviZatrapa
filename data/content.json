@@ -1933,6 +1933,15 @@
         "price": "420 Kč",
         "status": "Skladem",
         "image": "/assets/img/uploads/1792753748051-inbound5454561719420943829.jpg"
+      },
+      {
+        "id": "p1792753803790",
+        "name": "Puklice na štít",
+        "category": "Puklice na štíty (umba)",
+        "description": "Puklice na štít,plech 1,5 mm.Vhodné na osazení štítů na LARP.\nJe možné vyrobit i v i z plechu1,3 m-cena 285 Kč.\nJe možné vyrobit i z plechu 2 mm(cena 330 Kč).",
+        "price": "300 Kč",
+        "status": "Na objednávku",
+        "image": "/assets/img/uploads/1792754111740-inbound6847754115270113738.jpg"
       }
     ],
     "categories": [
