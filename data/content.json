@@ -1924,6 +1924,15 @@
         "price": "9300 Kč",
         "status": "Skladem",
         "image": "/assets/img/uploads/1792610976313-inbound4859881161284004999.jpg"
+      },
+      {
+        "id": "p1792753533419",
+        "name": "Puklice na štít-kanelovaná",
+        "category": "Puklice na štíty (umba)",
+        "description": "Puklice na štít broušená a kanelovaná.Materiál plech 1,5 mm,kanelovaním je buklice výrazně zpevněná.Vhodné  na LARP(např. na elfí štíty), nebo na pukléře 15. stol. (na technický šerm).",
+        "price": "420 Kč",
+        "status": "Skladem",
+        "image": "/assets/img/uploads/1792753748051-inbound5454561719420943829.jpg"
       }
     ],
     "categories": [
