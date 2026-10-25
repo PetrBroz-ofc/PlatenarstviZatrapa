@@ -1878,6 +1878,40 @@
             "alt": ""
           }
         ]
+      },
+      {
+        "id": "g1792949619663",
+        "category": "Přilby",
+        "title": "Hrncová přilba",
+        "material": "Plech 2 mm.",
+        "year": "2020",
+        "description": "Přilba inspirovaná originalem(muzeum Berlín).",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792949708030-inbound2369677751020158579.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792949710191-inbound4400474593078794593.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792949712152-inbound7416493000112972427.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792949713860-inbound1164029213395583249.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792949715788-inbound8988576740794105995.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792949717699-inbound7862386723827971933.jpg",
+            "alt": ""
+          }
+        ]
       }
     ]
   },
