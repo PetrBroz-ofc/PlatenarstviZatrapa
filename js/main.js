@@ -58,23 +58,61 @@
     els.forEach(el => io.observe(el));
   }
 
-  // Obecná funkce pro filtrovací tlačítka — každý filtr je naškálovaný jen
-  // na svůj vlastní kontejner tlačítek a svou vlastní mřížku položek, ať si
-  // galerie a katalog (mají obě třídu .filter-btn) vzájemně nepřekáží.
-  function setupFilter(filtersId, gridId, itemSelector) {
+  // Filtr + stránkování "Zobrazit více" pro galerii i katalog. Filtr
+  // skrývá položky přes style.display, stránkování přes třídu
+  // .is-collapsed. Ukazuje se vždy PAGE_SIZE položek (2 řady po 3),
+  // tlačítko přidá dalších PAGE_SIZE. Změna filtru stránkování vynuluje.
+  const PAGE_SIZE = 6;
+  function setupFilter(filtersId, gridId, itemSelector, moreId) {
     const filtersEl = document.getElementById(filtersId);
     const grid = document.getElementById(gridId);
-    if (!filtersEl || !grid) return;
-    const btns = filtersEl.querySelectorAll('.filter-btn');
-    if (!btns.length) return;
-    btns.forEach(btn => btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-      btns.forEach(b => b.classList.toggle('is-active', b === btn));
-      grid.querySelectorAll(itemSelector).forEach(item => {
-        const show = filter === 'Vše' || item.dataset.category === filter;
-        item.style.display = show ? '' : 'none';
+    if (!grid) return;
+    const items = Array.from(grid.querySelectorAll(itemSelector));
+    const moreBtn = moreId ? document.getElementById(moreId) : null;
+    const moreWrap = moreBtn ? moreBtn.parentElement : null;
+    let filter = 'Vše';
+    let limit = PAGE_SIZE;
+
+    function apply(revealNew) {
+      let shown = 0;
+      let matching = 0;
+      items.forEach(item => {
+        const match = filter === 'Vše' || item.dataset.category === filter;
+        item.style.display = match ? '' : 'none';
+        if (!match) return;
+        matching++;
+        const collapsed = matching > limit;
+        const wasCollapsed = item.classList.contains('is-collapsed');
+        item.classList.toggle('is-collapsed', collapsed);
+        if (!collapsed) shown++;
+        if (!collapsed && wasCollapsed && revealNew) {
+          // nově odkryté položky plynule najedou s malým zpožděním za sebou
+          item.classList.remove('is-visible');
+          const delay = (shown - (limit - PAGE_SIZE) - 1) * 70;
+          setTimeout(() => item.classList.add('is-visible'), 30 + Math.max(0, delay));
+        }
       });
-    }));
+      if (moreWrap) moreWrap.hidden = matching <= limit;
+    }
+
+    if (filtersEl) {
+      const btns = filtersEl.querySelectorAll('.filter-btn');
+      btns.forEach(btn => btn.addEventListener('click', () => {
+        filter = btn.dataset.filter;
+        limit = PAGE_SIZE;
+        btns.forEach(b => b.classList.toggle('is-active', b === btn));
+        apply(false);
+        // po přefiltrování ukaž položky hned, bez čekání na scroll
+        items.forEach(it => { if (it.style.display !== 'none') it.classList.add('is-visible'); });
+      }));
+    }
+    if (moreBtn) {
+      moreBtn.addEventListener('click', () => {
+        limit += PAGE_SIZE;
+        apply(true);
+      });
+    }
+    apply(false);
   }
 
   // Sdílená logika "chytni a táhni myší" — používá ji Hero i vnitřní
@@ -149,37 +187,99 @@
     };
   }
 
+  // Hero karusel: plynulý nekonečný posun přes transform. Na konec tracku
+  // se přidá klon první fotky, takže z poslední fotky se jede dál doprava
+  // a pak se bez animace skočí zpět na začátek (není vidět žádný "návrat").
+  // Jde chytit a táhnout myší i prstem, tečky přepínají fotky. Vertikální
+  // scroll stránky nad fotkou NEBLOKUJE (kolečko se nechytá).
   function setupHeroSlider() {
     const frame = document.getElementById('heroSlider');
     const track = document.getElementById('heroSliderTrack');
     if (!frame || !track || track.children.length < 2) return;
-    const slider = createDragSlider(frame, track, document.querySelector('.hero-slide-dots'));
+    const dotsEl = document.querySelector('.hero-slide-dots');
+    const dots = dotsEl ? Array.from(dotsEl.children) : [];
+    const count = track.children.length;
+    track.appendChild(track.children[0].cloneNode(true));
 
-    // Automatické přehrávání dalších fotek — zastaví se, dokud uživatel
-    // s karuselem sám nějak nehýbe (tažení, kolečko, klik na tečku), a
-    // respektuje nastavení "méně animací" v systému (tam se netočí vůbec).
+    let index = 0;
+    let timer = null;
+    const INTERVAL = 4500;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) return;
-    let timer;
-    function play() {
-      clearInterval(timer);
-      timer = setInterval(() => {
-        const next = (slider.getIndex() + 1) % track.children.length;
-        slider.goTo(next);
-      }, 4500);
+
+    function setDots(i) { dots.forEach((d, n) => d.classList.toggle('is-active', n === i % count)); }
+    function setPos(px, animate) {
+      track.classList.toggle('no-anim', !animate);
+      track.style.transform = 'translate3d(' + px + 'px,0,0)';
     }
-    function pauseThenReplay() {
-      clearInterval(timer);
+    function width() { return frame.clientWidth || 1; }
+    function goTo(i, animate) {
+      index = i;
+      setPos(-index * width(), animate !== false);
+      setDots(index);
+    }
+    track.addEventListener('transitionend', (e) => {
+      if (e.target !== track) return;
+      if (index >= count) { goTo(0, false); }
+    });
+
+    function play() {
+      stop();
+      if (reduceMotion) return;
+      timer = setInterval(() => goTo(index + 1), INTERVAL);
+    }
+    function stop() { clearInterval(timer); timer = null; }
+
+    // táhnutí myší / prstem (pointer events)
+    let dragging = false, startX = 0, startY = 0, dx = 0, decided = false, horizontal = false;
+    frame.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (index >= count) goTo(0, false);
+      dragging = true; decided = false; horizontal = false;
+      startX = e.clientX; startY = e.clientY; dx = 0;
+      stop();
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const mx = e.clientX - startX, my = e.clientY - startY;
+      if (!decided && (Math.abs(mx) > 6 || Math.abs(my) > 6)) {
+        decided = true;
+        horizontal = Math.abs(mx) > Math.abs(my);
+        if (horizontal) frame.classList.add('is-dragging');
+      }
+      if (!horizontal) return;
+      dx = mx;
+      setPos(-index * width() + dx, false);
+    });
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      frame.classList.remove('is-dragging');
+      if (horizontal) {
+        const threshold = width() * 0.18;
+        let next = index;
+        if (dx < -threshold) next = Math.min(count - 1, index + 1);
+        else if (dx > threshold) next = Math.max(0, index - 1);
+        goTo(next);
+      }
       play();
     }
-    ['mousedown', 'wheel', 'touchstart'].forEach(evt =>
-      track.addEventListener(evt, pauseThenReplay, { passive: true })
-    );
-    const dots = document.querySelector('.hero-slide-dots');
-    if (dots) dots.addEventListener('click', pauseThenReplay);
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
+    frame.addEventListener('dragstart', (e) => e.preventDefault());
+
+    if (dotsEl) {
+      dotsEl.addEventListener('click', (e) => {
+        const dot = e.target.closest('.hero-slide-dot');
+        if (!dot) return;
+        goTo(dots.indexOf(dot));
+        play();
+      });
+    }
+    window.addEventListener('resize', () => goTo(index % count, false));
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden) clearInterval(timer); else play();
+      if (document.hidden) stop(); else play();
     });
+    goTo(0, false);
     play();
   }
 
@@ -278,8 +378,8 @@
     setupHeaderScroll();
     setupMobileMenu();
     setupReveal();
-    setupFilter('galleryFilters', 'masonryGrid', '.masonry-item');
-    setupFilter('catalogFilters', 'catalogGrid', '.product-card');
+    setupFilter('galleryFilters', 'masonryGrid', '.masonry-item', 'galleryMore');
+    setupFilter('catalogFilters', 'catalogGrid', '.product-card', 'catalogMore');
     setupLightbox();
     setupCookieBanner();
     setupHeroSlider();
