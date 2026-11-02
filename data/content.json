@@ -48,8 +48,8 @@
     }
   },
   "hero": {
-    "titleLine1": "ZBROJ-SERVIS",
-    "titleLine2": "",
+    "titleLine1": "",
+    "titleLine2": "ZBROJ-SERVIS",
     "subtitle": "Ručně vyráběné historické zbroje od roku 1990.",
     "description": "Každý kus vzniká tradičním způsobem s důrazem na historickou věrnost, detail a poctivé řemeslo.",
     "images": [
