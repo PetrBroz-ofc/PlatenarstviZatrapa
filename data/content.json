@@ -124,6 +124,11 @@
         "icon": "dragon",
         "title": "Fantasy zakázky",
         "description": "Autorské kusy podle konceptů zákazníka nebo podle vlastního návrhu mimo historickou předlohu."
+      },
+      {
+        "icon": "armor",
+        "title": "Opravy zbrojí",
+        "description": "Opravy zbrojí poškozených v bitvách nebo šermířských kláních."
       }
     ]
   },
