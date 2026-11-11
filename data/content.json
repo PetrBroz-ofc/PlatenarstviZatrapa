@@ -2096,6 +2096,15 @@
         "price": "300 Kč",
         "status": "Na objednávku",
         "image": "/assets/img/uploads/1792754111740-inbound6847754115270113738.jpg"
+      },
+      {
+        "id": "p1794382145685",
+        "name": "Uherský štít",
+        "category": "Štíty a pěstní štítky",
+        "description": "Buková překližka,dvě vrstvy plátna,mírně prohnutý,zadní strana vyměkčená a potažená kůží.",
+        "price": "4850 Kč",
+        "status": "Skladem",
+        "image": "/assets/img/uploads/1794382284281-messenger-creation-65c02d02-2be9-4177-a3a6-2b3ef2713ec9.jpg"
       }
     ],
     "categories": [
