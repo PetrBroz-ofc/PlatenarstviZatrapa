@@ -227,48 +227,6 @@
         ]
       },
       {
-        "id": "g002",
-        "category": "Přilby",
-        "title": "Renesanční armet.",
-        "material": "Plech 2 mm a 1,5 mm",
-        "year": "2023",
-        "description": "Uzavřená přilba s límcem, vhodná pro turnajové souboje i jako výstavní kus. Hvězdicový větrací otvor v čelní části zajišťuje průduch vzduchu při delším nošení.",
-        "images": [
-          {
-            "image": "/assets/img/uploads/1792576216705-inbound7765369790972172876.jpg",
-            "alt": ""
-          },
-          {
-            "image": "/assets/img/uploads/1792576219342-inbound4022300653556148057.jpg",
-            "alt": ""
-          },
-          {
-            "image": "/assets/img/uploads/1792576222006-inbound6808642784461074409.jpg",
-            "alt": ""
-          },
-          {
-            "image": "/assets/img/uploads/1792576224186-inbound7602418537957796528.jpg",
-            "alt": ""
-          },
-          {
-            "image": "/assets/img/uploads/1792576226334-inbound5152800873070000865.jpg",
-            "alt": ""
-          },
-          {
-            "image": "/assets/img/uploads/1792576229050-inbound2277031671365516591.jpg",
-            "alt": ""
-          },
-          {
-            "image": "/assets/img/uploads/1792576778972-inbound3062551683447203946.jpg",
-            "alt": ""
-          },
-          {
-            "image": "/assets/img/uploads/1792576781308-inbound1213886803487897429.jpg",
-            "alt": ""
-          }
-        ]
-      },
-      {
         "id": "g003",
         "category": "Zbroje",
         "title": "Kyrys 15.století",
@@ -311,6 +269,48 @@
           {
             "image": "/assets/img/uploads/1792437330855-p1010982.jpg",
             "alt": "Zadní strana kyrysu-ošetřeno černou barvou."
+          }
+        ]
+      },
+      {
+        "id": "g002",
+        "category": "Přilby",
+        "title": "Renesanční armet.",
+        "material": "Plech 2 mm a 1,5 mm",
+        "year": "2023",
+        "description": "Uzavřená přilba s límcem, vhodná pro turnajové souboje i jako výstavní kus. Hvězdicový větrací otvor v čelní části zajišťuje průduch vzduchu při delším nošení.",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1792576216705-inbound7765369790972172876.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792576219342-inbound4022300653556148057.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792576222006-inbound6808642784461074409.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792576224186-inbound7602418537957796528.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792576226334-inbound5152800873070000865.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792576229050-inbound2277031671365516591.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792576778972-inbound3062551683447203946.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1792576781308-inbound1213886803487897429.jpg",
+            "alt": ""
           }
         ]
       },
