@@ -1987,15 +1987,6 @@
         "category": "Puklice na štíty (umba)"
       },
       {
-        "id": "p006",
-        "name": "Salet s hledím",
-        "description": "Přilba pozdního středověku se sklopným hledím, na míru podle obvodu hlavy.",
-        "price": "18 900 Kč",
-        "status": "Na objednávku",
-        "image": "/assets/img/produkty/helma-salet-03.jpg",
-        "category": "Přilby"
-      },
-      {
         "id": "p101",
         "name": "Pěstní štítek (pukléř)",
         "category": "Štíty a pěstní štítky",
@@ -2017,10 +2008,10 @@
         "id": "p103",
         "name": "Rondely (terčíky) — tepané",
         "category": "Části zbrojí",
-        "description": "Rondely (terčíky) s tepaným (kladivovým) povrchem, průměr 11,5 cm, materiál plech 1,5 mm.",
-        "price": "450 Kč / pár",
+        "description": "Rondely (terčíky) s tepaným (kladivovým) povrchem, průměr 11,5 cm, materiál plech 1,5 mm.Cena za pár 450Kč",
+        "price": "240 Kč / ks",
         "status": "Na objednávku",
-        "image": "/assets/img/produkty/rondely-tepane.jpg"
+        "image": "/assets/img/uploads/1794650411103-messenger-creation-f049f79b-bfb3-428e-a5ef-579fb667b9c0.jpg"
       },
       {
         "id": "p104",
