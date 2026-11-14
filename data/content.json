@@ -2111,6 +2111,15 @@
         "price": "1050 Kč.",
         "status": "Na objednávku",
         "image": "/assets/img/uploads/1794384065633-messenger-creation-06288b47-6dc0-4408-b7c1-05daf4704c0b.jpg"
+      },
+      {
+        "id": "p1794650927450",
+        "name": "Kónická přilba (\"Normanka\")",
+        "category": "Přilby",
+        "description": "Přilba vyrobená \"za tepla\",z plechu 2 mm. Částecně nakovano z venkovni strany,aby se materiál nezeslabil proboucháním. Nánosnik 2,5mm. Přilba má ponechaný hrubši povrch a nemá vývaz,použiva se na batvat.",
+        "price": "3900 Kč",
+        "status": "Skladem",
+        "image": "/assets/img/uploads/1794651246992-messenger-creation-368222d8-0c89-4a6f-ae16-f82f002684c0.jpg"
       }
     ],
     "categories": [
