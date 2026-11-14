@@ -1254,12 +1254,29 @@
       },
       {
         "id": "g1792600726422",
-        "category": "Přilby",
-        "title": "Nový exponát",
-        "material": "",
-        "year": "",
-        "description": "",
-        "images": []
+        "category": "Zbroje",
+        "title": "Fantasy kyrys",
+        "material": "Plech 1,5 mm.",
+        "year": "2026",
+        "description": "Kyrys určený pro skřeta,použitelný v Larpových bitvách nebo jako dekorace na stěnu.",
+        "images": [
+          {
+            "image": "/assets/img/uploads/1794651568347-messenger-creation-42bc1d86-77d3-4bef-adb8-fb4c1b54f896.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1794651574217-messenger-creation-52b87d50-c543-4385-8518-9501c7bcb63d.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1794651577936-messenger-creation-a3160e3b-c7d9-42ae-b81b-d78baae75324.jpg",
+            "alt": ""
+          },
+          {
+            "image": "/assets/img/uploads/1794651581768-messenger-creation-af1f4d80-3c19-4c78-b09a-c5adadf5698a.jpg",
+            "alt": ""
+          }
+        ]
       },
       {
         "id": "g1792606056143",
